@@ -9,10 +9,12 @@ workspace "Chess-Engine"
         "bin/" .. OutputDir .. "/",
     }
 
-    group "App"
-        include "./App/BuildApp.lua"
-
     group "Engine"
         include "./Engine/BuildEngine.lua"
 
+    group "App"
+        include "./App/BuildApp.lua"
+
+    group "Test"
+        include "./Test/BuildTest.lua"
 

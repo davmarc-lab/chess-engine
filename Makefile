@@ -9,42 +9,53 @@ ifndef verbose
 endif
 
 ifeq ($(config),debug)
-  App_config = debug
-  Engine_config = debug
+  engine_config = debug
+  app_config = debug
+  test_config = debug
 
 else ifeq ($(config),release)
-  App_config = release
-  Engine_config = release
+  engine_config = release
+  app_config = release
+  test_config = release
 
 else
   $(error "invalid configuration $(config)")
 endif
 
-PROJECTS := App Engine
+PROJECTS := engine app test
 
-.PHONY: all clean help $(PROJECTS) App Engine
+.PHONY: all clean help $(PROJECTS) App Engine Test
 
 all: $(PROJECTS)
 
-App: App
+App: app
 
-Engine: Engine
+Engine: engine
 
-App: Engine
-ifneq (,$(App_config))
-	@echo "==== Building App ($(App_config)) ===="
-	@${MAKE} --no-print-directory -C App -f Makefile config=$(App_config)
+Test: test
+
+engine:
+ifneq (,$(engine_config))
+	@echo "==== Building engine ($(engine_config)) ===="
+	@${MAKE} --no-print-directory -C Engine -f Makefile config=$(engine_config)
 endif
 
-Engine:
-ifneq (,$(Engine_config))
-	@echo "==== Building Engine ($(Engine_config)) ===="
-	@${MAKE} --no-print-directory -C Engine -f Makefile config=$(Engine_config)
+app: engine
+ifneq (,$(app_config))
+	@echo "==== Building app ($(app_config)) ===="
+	@${MAKE} --no-print-directory -C App -f Makefile config=$(app_config)
+endif
+
+test: engine
+ifneq (,$(test_config))
+	@echo "==== Building test ($(test_config)) ===="
+	@${MAKE} --no-print-directory -C Test -f Makefile config=$(test_config)
 endif
 
 clean:
-	@${MAKE} --no-print-directory -C App -f Makefile clean
 	@${MAKE} --no-print-directory -C Engine -f Makefile clean
+	@${MAKE} --no-print-directory -C App -f Makefile clean
+	@${MAKE} --no-print-directory -C Test -f Makefile clean
 
 help:
 	@echo "Usage: make [config=name] [target]"
@@ -56,7 +67,8 @@ help:
 	@echo "TARGETS:"
 	@echo "   all (default)"
 	@echo "   clean"
-	@echo "   App"
-	@echo "   Engine"
+	@echo "   engine"
+	@echo "   app"
+	@echo "   test"
 	@echo ""
 	@echo "For more information, see https://github.com/premake/premake-core/wiki"

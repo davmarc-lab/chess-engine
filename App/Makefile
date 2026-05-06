@@ -42,24 +42,24 @@ define POSTBUILDCMDS
 endef
 
 ifeq ($(config),debug)
-TARGETDIR = ../bin/linux-x86_64/Debug/App
-TARGET = $(TARGETDIR)/App
-OBJDIR = ../bin/int/linux-x86_64/Debug/App
+TARGETDIR = ../bin/linux-x86_64/Debug/app
+TARGET = $(TARGETDIR)/app
+OBJDIR = ../bin/int/linux-x86_64/Debug/app
 DEFINES += -DDEBUG
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -g
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -g -std=c++23
-LIBS += ../bin/linux-x86_64/Debug/Engine/libEngine.a
-LDDEPS += ../bin/linux-x86_64/Debug/Engine/libEngine.a
+LIBS += ../bin/linux-x86_64/Debug/engine/libengine.a
+LDDEPS += ../bin/linux-x86_64/Debug/engine/libengine.a
 
 else ifeq ($(config),release)
-TARGETDIR = ../bin/linux-x86_64/Release/App
-TARGET = $(TARGETDIR)/App
-OBJDIR = ../bin/int/linux-x86_64/Release/App
+TARGETDIR = ../bin/linux-x86_64/Release/app
+TARGET = $(TARGETDIR)/app
+OBJDIR = ../bin/int/linux-x86_64/Release/app
 DEFINES += -DNDEBUG
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -g
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -g -std=c++23
-LIBS += ../bin/linux-x86_64/Release/Engine/libEngine.a
-LDDEPS += ../bin/linux-x86_64/Release/Engine/libEngine.a
+LIBS += ../bin/linux-x86_64/Release/engine/libengine.a
+LDDEPS += ../bin/linux-x86_64/Release/engine/libengine.a
 
 endif
 
@@ -73,8 +73,8 @@ endif
 GENERATED :=
 OBJECTS :=
 
-GENERATED += $(OBJDIR)/main.o
-OBJECTS += $(OBJDIR)/main.o
+GENERATED += $(OBJDIR)/app.o
+OBJECTS += $(OBJDIR)/app.o
 
 # Rules
 # #############################################
@@ -84,7 +84,7 @@ all: $(TARGET)
 
 $(TARGET): $(GENERATED) $(OBJECTS) $(LDDEPS) | $(TARGETDIR)
 	$(PRELINKCMDS)
-	@echo Linking App
+	@echo Linking app
 	$(SILENT) $(LINKCMD)
 	$(POSTBUILDCMDS)
 
@@ -105,7 +105,7 @@ else
 endif
 
 clean:
-	@echo Cleaning App
+	@echo Cleaning app
 ifeq (posix,$(SHELLTYPE))
 	$(SILENT) rm -f  $(TARGET)
 	$(SILENT) rm -rf $(GENERATED)
@@ -138,7 +138,7 @@ endif
 # File Rules
 # #############################################
 
-$(OBJDIR)/main.o: src/main.cpp
+$(OBJDIR)/app.o: src/app.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 

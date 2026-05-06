@@ -1,7 +1,6 @@
-project "engine"
-    kind "StaticLib"
+project "test"
+    kind "ConsoleApp"
     language "C++"
-    -- current project cpp version
     cppdialect "C++23"
 
     targetdir ("../bin/" .. OutputDir .. "/%{prj.name}")
@@ -9,18 +8,24 @@ project "engine"
 
     files { "include/**.hpp", "src/**.cpp" }
 
-    includedirs {}
+    includedirs {
+        "include",
+        "../Engine/include/"
+    }
 
-    links {}
+    links {
+        "Engine",
+    }
 
     filter "configurations:Debug"
-        defines({ "DEBUG" })
+        defines({ "DEBUG", "TESTING" })
         runtime "Debug"
         symbols "On"
 
     filter "configurations:Release"
-        defines({ "NDEBUG" })
+        defines({ "NDEBUG", "TESTING" })
         runtime "Release"
         optimize "On"
         symbols "On"
+
 

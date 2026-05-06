@@ -28,14 +28,12 @@ ifeq ($(origin AR), default)
   AR = ar
 endif
 RESCOMP = windres
-INCLUDES +=
+INCLUDES += -Iinclude -I../Engine/include
 FORCE_INCLUDE +=
 ALL_CPPFLAGS += $(CPPFLAGS) -MD -MP $(DEFINES) $(INCLUDES)
 ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-LIBS +=
-LDDEPS +=
 ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64
-LINKCMD = $(AR) -rcs "$@" $(OBJECTS)
+LINKCMD = $(CXX) -o "$@" $(OBJECTS) $(RESOURCES) $(ALL_LDFLAGS) $(LIBS)
 define PREBUILDCMDS
 endef
 define PRELINKCMDS
@@ -44,20 +42,24 @@ define POSTBUILDCMDS
 endef
 
 ifeq ($(config),debug)
-TARGETDIR = ../bin/linux-x86_64/Debug/engine
-TARGET = $(TARGETDIR)/libengine.a
-OBJDIR = ../bin/int/linux-x86_64/Debug/engine
-DEFINES += -DDEBUG
+TARGETDIR = ../bin/linux-x86_64/Debug/test
+TARGET = $(TARGETDIR)/test
+OBJDIR = ../bin/int/linux-x86_64/Debug/test
+DEFINES += -DDEBUG -DTESTING
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -g
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -g -std=c++23
+LIBS += ../bin/linux-x86_64/Debug/engine/libengine.a
+LDDEPS += ../bin/linux-x86_64/Debug/engine/libengine.a
 
 else ifeq ($(config),release)
-TARGETDIR = ../bin/linux-x86_64/Release/engine
-TARGET = $(TARGETDIR)/libengine.a
-OBJDIR = ../bin/int/linux-x86_64/Release/engine
-DEFINES += -DNDEBUG
+TARGETDIR = ../bin/linux-x86_64/Release/test
+TARGET = $(TARGETDIR)/test
+OBJDIR = ../bin/int/linux-x86_64/Release/test
+DEFINES += -DNDEBUG -DTESTING
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -g
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -g -std=c++23
+LIBS += ../bin/linux-x86_64/Release/engine/libengine.a
+LDDEPS += ../bin/linux-x86_64/Release/engine/libengine.a
 
 endif
 
@@ -71,12 +73,8 @@ endif
 GENERATED :=
 OBJECTS :=
 
-GENERATED += $(OBJDIR)/health.o
-GENERATED += $(OBJDIR)/location.o
-GENERATED += $(OBJDIR)/piece.o
-OBJECTS += $(OBJDIR)/health.o
-OBJECTS += $(OBJDIR)/location.o
-OBJECTS += $(OBJDIR)/piece.o
+GENERATED += $(OBJDIR)/tests.o
+OBJECTS += $(OBJDIR)/tests.o
 
 # Rules
 # #############################################
@@ -86,7 +84,7 @@ all: $(TARGET)
 
 $(TARGET): $(GENERATED) $(OBJECTS) $(LDDEPS) | $(TARGETDIR)
 	$(PRELINKCMDS)
-	@echo Linking engine
+	@echo Linking test
 	$(SILENT) $(LINKCMD)
 	$(POSTBUILDCMDS)
 
@@ -107,7 +105,7 @@ else
 endif
 
 clean:
-	@echo Cleaning engine
+	@echo Cleaning test
 ifeq (posix,$(SHELLTYPE))
 	$(SILENT) rm -f  $(TARGET)
 	$(SILENT) rm -rf $(GENERATED)
@@ -140,13 +138,7 @@ endif
 # File Rules
 # #############################################
 
-$(OBJDIR)/health.o: src/health.cpp
-	@echo "$(notdir $<)"
-	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/location.o: src/location.cpp
-	@echo "$(notdir $<)"
-	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/piece.o: src/piece/piece.cpp
+$(OBJDIR)/tests.o: src/tests.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 

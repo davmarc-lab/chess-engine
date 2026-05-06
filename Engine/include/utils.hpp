@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 /* ==================== MACROS ==================== */
 // Math
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
@@ -42,6 +44,10 @@ STATIC_ASSERT(sizeof(i64) == 8, "Expected i64 to be 8 bytes.");
 STATIC_ASSERT(sizeof(f64) == 8, "Expected f64 to be 8 bytes.");
 
 #undef STATIC_ASSERT
+
+inline std::string pcond(const bool &cond) {
+	return cond ? "true" : "false";
+}
 
 /* ==================== STRUCTS ==================== */
 template <typename T>

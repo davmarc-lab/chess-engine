@@ -1,4 +1,4 @@
-project "App"
+project "app"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++23"
@@ -16,8 +16,6 @@ project "App"
     links {
         "Engine",
     }
-
-    dependson { "Engine" }
 
     filter "configurations:Debug"
         defines({ "DEBUG" })
