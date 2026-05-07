@@ -1,7 +1,7 @@
 site_name: Chess Engine Doc
 site_description: "C++ API Reference"
-docs_dir: docs  # where Doxybook2 outputs markdown
-site_dir: site
+docs_dir: ../docs_md
+site_dir: ../site
 
 repo_name: chess-engine
 repo_url: https://github.com/davmarc-lab/chess-engine
