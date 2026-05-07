@@ -1,5 +1,6 @@
 # prmake stuff
 bin
+Makefile
 
 # cmake stuff
 build

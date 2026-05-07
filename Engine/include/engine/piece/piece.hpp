@@ -20,6 +20,14 @@ namespace chess {
 		Piece &operator=(Piece &&) = default;
 		Piece &operator=(const Piece &) = default;
 
+		Location getLocation();
+
+		void setLocation(const Location &loc);
+
+		short getSteps();
+
+		void setSteps(const short &steps);
+
 	protected:
 		Location m_location;
 		short m_steps;
