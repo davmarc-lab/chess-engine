@@ -3,24 +3,27 @@
 #include "engine/utils.hpp"
 
 namespace chess {
-	std::string Piece::toString() {
-		return this->m_location.toString() + ", valid: " + pcond(this->m_location.isValid());
-	}
+	namespace piece {
 
-	Location Piece::getLocation() { return this->m_location; }
+		std::string Piece::toString() {
+			return this->m_location.toString() + ", valid: " + pcond(this->m_location.isValid());
+		}
 
-	void Piece::setLocation(const Location &loc) {
-		if (loc.isValid())
-			this->m_location = loc;
-		// TODO : else LOG
-	}
+		Location Piece::getLocation() { return this->m_location; }
 
-	short Piece::getSteps() { return this->m_steps; }
+		void Piece::setLocation(const Location &loc) {
+			if (loc.isValid())
+				this->m_location = loc;
+			// TODO : else LOG
+		}
 
-	void Piece::setSteps(const short &steps) {
-		if (steps >= 1)
-			this->m_steps = steps;
-		// TODO : else LOG
-	}
+		short Piece::getSteps() { return this->m_steps; }
 
+		void Piece::setSteps(const short &steps) {
+			if (steps >= 1)
+				this->m_steps = steps;
+			// TODO : else LOG
+		}
+
+	} // namespace piece
 } // namespace chess

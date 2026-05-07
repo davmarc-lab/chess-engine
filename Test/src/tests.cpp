@@ -3,6 +3,7 @@
 
 #include "engine/health.hpp"
 #include "engine/location.hpp"
+#include "engine/piece/king.hpp"
 #include "engine/piece/piece.hpp"
 #include "engine/utils.hpp"
 
@@ -33,22 +34,22 @@ void testPieces() {
 	short steps = 1;
 	{
 		chess::Location l1 = chess::Location('a', 2);
-		chess::Piece p1 = chess::Piece(l1, steps);
+		chess::piece::Piece p1 = chess::piece::Piece(l1, steps);
 		std::cout << p1.toString() << "\n";
 	}
 	{
 		chess::Location l1 = chess::Location('h', 8);
-		chess::Piece p1 = chess::Piece(l1, steps);
+		chess::piece::King p1 = chess::piece::King(l1);
 		std::cout << p1.toString() << "\n";
 	}
 	{
 		chess::Location l1 = chess::Location('a', -1);
-		chess::Piece p1 = chess::Piece(l1, steps);
+		chess::piece::Piece p1 = chess::piece::Piece(l1, steps);
 		std::cout << p1.toString() << "\n";
 	}
 	{
 		chess::Location l1 = chess::Location('h', 0);
-		chess::Piece p1 = chess::Piece(l1, steps);
+		chess::piece::Piece p1 = chess::piece::Piece(l1, steps);
 		std::cout << p1.toString() << "\n";
 	}
 }

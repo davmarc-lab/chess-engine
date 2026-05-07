@@ -5,6 +5,10 @@ on:
     branches:
       - main
       - ci
+  pull_request:
+    types: [closed]
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -12,6 +16,11 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: >-
+      (startsWith(github.event.head_commit.message, 'fix:') || 
+      startsWith(github.event.head_commit.message, 'feat:') || 
+      startsWith(github.event.head_commit.message, 'docs:')) &&
+      !contains(github.event.head_commit.message, '[skip docs]')
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4

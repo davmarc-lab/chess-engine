@@ -1,4 +1,6 @@
 #include "engine/location.hpp"
+#include <string>
+using namespace std::string_literals;
 
 namespace chess {
 	bool Location::isValid() const {
@@ -7,6 +9,6 @@ namespace chess {
 	}
 
 	std::string Location::toString() const {
-		return this->m_letter + std::to_string(this->m_number);
+		return "location: "s + (this->m_letter) + std::to_string(this->m_number);
 	}
 } // namespace chess
