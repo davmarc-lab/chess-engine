@@ -1,7 +1,14 @@
-# prmake stuff
+# nix
+.direnv
+
+# premake stuff
 bin
 Makefile
 
 # cmake stuff
 build
 .cache
+
+# docs
+docs
+site

@@ -1,0 +1,14 @@
+PROJECT_NAME           = "Chess Engine"
+OUTPUT_DIRECTORY       = build/docs
+INPUT                  = Engine/include App/include
+RECURSIVE              = YES
+GENERATE_XML           = YES
+XML_OUTPUT             = xml
+GENERATE_HTML          = NO
+GENERATE_LATEX         = NO
+
+EXTRACT_ALL         = YES
+EXTRACT_PRIVATE     = NO
+
+TYPEDEF_HIDES_STRUCT   = NO
+OPTIMIZE_OUTPUT_FOR_C  = NO

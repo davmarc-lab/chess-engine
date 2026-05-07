@@ -1,0 +1,16 @@
+{
+    "baseUrl": "/api/",
+    "indexInFolders": false,
+    "linkSuffix": "/",
+    "mainPageInRoot": false,
+    "filesFolder": "api/Files",
+    "namespacesFolder": "api/Namespaces",
+    "classesFolder": "api/Classes",
+    "modulesFolder": "api/Modules",
+    "pagesFolder": "api/Pages",
+    "examplesFolder": "api/Examples",
+    "templatesDir": "",
+    "copyImages": true,
+    "sort": true,
+    "clangCompileDatabase": ""
+}
