@@ -1,11 +1,11 @@
-# Collect all source files recursively
+project(engine LANGUAGES CXX)
+
 file(GLOB_RECURSE ENGINE_SOURCES "src/*.cpp")
 
-# Define the library
-add_library(Engine SHARED ${ENGINE_SOURCES})
+add_library(engine SHARED ${ENGINE_SOURCES})
 
 # Public headers are in 'include', private ones in 'src'
-target_include_directories(Engine 
+target_include_directories(engine 
     PUBLIC 
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>

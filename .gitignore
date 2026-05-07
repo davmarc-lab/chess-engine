@@ -3,3 +3,4 @@ bin
 
 # cmake stuff
 build
+.cache

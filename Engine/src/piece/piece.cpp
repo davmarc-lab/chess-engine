@@ -1,6 +1,6 @@
-#include "../../include/piece/piece.hpp"
+#include "engine/piece/piece.hpp"
 
-#include "../../include/utils.hpp"
+#include "engine/utils.hpp"
 
 namespace chess {
 	std::string Piece::toString() {

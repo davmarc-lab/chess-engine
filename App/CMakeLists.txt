@@ -1,10 +1,9 @@
+project(app LANGUAGES CXX)
+
 file(GLOB_RECURSE APP_SOURCES "src/*.cpp")
 
-add_executable(App ${APP_SOURCES})
+add_executable(app ${APP_SOURCES})
 
-# Link the Engine library
-target_link_libraries(App PRIVATE Engine)
+target_link_libraries(app PRIVATE engine)
 
-# Include directories for the App's own headers
-target_include_directories(App PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
-
+target_include_directories(app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)

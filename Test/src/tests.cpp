@@ -1,7 +1,10 @@
 // Testing
 #include <iostream>
 
-#include "../../Engine/include/core.hpp"
+#include "engine/health.hpp"
+#include "engine/location.hpp"
+#include "engine/piece/piece.hpp"
+#include "engine/utils.hpp"
 
 void testHealth() {
 	chess::checkhealth();

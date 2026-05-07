@@ -1,4 +1,4 @@
-#include "../include/location.hpp"
+#include "engine/location.hpp"
 
 namespace chess {
 	bool Location::isValid() {
