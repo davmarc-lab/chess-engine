@@ -1,5 +1,5 @@
 {
-    "baseUrl": "chess-engine/api/",
+    "baseUrl": "/chess-engine/api/",
     "indexInFolders": false,
     "linkSuffix": "/",
     "mainPageInRoot": false,
