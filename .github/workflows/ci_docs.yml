@@ -28,7 +28,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y doxygen ninja-build
-          pip install -r requirements.txt
+          pip install -r docs/requirements.txt
 
       - name: Install Doxybook2
         run: |
@@ -39,10 +39,10 @@ jobs:
       - name: Build Docs via CMake
         run: |
           cmake -S . -B build -G Ninja
-          cmake --build build --target docs
+          cmake --build build --target docs_gh
 
       - name: Deploy to GitHub Pages
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          mkdocs gh-deploy --force
+          mkdocs gh-deploy --force --config-file docs/mkdocs.yml

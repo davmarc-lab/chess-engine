@@ -26,24 +26,40 @@ find_package(Doxygen)
 
 if (DOXYGEN_FOUND)
     add_custom_target(docs
-        COMMAND ${CMAKE_COMMAND} -E rm -rf ${CMAKE_CURRENT_SOURCE_DIR}/docs/api
-        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/docs/api
+        COMMAND ${CMAKE_COMMAND} -E rm -rf ${CMAKE_CURRENT_SOURCE_DIR}/docs_md/api
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/docs_md/api
 
-        COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile
+        COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile
 
         COMMAND doxybook2
             --input  ${CMAKE_CURRENT_BINARY_DIR}/docs/xml
-            --output ${CMAKE_CURRENT_SOURCE_DIR}/docs/api
-            --config ${CMAKE_CURRENT_SOURCE_DIR}/doxybook_config.json
+            --output ${CMAKE_CURRENT_SOURCE_DIR}/docs_md/api
+            --config ${CMAKE_CURRENT_SOURCE_DIR}/docs/doxybook_config_local.json
 
-        COMMAND mkdocs build --config-file ${CMAKE_CURRENT_SOURCE_DIR}/mkdocs.yml
+        COMMAND mkdocs build --config-file ${CMAKE_CURRENT_SOURCE_DIR}/docs/mkdocs.yml
 
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         COMMENT "Generating documentation pipeline..."
         VERBATIM
     )
 
-    message(STATUS "Documentation target 'docs' is available.")
+    add_custom_target(docs_gh
+        COMMAND ${CMAKE_COMMAND} -E rm -rf ${CMAKE_CURRENT_SOURCE_DIR}/docs_md/api
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/docs_md/api
+
+        COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile
+
+        COMMAND doxybook2
+            --input  ${CMAKE_CURRENT_BINARY_DIR}/docs/xml
+            --output ${CMAKE_CURRENT_SOURCE_DIR}/docs_md/api
+            --config ${CMAKE_CURRENT_SOURCE_DIR}/docs/doxybook_config_gh.json
+
+        COMMAND mkdocs build --config-file ${CMAKE_CURRENT_SOURCE_DIR}/docs/mkdocs.yml
+
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        COMMENT "Generating documentation pipeline..."
+        VERBATIM
+    )
 else()
     message(WARNING "Doxygen not found. Documentation target will not be created.")
 endif()

@@ -10,5 +10,5 @@ build
 .cache
 
 # docs
-docs
+docs_md
 site
