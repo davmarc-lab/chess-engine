@@ -34,7 +34,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y doxygen ninja-build libwayland-dev libwayland-bin wayland-protocols libxkbcommon-dev \
-            libx11-dev
+            libx11-dev \
+            libxrandr-dev \
+            libxinerama-dev \
+            libxcursor-dev \
+            libxi-dev
           pip install -r docs/requirements.txt
 
       - name: Install Doxybook2
