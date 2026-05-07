@@ -16,7 +16,7 @@ namespace chess {
 		 * @param letter a char representing the square letter
 		 * @param number a short representing the square number
 		 */
-		Location(const char &letter, const short number) :
+		Location(const char &letter, const short &number) :
 			m_letter(letter), m_number(number) {
 		}
 
