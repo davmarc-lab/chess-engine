@@ -5,17 +5,29 @@
 namespace chess {
 	namespace piece {
 
+		/**
+		 * @class Queen
+		 * @brief Queen piece wrapper.
+		 */
 		class Queen : public Piece {
 		public:
-			Queen() = default;
+			Queen() = delete;
+
+			/**
+			 * @brief Instantiate standard Queen piece.
+			 *
+			 * @param location the piece location
+			 */
+			Queen(const Location &location);
 
 			Queen(Queen &&) = default;
 			Queen(const Queen &) = default;
 			Queen &operator=(Queen &&) = default;
 			Queen &operator=(const Queen &) = default;
+
 			virtual ~Queen() override = default;
 
-		private:
+			std::string toString() override;
 		};
 	} // namespace piece
 } // namespace chess

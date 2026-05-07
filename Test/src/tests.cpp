@@ -4,7 +4,9 @@
 #include "engine/health.hpp"
 #include "engine/location.hpp"
 #include "engine/piece/king.hpp"
-#include "engine/piece/piece.hpp"
+#include "engine/piece/knight.hpp"
+#include "engine/piece/pawn.hpp"
+#include "engine/piece/queen.hpp"
 #include "engine/utils.hpp"
 
 void testHealth() {
@@ -34,7 +36,7 @@ void testPieces() {
 	short steps = 1;
 	{
 		chess::Location l1 = chess::Location('a', 2);
-		chess::piece::Piece p1 = chess::piece::Piece(l1, steps);
+		chess::piece::Pawn p1 = chess::piece::Pawn(l1);
 		std::cout << p1.toString() << "\n";
 	}
 	{
@@ -44,12 +46,12 @@ void testPieces() {
 	}
 	{
 		chess::Location l1 = chess::Location('a', -1);
-		chess::piece::Piece p1 = chess::piece::Piece(l1, steps);
+		chess::piece::Queen p1 = chess::piece::Queen(l1);
 		std::cout << p1.toString() << "\n";
 	}
 	{
 		chess::Location l1 = chess::Location('h', 0);
-		chess::piece::Piece p1 = chess::piece::Piece(l1, steps);
+		chess::piece::Knight p1 = chess::piece::Knight(l1);
 		std::cout << p1.toString() << "\n";
 	}
 }

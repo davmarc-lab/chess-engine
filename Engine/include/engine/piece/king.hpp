@@ -6,6 +6,10 @@
 namespace chess {
 	namespace piece {
 
+		/**
+		 * @class King
+		 * @brief King piece wrapper.
+		 */
 		class King : public Piece {
 		public:
 			King() = delete;

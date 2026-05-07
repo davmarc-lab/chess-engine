@@ -5,10 +5,6 @@
 namespace chess {
 	namespace piece {
 
-		std::string Piece::toString() {
-			return this->m_location.toString() + ", valid: " + pcond(this->m_location.isValid());
-		}
-
 		Location Piece::getLocation() { return this->m_location; }
 
 		void Piece::setLocation(const Location &loc) {
@@ -23,6 +19,10 @@ namespace chess {
 			if (steps >= 1)
 				this->m_steps = steps;
 			// TODO : else LOG
+		}
+
+		std::string Piece::toString() {
+			return this->m_location.toString() + ", valid: " + pcond(this->m_location.isValid()) + ", steps: " + std::to_string(this->m_steps);
 		}
 
 	} // namespace piece

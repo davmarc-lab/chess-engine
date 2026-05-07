@@ -1,5 +1,4 @@
 #include "engine/piece/king.hpp"
-#include "engine/piece/piece.hpp"
 
 namespace chess {
 	namespace piece {
