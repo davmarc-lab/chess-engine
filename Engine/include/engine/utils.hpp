@@ -50,14 +50,32 @@ inline std::string pcond(const bool &cond) {
 }
 
 /* ==================== STRUCTS ==================== */
+/**
+ * @brief Simple Pair wrapper.
+ *
+ * @tparam T type of values to store
+ */
 template <typename T>
 struct Pair {
-	T x, y;
+	/// first value
+	T x;
+	/// second value
+	T y;
 };
 
+/**
+ * @brief Simple Tuple wrapper.
+ *
+ * @tparam T type of values to store
+ */
 template <typename T>
 struct Tuple {
-	T x, y, z;
+	/// first value
+	T x;
+	/// second value
+	T y;
+	/// third value
+	T z;
 };
 
 /* ==================== POINTERS ==================== */

@@ -1,0 +1,42 @@
+site_name: Chess Engine Doc
+site_description: "C++ API Reference"
+docs_dir: ../docs_md
+site_dir: ../site
+
+repo_name: chess-engine
+repo_url: https://github.com/davmarc-lab/chess-engine
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    # primary: indigo
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.share
+
+nav:
+  - Home: index.md
+  - API Reference:
+    - Classes: api/index_classes.md
+    - Namespaces: api/index_namespaces.md
+    - Files: api/index_files.md
+    - Groups: api/index_groups.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences

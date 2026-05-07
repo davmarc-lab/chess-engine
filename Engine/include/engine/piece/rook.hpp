@@ -5,17 +5,29 @@
 namespace chess {
 	namespace piece {
 
+		/**
+		 * @class Rook
+		 * @brief Rook piece wrapper.
+		 */
 		class Rook : public Piece {
 		public:
-			Rook() = default;
+			Rook() = delete;
+
+			/**
+			 * @brief Instantiate standard Rook piece.
+			 *
+			 * @param location the piece location
+			 */
+			Rook(const Location &location);
 
 			Rook(Rook &&) = default;
 			Rook(const Rook &) = default;
 			Rook &operator=(Rook &&) = default;
 			Rook &operator=(const Rook &) = default;
+
 			virtual ~Rook() override = default;
 
-		private:
+			std::string toString() override;
 		};
 	} // namespace piece
 } // namespace chess
