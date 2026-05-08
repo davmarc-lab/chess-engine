@@ -21,7 +21,7 @@
     
     
       
-        <title>chess::Piece - Chess Engine Doc</title>
+        <title>chess::piece::Piece - Chess Engine Doc</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#chesspiece" class="md-skip">
+        <a href="#chesspiecepiece" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              chess::Piece
+              chess::piece::Piece
             
           </span>
         </div>
@@ -738,7 +738,8 @@
   
 
 
-<h1 id="chesspiece">chess::Piece</h1>
+<h1 id="chesspiecepiece">chess::piece::Piece</h1>
+<p>Base class of a board piece. It handles pieces movement and attack. </p>
 <p><code>#include &lt;piece.hpp&gt;</code></p>
 <p>Inherited by <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Bishop/">chess::piece::Bishop</a>, <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1King/">chess::piece::King</a>, <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Knight/">chess::piece::Knight</a>, <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Pawn/">chess::piece::Pawn</a>, <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Queen/">chess::piece::Queen</a>, <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Rook/">chess::piece::Rook</a></p>
 <h2 id="public-functions">Public Functions</h2>
@@ -752,51 +753,51 @@
 <tbody>
 <tr>
 <td>virtual</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-~piece">~Piece</a></strong>() =default</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-~piece">~Piece</a></strong>() =default</td>
 </tr>
 <tr>
-<td>std::string</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-tostring">toString</a></strong>()</td>
-</tr>
-<tr>
-<td>void</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-setsteps">setSteps</a></strong>(const short &amp; steps)</td>
+<td>virtual std::string</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-tostring">toString</a></strong>()<br>Standard debug string with all object values.</td>
 </tr>
 <tr>
 <td>void</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-setlocation">setLocation</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a> &amp; loc)</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-setsteps">setSteps</a></strong>(const short &amp; steps)<br>Sets the step's number only if it's valid.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Classes/classchess_1_1Piece/">Piece</a> &amp;</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-operator=">operator=</a></strong>(<a href="/chess-engine/api/Classes/classchess_1_1Piece/">Piece</a> &amp;&amp; ) =default</td>
+<td>void</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-setlocation">setLocation</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a> &amp; loc)<br>Sets the current piece <a href="">Location</a> if it's valid.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Classes/classchess_1_1Piece/">Piece</a> &amp;</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-operator=">operator=</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1Piece/">Piece</a> &amp; ) =default</td>
+<td><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/">Piece</a> &amp;</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-operator=">operator=</a></strong>(<a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/">Piece</a> &amp;&amp; ) =default</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/">Piece</a> &amp;</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-operator=">operator=</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/">Piece</a> &amp; ) =default</td>
 </tr>
 <tr>
 <td>short</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-getsteps">getSteps</a></strong>()</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-getsteps">getSteps</a></strong>()<br>Retrieves the number of square the piece can do.</td>
 </tr>
 <tr>
 <td><a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-getlocation">getLocation</a></strong>()</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-getlocation">getLocation</a></strong>()<br>Retrieves piece <a href="">Location</a>.</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-piece">Piece</a></strong>() =delete</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-piece">Piece</a></strong>() =delete</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-piece">Piece</a></strong>(<a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a> &amp; location, const short &amp; steps)</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-piece">Piece</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a> &amp; location, const short &amp; steps)<br>Instantiate standard piece.</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-piece">Piece</a></strong>(<a href="/chess-engine/api/Classes/classchess_1_1Piece/">Piece</a> &amp;&amp; ) =default</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-piece">Piece</a></strong>(<a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/">Piece</a> &amp;&amp; ) =default</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-piece">Piece</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1Piece/">Piece</a> &amp; ) =default</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-piece">Piece</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/">Piece</a> &amp; ) =default</td>
 </tr>
 </tbody>
 </table>
@@ -811,11 +812,11 @@
 <tbody>
 <tr>
 <td>short</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#variable-m-steps">m_steps</a></strong></td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#variable-m-steps">m_steps</a></strong> <br>piece step's number</td>
 </tr>
 <tr>
 <td><a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#variable-m-location">m_location</a></strong></td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#variable-m-location">m_location</a></strong> <br>piece location</td>
 </tr>
 </tbody>
 </table>
@@ -824,18 +825,31 @@
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Piece</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </span></code></pre></div>
 <h3 id="function-tostring">function toString</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">toString</span><span class="p">()</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">virtual</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">toString</span><span class="p">()</span>
 </span></code></pre></div>
+<p>Standard debug string with all object values. </p>
+<p><strong>Return</strong>: a printable string. </p>
+<p><strong>Reimplemented by</strong>: <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Bishop/#function-tostring">chess::piece::Bishop::toString</a>, <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1King/#function-tostring">chess::piece::King::toString</a>, <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Knight/#function-tostring">chess::piece::Knight::toString</a>, <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Pawn/#function-tostring">chess::piece::Pawn::toString</a>, <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Queen/#function-tostring">chess::piece::Queen::toString</a>, <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Rook/#function-tostring">chess::piece::Rook::toString</a></p>
 <h3 id="function-setsteps">function setSteps</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">setSteps</span><span class="p">(</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">steps</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">)</span>
 </span></code></pre></div>
+<p>Sets the step's number only if it's valid. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>steps</strong> the new step's amount </li>
+</ul>
 <h3 id="function-setlocation">function setLocation</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">setLocation</span><span class="p">(</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Location</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">loc</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">)</span>
 </span></code></pre></div>
+<p>Sets the current piece <a href="">Location</a> if it's valid. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>loc</strong> new piece <a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a></li>
+</ul>
 <h3 id="function-operator">function operator=</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Piece</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">Piece</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
@@ -849,18 +863,28 @@
 <h3 id="function-getsteps">function getSteps</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">short</span><span class="w"> </span><span class="n">getSteps</span><span class="p">()</span>
 </span></code></pre></div>
+<p>Retrieves the number of square the piece can do. </p>
+<p><strong>Return</strong>: a short representing the step's number. </p>
 <h3 id="function-getlocation">function getLocation</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Location</span><span class="w"> </span><span class="n">getLocation</span><span class="p">()</span>
 </span></code></pre></div>
+<p>Retrieves piece <a href="">Location</a>. </p>
+<p><strong>Return</strong>: a <a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a> of the piece. </p>
 <h3 id="function-piece_1">function Piece</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Piece</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">delete</span>
 </span></code></pre></div>
 <h3 id="function-piece_2">function Piece</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Piece</span><span class="p">(</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">Location</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">location</span><span class="p">,</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Location</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">location</span><span class="p">,</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">steps</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">)</span>
 </span></code></pre></div>
+<p>Instantiate standard piece. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>location</strong> the piece location on the board </li>
+<li><strong>steps</strong> the number of steps the piece can do </li>
+</ul>
 <h3 id="function-piece_3">function Piece</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">Piece</span><span class="p">(</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">Piece</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
@@ -875,11 +899,13 @@
 <h3 id="variable-m_steps">variable m_steps</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">short</span><span class="w"> </span><span class="n">m_steps</span><span class="p">;</span>
 </span></code></pre></div>
+<p>piece step's number </p>
 <h3 id="variable-m_location">variable m_location</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">Location</span><span class="w"> </span><span class="n">m_location</span><span class="p">;</span>
 </span></code></pre></div>
+<p>piece location </p>
 <hr />
-<p>Updated on 2026-05-07 at 13:56:55 +0000</p>
+<p>Updated on 2026-05-08 at 08:38:05 +0000</p>
 
 
 

@@ -554,6 +554,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-tostring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function toString
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-operator" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -608,6 +619,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#function-pawn_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function Pawn
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -634,8 +656,9 @@
 
 
 <h1 id="chesspiecepawn">chess::piece::Pawn</h1>
+<p><a href="">Pawn</a> piece wrapper. </p>
 <p><code>#include &lt;pawn.hpp&gt;</code></p>
-<p>Inherits from <a href="/chess-engine/api/Classes/classchess_1_1Piece/">chess::Piece</a></p>
+<p>Inherits from <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/">chess::piece::Piece</a></p>
 <h2 id="public-functions">Public Functions</h2>
 <table>
 <thead>
@@ -650,6 +673,10 @@
 <td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Pawn/#function-~pawn">~Pawn</a></strong>() override =default</td>
 </tr>
 <tr>
+<td>virtual std::string</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Pawn/#function-tostring">toString</a></strong>() override<br>Standard debug string with all object values.</td>
+</tr>
+<tr>
 <td><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Pawn/">Pawn</a> &amp;</td>
 <td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Pawn/#function-operator=">operator=</a></strong>(<a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Pawn/">Pawn</a> &amp;&amp; ) =default</td>
 </tr>
@@ -659,7 +686,11 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Pawn/#function-pawn">Pawn</a></strong>() =default</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Pawn/#function-pawn">Pawn</a></strong>() =delete</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Pawn/#function-pawn">Pawn</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a> &amp; location)<br>Instantiate standard <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Pawn/">Pawn</a> piece.</td>
 </tr>
 <tr>
 <td></td>
@@ -672,7 +703,7 @@
 </tbody>
 </table>
 <h2 id="additional-inherited-members">Additional inherited members</h2>
-<p><strong>Public Functions inherited from <a href="/chess-engine/api/Classes/classchess_1_1Piece/">chess::Piece</a></strong></p>
+<p><strong>Public Functions inherited from <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/">chess::piece::Piece</a></strong></p>
 <table>
 <thead>
 <tr>
@@ -683,47 +714,43 @@
 <tbody>
 <tr>
 <td>virtual</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-~piece">~Piece</a></strong>() =default</td>
-</tr>
-<tr>
-<td>std::string</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-tostring">toString</a></strong>()</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-~piece">~Piece</a></strong>() =default</td>
 </tr>
 <tr>
 <td>void</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-setsteps">setSteps</a></strong>(const short &amp; steps)</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-setsteps">setSteps</a></strong>(const short &amp; steps)<br>Sets the step's number only if it's valid.</td>
 </tr>
 <tr>
 <td>void</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-setlocation">setLocation</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a> &amp; loc)</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-setlocation">setLocation</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a> &amp; loc)<br>Sets the current piece <a href="">Location</a> if it's valid.</td>
 </tr>
 <tr>
 <td>short</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-getsteps">getSteps</a></strong>()</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-getsteps">getSteps</a></strong>()<br>Retrieves the number of square the piece can do.</td>
 </tr>
 <tr>
 <td><a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-getlocation">getLocation</a></strong>()</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-getlocation">getLocation</a></strong>()<br>Retrieves piece <a href="">Location</a>.</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-piece">Piece</a></strong>() =delete</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-piece">Piece</a></strong>() =delete</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-piece">Piece</a></strong>(<a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a> &amp; location, const short &amp; steps)</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-piece">Piece</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a> &amp; location, const short &amp; steps)<br>Instantiate standard piece.</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-piece">Piece</a></strong>(<a href="/chess-engine/api/Classes/classchess_1_1Piece/">Piece</a> &amp;&amp; ) =default</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-piece">Piece</a></strong>(<a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/">Piece</a> &amp;&amp; ) =default</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#function-piece">Piece</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1Piece/">Piece</a> &amp; ) =default</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-piece">Piece</a></strong>(const <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/">Piece</a> &amp; ) =default</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Protected Attributes inherited from <a href="/chess-engine/api/Classes/classchess_1_1Piece/">chess::Piece</a></strong></p>
+<p><strong>Protected Attributes inherited from <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/">chess::piece::Piece</a></strong></p>
 <table>
 <thead>
 <tr>
@@ -734,11 +761,11 @@
 <tbody>
 <tr>
 <td>short</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#variable-m-steps">m_steps</a></strong></td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#variable-m-steps">m_steps</a></strong> <br>piece step's number</td>
 </tr>
 <tr>
 <td><a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1Piece/#variable-m-location">m_location</a></strong></td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#variable-m-location">m_location</a></strong> <br>piece location</td>
 </tr>
 </tbody>
 </table>
@@ -746,31 +773,47 @@
 <h3 id="function-pawn">function ~Pawn</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Pawn</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </span></code></pre></div>
-<h3 id="function-operator">function operator=</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Pawn</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">Pawn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
+<h3 id="function-tostring">function toString</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">virtual</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
 </span></code></pre></div>
-<h3 id="function-operator_1">function operator=</h3>
+<p>Standard debug string with all object values. </p>
+<p><strong>Return</strong>: a printable string. </p>
+<p><strong>Reimplements</strong>: <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Piece/#function-tostring">chess::piece::Piece::toString</a></p>
+<h3 id="function-operator">function operator=</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Pawn</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Pawn</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">Pawn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </span></code></pre></div>
+<h3 id="function-operator_1">function operator=</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">Pawn</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Pawn</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
+</span></code></pre></div>
 <h3 id="function-pawn_1">function Pawn</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">Pawn</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Pawn</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">delete</span>
 </span></code></pre></div>
 <h3 id="function-pawn_2">function Pawn</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Pawn</span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">Pawn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
-</span></code></pre></div>
-<h3 id="function-pawn_3">function Pawn</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Pawn</span><span class="p">(</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Pawn</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Location</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">location</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Instantiate standard <a href="/chess-engine/api/Classes/classchess_1_1piece_1_1Pawn/">Pawn</a> piece. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>location</strong> the piece location </li>
+</ul>
+<h3 id="function-pawn_3">function Pawn</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Pawn</span><span class="p">(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">Pawn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
+</span></code></pre></div>
+<h3 id="function-pawn_4">function Pawn</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Pawn</span><span class="p">(</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Pawn</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </span></code></pre></div>
 <hr />
-<p>Updated on 2026-05-07 at 13:56:55 +0000</p>
+<p>Updated on 2026-05-08 at 08:38:05 +0000</p>
 
 
 
