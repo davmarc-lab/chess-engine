@@ -520,6 +520,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#friends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Friends
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#detailed-description" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -569,6 +580,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#friends_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Friends
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Friends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#friend-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        friend operator==
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -602,35 +641,63 @@
 </thead>
 <tbody>
 <tr>
-<td>T</td>
+<td><a href="/chess-engine/api/Files/Utils_8hpp/#function-createshared">T</a></td>
 <td><strong><a href="/chess-engine/api/Classes/structPair/#variable-y">y</a></strong> <br>second value</td>
 </tr>
 <tr>
-<td>T</td>
+<td><a href="/chess-engine/api/Files/Utils_8hpp/#function-createshared">T</a></td>
 <td><strong><a href="/chess-engine/api/Classes/structPair/#variable-x">x</a></strong> <br>first value</td>
 </tr>
 </tbody>
 </table>
+<h2 id="friends">Friends</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/chess-engine/api/Files/Utils_8hpp/#function-createshared">bool</a></td>
+<td><strong><a href="/chess-engine/api/Classes/structPair/#friend-operator==">operator==</a></strong>(<a href="/chess-engine/api/Files/Utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/structPair/">Pair</a>&lt; <a href="/chess-engine/api/Files/Utils_8hpp/#function-createshared">T</a> &gt; &amp; lhs, <a href="/chess-engine/api/Files/Utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/structPair/">Pair</a>&lt; <a href="/chess-engine/api/Files/Utils_8hpp/#function-createshared">T</a> &gt; &amp; rhs) <br>equals pairs operator</td>
+</tr>
+</tbody>
+</table>
 <h2 id="detailed-description">Detailed Description</h2>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">typenameT</span><span class="w"> </span><span class="o">&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Pair</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Simple <a href="">Pair</a> wrapper. </p>
 <p><strong>Template Parameters</strong>: </p>
 <ul>
-<li><strong>T</strong> type of values to store </li>
+<li><strong>T</strong> type of values to store</li>
+<li><strong>T</strong> values type </li>
 </ul>
+<p>This class stores a pair of values of the same type.</p>
 <h2 id="public-attributes-documentation">Public Attributes Documentation</h2>
 <h3 id="variable-y">variable y</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">T</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 </span></code></pre></div>
 <p>second value </p>
+<p>second element </p>
 <h3 id="variable-x">variable x</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </span></code></pre></div>
 <p>first value </p>
+<p>first element </p>
+<h2 id="friends_1">Friends</h2>
+<h3 id="friend-operator">friend operator==</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">constPair</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">constPair</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">);</span>
+</span></code></pre></div>
+<p>equals pairs operator </p>
 <hr />
-<p>Updated on 2026-05-08 at 12:11:06 +0000</p>
+<p>Updated on 2026-05-08 at 12:14:23 +0000</p>
 
 
 

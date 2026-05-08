@@ -541,7 +541,15 @@
 
 <h1 id="classes">Classes</h1>
 <ul>
+<li><strong>struct <a href="/chess-engine/api/Classes/structColor/">Color</a></strong> <br>Simple data structure to store a RGBA color. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structFBConfig/">FBConfig</a></strong> <br>Data structure to create an <a href="">ogl::FrameBuffer</a> using these parameters. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structKey/">Key</a></strong> <br>Data structure used to wrap keyboard keys. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structMeshInfo/">MeshInfo</a></strong> <br>Utility struct to temporally store mesh vectors. </li>
 <li><strong>struct <a href="/chess-engine/api/Classes/structPair/">Pair</a></strong> <br>Simple <a href="">Pair</a> wrapper. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structRBConfig/">RBConfig</a></strong> <br>Data structure to create an <a href="">ogl::RenderBuffer</a> using these parameters. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classSerializable/">Serializable</a></strong> <br>This class provides overridable methods to serialize and deserialize a class. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classSerializer/">Serializer</a></strong> <br>This class writes/read into/from a given file the elements with the given type T. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structTextureParams/">TextureParams</a></strong> <br>Data structure to create an <a href="">ogl::Texture</a> using these parameters. </li>
 <li><strong>struct <a href="/chess-engine/api/Classes/structTuple/">Tuple</a></strong> <br>Simple <a href="">Tuple</a> wrapper. </li>
 <li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacechess/">chess</a></strong> <ul>
 <li><strong>class <a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a></strong> <br>Represent a square in a chess board. </li>
@@ -557,9 +565,59 @@
 </li>
 </ul>
 </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceogl/">ogl</a></strong> <ul>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1Buffer/">Buffer</a></strong> <br>Base class of all OpenGL buffer. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1Camera/">Camera</a></strong> <br>Creates a virtual camera based on projection matrix. It can be used for both 2D and 3D scenes: it calculates the Projection * View matrix. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structogl_1_1CameraInfo/">CameraInfo</a></strong> <br>This data structure contains basic camera information. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structogl_1_1CameraRotation/">CameraRotation</a></strong> <br>This data structure contains all camera rotation angles. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structogl_1_1CameraVectors/">CameraVectors</a></strong> <br>This data structure contains all camera vectors. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1ElementBuffer/">ElementBuffer</a></strong> <br>This class provides methods to manage an OpenGL element buffer object. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1Event/">Event</a></strong> <br>Implementation of an event. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1EventManager/">EventManager</a></strong> <br>This class manages and dispatch all the events. Each event registerd has a list of callbacks that are called when the specific event is dispatched. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/">FrameBuffer</a></strong> <br>This class provides methods to manage an OpenGL frame buffer object. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a></strong> <br>This class manages all <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> used in a State. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a></strong> <br>ImGui wrap to create a simple ImGui panel. Objects extending this class should be used in the ImGuiManger. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1InputManager/">InputManager</a></strong> <br>This class is used to manage input from keyboard. It can store all the key pressed while executing a <code>[Window](/chess-engine/api/Classes/classogl_1_1Window/)</code>. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1Layer/">Layer</a></strong> <br>This class is used to separate modules. A <a href="">Layer</a> defines a module that executes specific operations every main loop iteration. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structogl_1_1Primitive/">Primitive</a></strong> <br>Data structure to store primitives data. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1RenderBuffer/">RenderBuffer</a></strong> <br>This class provides methods to manage an OpenGL render buffer object. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1Renderer/">Renderer</a></strong> <br>This singleton class manages all OpenGL render calls. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structogl_1_1RendererStats/">RendererStats</a></strong> <br>Data structure used to manage renderer statistics. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1Resource/">Resource</a></strong> <br>This class provides method to manage a resource: a resource is a generic file stored in a precise location. By using <a href="">Resource</a> is simpler to manage the file path. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/">ResourceManager</a></strong> <br>This singleton class manages and stores all resources for easy access. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1Shader/">Shader</a></strong> <br>This class provides methods to manage OpenGL shaders. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1ShaderProgram/">ShaderProgram</a></strong> <br>This class manages an OpenGL shader program. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1Text/">Text</a></strong> <br>This class creates a text object to add in a 2D scene. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structogl_1_1TextHelper/">TextHelper</a></strong> <br>Helper data structure to create <a href="">Text</a> in the 2D scene. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1TextManager/">TextManager</a></strong> <br>This class create a text manager in the current State. It inherit <a href="">Layer</a> class. <ul>
+<li><strong>struct <a href="/chess-engine/api/Classes/structogl_1_1TextManager_1_1Character/">Character</a></strong> <br>Data structure to store single char data. </li>
+</ul>
+</li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structogl_1_1TextSettings/">TextSettings</a></strong> <br>Data structure for <a href="">Text</a> settings in the manager. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1Texture/">Texture</a></strong> <br>foo </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1UniformBuffer/">UniformBuffer</a></strong> <br>This class provides methods to manage an OpenGL uniform buffer object. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1VertexArray/">VertexArray</a></strong> <br>This class provides methods to manage an OpenGL vertex array object. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1VertexBuffer/">VertexBuffer</a></strong> <br>This class provides methods to manage an OpenGL vertex buffer object. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a></strong> <br>This class provides methods to create and manage GLFW windows. It inherit <a href="">Layer</a> class. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structogl_1_1WindowCallbacks/">WindowCallbacks</a></strong> <br>Data structure to store all <a href="">Window</a> callbacks. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structogl_1_1WindowSettings/">WindowSettings</a></strong> <br>Data structure to store all window settings. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structogl_1_1WorldCamera/">WorldCamera</a></strong> <br>Data structure used to store world camera information. </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceogl_1_1event/">event</a></strong> <ul>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceogl_1_1event_1_1loop/">loop</a></strong> </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceogl_1_1event_1_1render/">render</a></strong> </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceogl_1_1event_1_1shader/">shader</a></strong> </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceogl_1_1event_1_1window/">window</a></strong> </li>
+</ul>
+</li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceogl_1_1res/">res</a></strong> </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceogl_1_1shader/">shader</a></strong> </li>
+</ul>
+</li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceres/">res</a></strong> <br>Namespace used for Resource utilities. </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceshader/">shader</a></strong> <br>Contains all shader utilities. </li>
 </ul>
 <hr />
-<p>Updated on 2026-05-08 at 12:11:06 +0000</p>
+<p>Updated on 2026-05-08 at 12:14:23 +0000</p>
 
 
 

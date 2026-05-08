@@ -1,0 +1,1376 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="C++ API Reference">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>classogl 1 1Camera - Chess Engine Doc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#oglcamera" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Chess Engine Doc" class="md-header__button md-logo" aria-label="Chess Engine Doc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chess Engine Doc
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              classogl 1 1Camera
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/davmarc-lab/chess-engine" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chess-engine
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../index_classes/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Chess Engine Doc" class="md-nav__button md-logo" aria-label="Chess Engine Doc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Chess Engine Doc
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/davmarc-lab/chess-engine" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chess-engine
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index_classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index_namespaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Namespaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index_files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Functions Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ~Camera
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-updateperspprojection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function updatePerspProjection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-updateperspprojection_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function updatePerspProjection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-updateorthoprojection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function updateOrthoProjection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-settrackballspeed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setTrackballSpeed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setmousesensitivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setMouseSensitivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcamerazoom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCameraZoom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcamerayaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCameraYaw
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcameravelocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCameraVelocity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcameratarget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCameraTarget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcameraposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCameraPosition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcamerapitch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCameraPitch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcamerafront" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCameraFront
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setcameradirection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function setCameraDirection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-processmousemovement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function processMouseMovement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-movecamera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function moveCamera
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getviewprojmatrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getViewProjMatrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getviewmatrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getViewMatrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-gettrackballspeed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getTrackballSpeed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getprojmatrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getProjMatrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getmousesensitivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getMouseSensitivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getcamerazoom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getCameraZoom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getcameravelocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getCameraVelocity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getcameraup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getCameraUp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getcameratarget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getCameraTarget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getcamerarotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getCameraRotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getcameraright" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getCameraRight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getcameraposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getCameraPosition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getcamerafront" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getCameraFront
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-getcameradirection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function getCameraDirection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-camera_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function Camera
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<hr />
+<p>title: ogl::Camera
+summary: Creates a virtual camera based on projection matrix. It can be used for both 2D and 3D scenes: it calculates the Projection * View matrix. </p>
+<hr />
+<h1 id="oglcamera">ogl::Camera</h1>
+<p>Creates a virtual camera based on projection matrix. It can be used for both 2D and 3D scenes: it calculates the Projection * View matrix.  <a href="#detailed-description">More...</a></p>
+<p><code>#include &lt;Camera.hpp&gt;</code></p>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-~camera">~Camera</a></strong>() =default</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-updateperspprojection">updatePerspProjection</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; fov, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; width, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; height, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; near, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; far)<br>Updates Projection * View matrix by using perspective projection. This method uses the given width and height to calculate the aspect ratio.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-updateperspprojection">updatePerspProjection</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; fov, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; ratio, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; near, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; far)<br>Updates Projection * View matrix by using perspective projection.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-updateorthoprojection">updateOrthoProjection</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; left, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; right, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; bot, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; top)<br>Updates the Proj * View matrix by using orthographic projection and it doesn't affect camera rotation.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-settrackballspeed">setTrackballSpeed</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> speed)<br>Updates trackball speed of the camera.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-setmousesensitivity">setMouseSensitivity</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> val)<br>Updates camera rotation velocity.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-setcamerazoom">setCameraZoom</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> zoom)<br>Updates camera zoom.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-setcamerayaw">setCameraYaw</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; yaw)<br>Updates camera current yaw value.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-setcameravelocity">setCameraVelocity</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> velocity)<br>Sets the camera velocity value.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-setcameratarget">setCameraTarget</a></strong>(glm::vec3 target)<br>Sets the camera target vector.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-setcameraposition">setCameraPosition</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a> glm::vec3 &amp; position)<br>Updates current camera position and recalculates its vectors.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-setcamerapitch">setCameraPitch</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; pitch)<br>Updates camera current pitch value.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-setcamerafront">setCameraFront</a></strong>(glm::vec3 vec)<br>Sets the camera front vector.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-setcameradirection">setCameraDirection</a></strong>(glm::vec3 dir)<br>Sets the camera direction vector.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-processmousemovement">processMouseMovement</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; xoffset, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; yoffset, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">bool</a> &amp; constrainPitch =<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">true</a>)<br>Calculates the camera rotation by using mouse current movement offset.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-movecamera">moveCamera</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a> glm::vec3 &amp; axis)<br>Moves the camera on the given axis of an offset equal to the camera velocity.</td>
+</tr>
+<tr>
+<td>glm::mat4</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getviewprojmatrix">getViewProjMatrix</a></strong>() const<br>Retrieves the Projection * View matrix.</td>
+</tr>
+<tr>
+<td>glm::mat4</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getviewmatrix">getViewMatrix</a></strong>() const<br>Retrieves the View matrix.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-gettrackballspeed">getTrackballSpeed</a></strong>()<br>Retrieves trackball speed of the camera.</td>
+</tr>
+<tr>
+<td>glm::mat4</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getprojmatrix">getProjMatrix</a></strong>() const<br>Retrieves the Projection matrix.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getmousesensitivity">getMouseSensitivity</a></strong>() const<br>Retrieves camera rotation velocity.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getcamerazoom">getCameraZoom</a></strong>() const<br>Retrieves camera zoom.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getcameravelocity">getCameraVelocity</a></strong>() const<br>Retrieves camera velocity.</td>
+</tr>
+<tr>
+<td>glm::vec3</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getcameraup">getCameraUp</a></strong>() const<br>Retrieves the camera up vector.</td>
+</tr>
+<tr>
+<td>glm::vec3</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getcameratarget">getCameraTarget</a></strong>() const<br>Retrieves the camera target vector.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Classes/structogl_1_1CameraRotation/">CameraRotation</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getcamerarotation">getCameraRotation</a></strong>() const<br>Retrieves <code>[CameraRotation](/chess-engine/api/Classes/structogl_1_1CameraRotation/)</code> values.</td>
+</tr>
+<tr>
+<td>glm::vec3</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getcameraright">getCameraRight</a></strong>() const<br>Retrieves the camera right vector.</td>
+</tr>
+<tr>
+<td>glm::vec3</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getcameraposition">getCameraPosition</a></strong>() const<br>Retrieves camera current position.</td>
+</tr>
+<tr>
+<td>glm::vec3</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getcamerafront">getCameraFront</a></strong>() const<br>Retrieves the camera front vector.</td>
+</tr>
+<tr>
+<td>glm::vec3</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-getcameradirection">getCameraDirection</a></strong>() const<br>Retrieves the camera direction vector.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Camera/#function-camera">Camera</a></strong>()<br><a href="/chess-engine/api/Classes/classogl_1_1Camera/">Camera</a> basic constructor.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-description">Detailed Description</h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">ogl</span><span class="o">::</span><span class="n">Camera</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Creates a virtual camera based on projection matrix. It can be used for both 2D and 3D scenes: it calculates the Projection * View matrix. </p>
+<p><strong>Note</strong>: The projection matrix must be updated everytime the screen size is changed. </p>
+<p>This class also provide methods to manage position, mouse sensitivity and camera rotation.</p>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-camera">function ~Camera</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">~</span><span class="n">Camera</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
+</span></code></pre></div>
+<h3 id="function-updateperspprojection">function updatePerspProjection</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">updatePerspProjection</span><span class="p">(</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">fov</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">width</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">height</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">near</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">far</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Updates Projection * View matrix by using perspective projection. This method uses the given width and height to calculate the aspect ratio. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>fov</strong> camera fov </li>
+<li><strong>width</strong> viewport width </li>
+<li><strong>height</strong> viewport height </li>
+<li><strong>near</strong> camera near plane </li>
+<li><strong>far</strong> camera far plane </li>
+</ul>
+<h3 id="function-updateperspprojection_1">function updatePerspProjection</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">updatePerspProjection</span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">fov</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">ratio</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">near</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">far</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Updates Projection * View matrix by using perspective projection. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>fov</strong> camera fov </li>
+<li><strong>ratio</strong> viewport aspect ratio </li>
+<li><strong>near</strong> camera near plane </li>
+<li><strong>far</strong> camera far plane </li>
+</ul>
+<h3 id="function-updateorthoprojection">function updateOrthoProjection</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">updateOrthoProjection</span><span class="p">(</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">left</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">right</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">bot</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">top</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Updates the Proj * View matrix by using orthographic projection and it doesn't affect camera rotation. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>left</strong> values </li>
+<li><strong>right</strong> values </li>
+<li><strong>bot</strong> bot values </li>
+<li><strong>top</strong> top values </li>
+</ul>
+<p><strong>Note</strong>: The View matrix used is of type <code>glm::mat4(1)</code></p>
+<h3 id="function-settrackballspeed">function setTrackballSpeed</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setTrackballSpeed</span><span class="p">(</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="n">speed</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Updates trackball speed of the camera. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>speed</strong> trackball speed </li>
+</ul>
+<h3 id="function-setmousesensitivity">function setMouseSensitivity</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setMouseSensitivity</span><span class="p">(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">val</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Updates camera rotation velocity. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>val</strong> camera sensitivity </li>
+</ul>
+<h3 id="function-setcamerazoom">function setCameraZoom</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setCameraZoom</span><span class="p">(</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="n">zoom</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Updates camera zoom. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>zoom</strong> camera zoom </li>
+</ul>
+<h3 id="function-setcamerayaw">function setCameraYaw</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setCameraYaw</span><span class="p">(</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">yaw</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Updates camera current yaw value. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>yaw</strong> camera yaw </li>
+</ul>
+<h3 id="function-setcameravelocity">function setCameraVelocity</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setCameraVelocity</span><span class="p">(</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="n">velocity</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Sets the camera velocity value. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>velocity</strong> the new camera velocity </li>
+</ul>
+<h3 id="function-setcameratarget">function setCameraTarget</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setCameraTarget</span><span class="p">(</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="n">target</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Sets the camera target vector. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>target</strong> the new camera target vector </li>
+</ul>
+<h3 id="function-setcameraposition">function setCameraPosition</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">setCameraPosition</span><span class="p">(</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">position</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Updates current camera position and recalculates its vectors. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>position</strong> camera new position </li>
+</ul>
+<h3 id="function-setcamerapitch">function setCameraPitch</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setCameraPitch</span><span class="p">(</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">pitch</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Updates camera current pitch value. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>pitch</strong> camera pitch </li>
+</ul>
+<h3 id="function-setcamerafront">function setCameraFront</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setCameraFront</span><span class="p">(</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="n">vec</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Sets the camera front vector. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>vec</strong> the new camera front vector </li>
+</ul>
+<h3 id="function-setcameradirection">function setCameraDirection</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setCameraDirection</span><span class="p">(</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="n">dir</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Sets the camera direction vector. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>dir</strong> the new direction vector </li>
+</ul>
+<h3 id="function-processmousemovement">function processMouseMovement</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">processMouseMovement</span><span class="p">(</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">xoffset</span><span class="p">,</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">yoffset</span><span class="p">,</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="n">constbool</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">constrainPitch</span><span class="w"> </span><span class="o">=</span><span class="nb">true</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Calculates the camera rotation by using mouse current movement offset. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>xoffset</strong> mouse x-axis offset </li>
+<li><strong>yoffset</strong> mouse y-axis offset </li>
+<li><strong>constrainPitch</strong> bool that indicate if the camera should lock y-axis maximum value </li>
+</ul>
+<h3 id="function-movecamera">function moveCamera</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">moveCamera</span><span class="p">(</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">axis</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Moves the camera on the given axis of an offset equal to the camera velocity. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>axis</strong> direction vector </li>
+</ul>
+<h3 id="function-getviewprojmatrix">function getViewProjMatrix</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">glm</span><span class="o">::</span><span class="n">mat4</span><span class="w"> </span><span class="n">getViewProjMatrix</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves the Projection * View matrix. </p>
+<p><strong>Return</strong>: Projection * View matrix </p>
+<h3 id="function-getviewmatrix">function getViewMatrix</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">mat4</span><span class="w"> </span><span class="n">getViewMatrix</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves the View matrix. </p>
+<p><strong>Return</strong>: View matrix </p>
+<h3 id="function-gettrackballspeed">function getTrackballSpeed</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">getTrackballSpeed</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Retrieves trackball speed of the camera. </p>
+<p><strong>Return</strong>: trackball speed </p>
+<h3 id="function-getprojmatrix">function getProjMatrix</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">mat4</span><span class="w"> </span><span class="n">getProjMatrix</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves the Projection matrix. </p>
+<p><strong>Return</strong>: Projection matrix </p>
+<h3 id="function-getmousesensitivity">function getMouseSensitivity</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">getMouseSensitivity</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves camera rotation velocity. </p>
+<p><strong>Return</strong>: camera sensitivity </p>
+<h3 id="function-getcamerazoom">function getCameraZoom</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">getCameraZoom</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves camera zoom. </p>
+<p><strong>Return</strong>: camera zoom </p>
+<h3 id="function-getcameravelocity">function getCameraVelocity</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">getCameraVelocity</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves camera velocity. </p>
+<p><strong>Return</strong>: camera velocity </p>
+<h3 id="function-getcameraup">function getCameraUp</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="n">getCameraUp</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves the camera up vector. </p>
+<p><strong>Return</strong>: the camera up vector </p>
+<h3 id="function-getcameratarget">function getCameraTarget</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="n">getCameraTarget</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves the camera target vector. </p>
+<p><strong>Return</strong>: the camera target vector </p>
+<h3 id="function-getcamerarotation">function getCameraRotation</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">CameraRotation</span><span class="w"> </span><span class="n">getCameraRotation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves <code>[CameraRotation](/chess-engine/api/Classes/structogl_1_1CameraRotation/)</code> values. </p>
+<p><strong>Return</strong>: camera rotation values </p>
+<h3 id="function-getcameraright">function getCameraRight</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="n">getCameraRight</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves the camera right vector. </p>
+<p><strong>Return</strong>: the camera right vector </p>
+<h3 id="function-getcameraposition">function getCameraPosition</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="n">getCameraPosition</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves camera current position. </p>
+<p><strong>Return</strong>: camera position </p>
+<h3 id="function-getcamerafront">function getCameraFront</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="n">getCameraFront</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves the camera front vector. </p>
+<p><strong>Return</strong>: the camera front vector </p>
+<h3 id="function-getcameradirection">function getCameraDirection</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="n">getCameraDirection</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves the camera direction vector. </p>
+<p><strong>Return</strong>: the camera direction vector </p>
+<h3 id="function-camera_1">function Camera</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Camera</span><span class="p">()</span>
+</span></code></pre></div>
+<p><a href="/chess-engine/api/Classes/classogl_1_1Camera/">Camera</a> basic constructor. </p>
+<hr />
+<p>Updated on 2026-05-08 at 12:14:23 +0000</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
