@@ -576,6 +576,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-numcurrentpieces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function numCurrentPieces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-maxpieces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function maxPieces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-checkconcept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function checkConcept
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-addpiece" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -681,11 +714,23 @@
 </tr>
 <tr>
 <td><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/">Board</a> &amp;</td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/#function-operator=">operator=</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/">Board</a> &amp; ) =default</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/#function-operator=">operator=</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/">Board</a> &amp; ) =default</td>
 </tr>
 <tr>
-<td>template &lt;ext_piece T&gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/#function-addpiece">addPiece</a></strong>()</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">size_t</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/#function-numcurrentpieces">numCurrentPieces</a></strong>() const<br>Retrieves the current number of pieces on the board.</td>
+</tr>
+<tr>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">int</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/#function-maxpieces">maxPieces</a></strong>() const<br>Retrieves the maximum pieces that can be on the board.</td>
+</tr>
+<tr>
+<td>template &lt;ext_piece T&gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/#function-checkconcept">checkConcept</a></strong>()<br>testing custom template param</td>
+</tr>
+<tr>
+<td>template &lt;ext_piece T,typename... Args&gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/#function-addpiece">addPiece</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">Args</a> &amp;&amp;... args)<br>Add a Piece to the board.</td>
 </tr>
 <tr>
 <td></td>
@@ -693,7 +738,7 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/#function-board">Board</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/structchess_1_1board_1_1BoardSettings/">BoardSettings</a> &amp; settings)<br>Default constructor for each extended class.</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/#function-board">Board</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Classes/structchess_1_1board_1_1BoardSettings/">BoardSettings</a> &amp; settings)<br>Default constructor for each extended class.</td>
 </tr>
 <tr>
 <td></td>
@@ -701,7 +746,7 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/#function-board">Board</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/">Board</a> &amp; ) =default</td>
+<td><strong><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/#function-board">Board</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Classes/classchess_1_1board_1_1Board/">Board</a> &amp; ) =default</td>
 </tr>
 </tbody>
 </table>
@@ -724,17 +769,45 @@
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">constBoard</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </span></code></pre></div>
-<h3 id="function-addpiece">function addPiece</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">ext_piece</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">addPiece</span><span class="p">()</span>
+<h3 id="function-numcurrentpieces">function numCurrentPieces</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">numCurrentPieces</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </span></code></pre></div>
+<p>Retrieves the current number of pieces on the board. </p>
+<p><strong>Return</strong>: the number of pieces. </p>
+<h3 id="function-maxpieces">function maxPieces</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">unsignedint</span><span class="w"> </span><span class="n">maxPieces</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<p>Retrieves the maximum pieces that can be on the board. </p>
+<p><strong>Return</strong>: the maximum pieces. </p>
+<h3 id="function-checkconcept">function checkConcept</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">ext_piece</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">checkConcept</span><span class="p">()</span>
+</span></code></pre></div>
+<p>testing custom template param </p>
+<h3 id="function-addpiece">function addPiece</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">ext_piece</span><span class="w"> </span><span class="n">T</span><span class="p">,</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">addPiece</span><span class="p">(</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">Args</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Add a Piece to the board. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>args</strong> arguments list </li>
+</ul>
+<p><strong>Template Parameters</strong>: </p>
+<ul>
+<li><strong>T</strong> the type of Piece, it must extend Piece </li>
+<li><strong>Args</strong> list of arguments passed to T constructor </li>
+</ul>
 <h3 id="function-board_1">function Board</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Board</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">delete</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Board</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">delete</span>
 </span></code></pre></div>
 <h3 id="function-board_2">function Board</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Board</span><span class="p">(</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">constBoardSettings</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">settings</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">Board</span><span class="p">(</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">constBoardSettings</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">settings</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>Default constructor for each extended class. </p>
 <p><strong>Parameters</strong>: </p>
@@ -742,17 +815,17 @@
 <li><strong>settings</strong> the board settings </li>
 </ul>
 <h3 id="function-board_3">function Board</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Board</span><span class="p">(</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">Board</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">Board</span><span class="p">(</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">Board</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </span></code></pre></div>
 <h3 id="function-board_4">function Board</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Board</span><span class="p">(</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="n">constBoard</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">Board</span><span class="p">(</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="n">constBoard</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </span></code></pre></div>
 <hr />
-<p>Updated on 2026-05-08 at 15:02:46 +0000</p>
+<p>Updated on 2026-05-08 at 15:51:41 +0000</p>
 
 
 

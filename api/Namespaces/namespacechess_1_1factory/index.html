@@ -21,7 +21,7 @@
     
     
       
-        <title>MeshInfo - Chess Engine Doc</title>
+        <title>chess::factory - Chess Engine Doc</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#meshinfo" class="md-skip">
+        <a href="#chessfactory" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MeshInfo
+              chess::factory
             
           </span>
         </div>
@@ -502,86 +502,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#public-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Public Attributes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#public-attributes-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Public Attributes Documentation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Public Attributes Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#variable-vertex" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        variable vertex
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#variable-texcoords" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        variable texCoords
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#variable-normals" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        variable normals
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#variable-indices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        variable indices
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -600,53 +520,7 @@
   
 
 
-<h1 id="meshinfo">MeshInfo</h1>
-<p>Utility struct to temporally store mesh vectors. </p>
-<p><code>#include &lt;mesh_vertices.hpp&gt;</code></p>
-<h2 id="public-attributes">Public Attributes</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>std::vector&lt; glm::vec3 &gt;</td>
-<td><strong><a href="/chess-engine/api/Classes/structMeshInfo/#variable-vertex">vertex</a></strong> <br>mesh normalized position coords vertices</td>
-</tr>
-<tr>
-<td>std::vector&lt; glm::vec2 &gt;</td>
-<td><strong><a href="/chess-engine/api/Classes/structMeshInfo/#variable-texcoords">texCoords</a></strong> <br>mesh texture coords vertices</td>
-</tr>
-<tr>
-<td>std::vector&lt; glm::vec3 &gt;</td>
-<td><strong><a href="/chess-engine/api/Classes/structMeshInfo/#variable-normals">normals</a></strong> <br>mesh normal coords vertices</td>
-</tr>
-<tr>
-<td>std::vector&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">int</a> &gt;</td>
-<td><strong><a href="/chess-engine/api/Classes/structMeshInfo/#variable-indices">indices</a></strong> <br>mesh vertex coords indices</td>
-</tr>
-</tbody>
-</table>
-<h2 id="public-attributes-documentation">Public Attributes Documentation</h2>
-<h3 id="variable-vertex">variable vertex</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">vertex</span><span class="w"> </span><span class="p">{};</span>
-</span></code></pre></div>
-<p>mesh normalized position coords vertices </p>
-<h3 id="variable-texcoords">variable texCoords</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">vec2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">texCoords</span><span class="w"> </span><span class="p">{};</span>
-</span></code></pre></div>
-<p>mesh texture coords vertices </p>
-<h3 id="variable-normals">variable normals</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">normals</span><span class="w"> </span><span class="p">{};</span>
-</span></code></pre></div>
-<p>mesh normal coords vertices </p>
-<h3 id="variable-indices">variable indices</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="w"> </span><span class="n">unsignedint</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">indices</span><span class="w"> </span><span class="p">{};</span>
-</span></code></pre></div>
-<p>mesh vertex coords indices </p>
+<h1 id="chessfactory">chess::factory</h1>
 <hr />
 <p>Updated on 2026-05-08 at 15:51:41 +0000</p>
 

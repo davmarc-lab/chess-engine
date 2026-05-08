@@ -724,44 +724,44 @@
 </thead>
 <tbody>
 <tr>
-<td>template &lt;typenameT &gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">bool</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-removepanel">removePanel</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> &gt; &amp; panel)<br>Removes the given panel from the manager.</td>
+<td>template &lt;typenameT &gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">bool</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-removepanel">removePanel</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> &gt; &amp; panel)<br>Removes the given panel from the manager.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-onupdate">onUpdate</a></strong>() override<br>This method is called during game loop update. These operations are called at every main loop iteration.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-onrender">onRender</a></strong>() override<br>This method is called during game loop render. These operations are called at every main loop iteration.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-ondetach">onDetach</a></strong>() override<br>This method is called when the layer is detached. It should contain operations to reset the current layer.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-onattach">onAttach</a></strong>() override<br>This method is called when the layer is attached. It should contain all the initializations.</td>
 </tr>
 <tr>
 <td>std::vector&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> &gt; &gt;</td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-getpanels">getPanels</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">short</a> &amp; priority)<br>Retrieves all the panels of the manager with the given priority.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-getpanels">getPanels</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">short</a> &amp; priority)<br>Retrieves all the panels of the manager with the given priority.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-end">end</a></strong>() override<br>This method is called after game loop render. Tipically contains specific render calls (ImGui final render)</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-begin">begin</a></strong>() override<br>This method is called before game loop render. Tipically contains specific render calls (ImGui pre rendering)</td>
 </tr>
 <tr>
-<td>template &lt;typenameT ,typename... Args&gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">T</a> &gt;</td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-addpanel">addPanel</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">Args</a> &amp;&amp;... args)<br>Adds an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> to the manager. This method creates the panel and calls its constructor using the given params.</td>
+<td>template &lt;typenameT ,typename... Args&gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">T</a> &gt;</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-addpanel">addPanel</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">Args</a> &amp;&amp;... args)<br>Adds an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> to the manager. This method creates the panel and calls its constructor using the given params.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-addpanel">addPanel</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> &gt; &amp; panel)<br>Adds the given panel to the manager.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-addpanel">addPanel</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> &gt; &amp; panel)<br>Adds the given panel to the manager.</td>
 </tr>
 <tr>
 <td></td>
@@ -769,11 +769,11 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-imguimanager">ImGuiManager</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a> std::string &amp; layerName, <a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a> * window, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">ImGuiConfigFlags</a> &amp; flags =0)<br>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-imguimanager">ImGuiManager</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a> std::string &amp; layerName, <a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a> * window, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">ImGuiConfigFlags</a> &amp; flags =0)<br>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels.</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-imguimanager">ImGuiManager</a></strong>(<a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a> * window, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">ImGuiConfigFlags</a> &amp; flags)<br>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-imguimanager">ImGuiManager</a></strong>(<a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a> * window, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">ImGuiConfigFlags</a> &amp; flags)<br>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels.</td>
 </tr>
 </tbody>
 </table>
@@ -792,7 +792,7 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-~layer">~Layer</a></strong>() =default</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">bool</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">bool</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-isattached">isAttached</a></strong>() const<br>Retrieves the layer state.</td>
 </tr>
 <tr>
@@ -801,7 +801,7 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a> std::string &amp; name)<br>Instances a layer with the given name.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a> std::string &amp; name)<br>Instances a layer with the given name.</td>
 </tr>
 <tr>
 <td></td>
@@ -809,7 +809,7 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/classogl_1_1Layer/">Layer</a> &amp; other) =delete</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Classes/classogl_1_1Layer/">Layer</a> &amp; other) =delete</td>
 </tr>
 </tbody>
 </table>
@@ -827,7 +827,7 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#variable-m-name">m_name</a></strong> <br>layer name</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">bool</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">bool</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#variable-m-attached">m_attached</a></strong> <br>layer attached state</td>
 </tr>
 </tbody>
@@ -944,7 +944,7 @@
 <li><strong>flags</strong> ImGui config flags </li>
 </ul>
 <hr />
-<p>Updated on 2026-05-08 at 15:02:46 +0000</p>
+<p>Updated on 2026-05-08 at 15:51:41 +0000</p>
 
 
 

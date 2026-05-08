@@ -737,11 +737,11 @@
 </thead>
 <tbody>
 <tr>
-<td>template &lt;typenameT &gt; <br>using <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">std::unique_ptr</a>&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">T</a> &gt;</td>
+<td>template &lt;typenameT &gt; <br>using <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">std::unique_ptr</a>&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">T</a> &gt;</td>
 <td><strong><a href="/chess-engine/api/Files/Graphics_2include_2graphics_2core_2utils_8hpp/#using-unique">Unique</a></strong></td>
 </tr>
 <tr>
-<td>template &lt;typenameT &gt; <br>using <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">std::shared_ptr</a>&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">T</a> &gt;</td>
+<td>template &lt;typenameT &gt; <br>using <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">std::shared_ptr</a>&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">T</a> &gt;</td>
 <td><strong><a href="/chess-engine/api/Files/Graphics_2include_2graphics_2core_2utils_8hpp/#using-shared">Shared</a></strong></td>
 </tr>
 </tbody>
@@ -756,12 +756,12 @@
 </thead>
 <tbody>
 <tr>
-<td>template &lt;typenameT ,typename... Args&gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">constexpr</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-unique">Unique</a>&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">T</a> &gt;</td>
-<td><strong><a href="/chess-engine/api/Files/Graphics_2include_2graphics_2core_2utils_8hpp/#function-createunique">CreateUnique</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">Args</a> &amp;&amp;... args)</td>
+<td>template &lt;typenameT ,typename... Args&gt; <br>constexpr <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-unique">Unique</a>&lt; T &gt;</td>
+<td><strong><a href="/chess-engine/api/Files/Graphics_2include_2graphics_2core_2utils_8hpp/#function-createunique">CreateUnique</a></strong>(Args &amp;&amp;... args)</td>
 </tr>
 <tr>
-<td>template &lt;typenameT ,typename... Args&gt; <br>constexpr <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; T &gt;</td>
-<td><strong><a href="/chess-engine/api/Files/Graphics_2include_2graphics_2core_2utils_8hpp/#function-createshared">CreateShared</a></strong>(Args &amp;&amp;... args)</td>
+<td>template &lt;typenameT ,typename... Args&gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">constexpr</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">T</a> &gt;</td>
+<td><strong><a href="/chess-engine/api/Files/Graphics_2include_2graphics_2core_2utils_8hpp/#function-createshared">CreateShared</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">Args</a> &amp;&amp;... args)</td>
 </tr>
 </tbody>
 </table>
@@ -801,14 +801,14 @@
 <h3 id="function-createunique">function CreateUnique</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">typenameT</span><span class="w"> </span><span class="p">,</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">constexprUnique</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateUnique</span><span class="p">(</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">Unique</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateUnique</span><span class="p">(</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">Args</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="function-createshared">function CreateShared</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">typenameT</span><span class="w"> </span><span class="p">,</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">Shared</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateShared</span><span class="p">(</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">constexprShared</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateShared</span><span class="p">(</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">Args</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span>
 </span></code></pre></div>
@@ -871,7 +871,7 @@
 </span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="cp">#define CLASSNAME(elem) typeid(elem).name()</span>
 </span></code></pre></div>
 <hr />
-<p>Updated on 2026-05-08 at 15:02:46 +0000</p>
+<p>Updated on 2026-05-08 at 15:51:41 +0000</p>
 
 
 
