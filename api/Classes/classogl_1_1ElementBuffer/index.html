@@ -646,7 +646,7 @@
 
 <h1 id="oglelementbuffer">ogl::ElementBuffer</h1>
 <p>This class provides methods to manage an OpenGL element buffer object. </p>
-<p><code>#include &lt;ElementBuffer.hpp&gt;</code></p>
+<p><code>#include &lt;element_buffer.hpp&gt;</code></p>
 <p>Inherits from <a href="/chess-engine/api/Classes/classogl_1_1Buffer/">ogl::Buffer</a></p>
 <h2 id="public-functions">Public Functions</h2>
 <table>
@@ -662,23 +662,23 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ElementBuffer/#function-~elementbuffer">~ElementBuffer</a></strong>() override</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ElementBuffer/#function-unbind">unbind</a></strong>() const override<br>Unbinds the buffer.</td>
 </tr>
 <tr>
-<td>template &lt;typenameT &gt; <br><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ElementBuffer/#function-setup">setup</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">T</a> * indices, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">size_t</a> &amp; size, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; usage) const<br>Setup the element buffer with the given data.</td>
+<td>template &lt;typenameT &gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ElementBuffer/#function-setup">setup</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">T</a> * indices, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">size_t</a> &amp; size, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; usage) const<br>Setup the element buffer with the given data.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ElementBuffer/#function-ondetach">onDetach</a></strong>() override<br>Destroys the buffer and reset its id.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ElementBuffer/#function-onattach">onAttach</a></strong>() override<br>Creates the buffer and sets its id.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ElementBuffer/#function-bind">bind</a></strong>() const override<br>Binds the buffer with the current id.</td>
 </tr>
 <tr>
@@ -702,7 +702,7 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Buffer/#function-~buffer">~Buffer</a></strong>() =default</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Buffer/#function-getid">getId</a></strong>() const<br>Retrieves the buffer id.</td>
 </tr>
 <tr>
@@ -721,7 +721,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Buffer/#variable-m-id">m_id</a></strong> <br>buffer id</td>
 </tr>
 </tbody>
@@ -773,7 +773,7 @@
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">ElementBuffer</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </span></code></pre></div>
 <hr />
-<p>Updated on 2026-05-08 at 12:14:23 +0000</p>
+<p>Updated on 2026-05-08 at 13:11:51 +0000</p>
 
 
 

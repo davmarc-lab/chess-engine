@@ -855,7 +855,7 @@
 
 <h1 id="oglwindow">ogl::Window</h1>
 <p>This class provides methods to create and manage GLFW windows. It inherit <a href="">Layer</a> class. </p>
-<p><code>#include &lt;Window.hpp&gt;</code></p>
+<p><code>#include &lt;window.hpp&gt;</code></p>
 <p>Inherits from <a href="/chess-engine/api/Classes/classogl_1_1Layer/">ogl::Layer</a></p>
 <h2 id="public-functions">Public Functions</h2>
 <table>
@@ -871,100 +871,100 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-~window">~Window</a></strong>() =default</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-togglevsync">toggleVsync</a></strong>()<br>Toggle the vsync of the window.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-setwidth">setWidth</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; val)<br>Sets the window width.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-setwidth">setWidth</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">float</a> &amp; val)<br>Sets the window width.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-setresizecallback">setResizeCallback</a></strong>(std::function&lt; <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">GLFWwindow</a> *, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a>, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a>)&gt; &amp;&amp; func)<br>Sets the resize callback of the window.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-setresizecallback">setResizeCallback</a></strong>(std::function&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">GLFWwindow</a> *, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a>, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a>)&gt; &amp;&amp; func)<br>Sets the resize callback of the window.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-setmousebuttoncallback">setMouseButtonCallback</a></strong>(std::function&lt; <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">GLFWwindow</a> *, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a>, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a>, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a>)&gt; &amp;&amp; func)<br>Sets the mouse button callback of the window.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-setmousebuttoncallback">setMouseButtonCallback</a></strong>(std::function&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">GLFWwindow</a> *, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a>, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a>, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a>)&gt; &amp;&amp; func)<br>Sets the mouse button callback of the window.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-setkeyscallback">setKeysCallback</a></strong>(std::function&lt; <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">GLFWwindow</a> *, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a>, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a>, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a>, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a>)&gt; &amp;&amp; func)<br>Sets the keyboard callback of the window.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-setkeyscallback">setKeysCallback</a></strong>(std::function&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">GLFWwindow</a> *, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a>, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a>, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a>, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a>)&gt; &amp;&amp; func)<br>Sets the keyboard callback of the window.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-setheight">setHeight</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &amp; val)<br>Sets the window height.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-setheight">setHeight</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">float</a> &amp; val)<br>Sets the window height.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-setcursorposcallback">setCursorPosCallback</a></strong>(std::function&lt; <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">GLFWwindow</a> *, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">double</a>, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">double</a>)&gt; &amp;&amp; func)<br>Sets the cursor position callback of the window.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-setcursorposcallback">setCursorPosCallback</a></strong>(std::function&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">GLFWwindow</a> *, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">double</a>, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">double</a>)&gt; &amp;&amp; func)<br>Sets the cursor position callback of the window.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-onupdate">onUpdate</a></strong>() override<br>This method is called during game loop update. These operations are called at every main loop iteration.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-onrender">onRender</a></strong>() override<br>This method is called during game loop render. These operations are called at every main loop iteration.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-ondetach">onDetach</a></strong>() override<br>This method is called when the layer is detached. It should contain operations to reset the current layer.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-onattach">onAttach</a></strong>() override<br>This method is called when the layer is attached. It should contain all the initializations.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">bool</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">bool</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-isvsyncenabled">isVsyncEnabled</a></strong>() const<br>Returns true if the vsync is enabled.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">float</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-getwidth">getWidth</a></strong>() const<br>Retrieves the window width.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Classes/structPair/">Pair</a>&lt; <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a> &gt;</td>
+<td><a href="/chess-engine/api/Classes/structPair/">Pair</a>&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">float</a> &gt;</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-getsize">getSize</a></strong>() const<br>Retrieves the window size.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">float</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-getheight">getHeight</a></strong>() const<br>Retrieves the window height.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">GLFWwindow</a> *</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">GLFWwindow</a> *</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-getcontext">getContext</a></strong>() const<br>Retrieves the GFLWWindow context for the current window.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-execresizecallback">execResizeCallback</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">GLFWwindow</a> * context, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; width, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; height)<br>Executes the resize callback.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-execresizecallback">execResizeCallback</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">GLFWwindow</a> * context, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; width, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; height)<br>Executes the resize callback.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-execmousebuttoncallback">execMouseButtonCallback</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">GLFWwindow</a> * context, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; button, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; action, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; mods)<br>Executes the mouse button callback.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-execmousebuttoncallback">execMouseButtonCallback</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">GLFWwindow</a> * context, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; button, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; action, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; mods)<br>Executes the mouse button callback.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-execkeyscallback">execKeysCallback</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">GLFWwindow</a> * context, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; key, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; code, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; action, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; mods)<br>Executes the keyboard callback.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-execkeyscallback">execKeysCallback</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">GLFWwindow</a> * context, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; key, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; code, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; action, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; mods)<br>Executes the keyboard callback.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-execcursorposcallback">execCursorPosCallback</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">GLFWwindow</a> * context, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">double</a> &amp; xpos, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">double</a> &amp; ypos)<br>Executes the cursor position callback of the window.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-execcursorposcallback">execCursorPosCallback</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">GLFWwindow</a> * context, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">double</a> &amp; xpos, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">double</a> &amp; ypos)<br>Executes the cursor position callback of the window.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-end">end</a></strong>() override<br>This method is called after game loop render. Tipically contains specific render calls (ImGui final render)</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-begin">begin</a></strong>() override<br>This method is called before game loop render. Tipically contains specific render calls (ImGui pre rendering)</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-addclearmask">addClearMask</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; val)<br>Add the given value to the clear mask.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-addclearmask">addClearMask</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; val)<br>Add the given value to the clear mask.</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-window">Window</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/structogl_1_1WindowSettings/">WindowSettings</a> &amp; settings)<br>basic constructor</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Window/#function-window">Window</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/structogl_1_1WindowSettings/">WindowSettings</a> &amp; settings)<br>basic constructor</td>
 </tr>
 <tr>
 <td></td>
@@ -987,7 +987,7 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-~layer">~Layer</a></strong>() =default</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">bool</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">bool</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-isattached">isAttached</a></strong>() const<br>Retrieves the layer state.</td>
 </tr>
 <tr>
@@ -996,7 +996,7 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a> std::string &amp; name)<br>Instances a layer with the given name.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a> std::string &amp; name)<br>Instances a layer with the given name.</td>
 </tr>
 <tr>
 <td></td>
@@ -1004,7 +1004,7 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/classogl_1_1Layer/">Layer</a> &amp; other) =delete</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/classogl_1_1Layer/">Layer</a> &amp; other) =delete</td>
 </tr>
 </tbody>
 </table>
@@ -1022,7 +1022,7 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#variable-m-name">m_name</a></strong> <br>layer name</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">bool</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">bool</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#variable-m-attached">m_attached</a></strong> <br>layer attached state</td>
 </tr>
 </tbody>
@@ -1232,7 +1232,7 @@
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">Window</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">delete</span>
 </span></code></pre></div>
 <hr />
-<p>Updated on 2026-05-08 at 12:14:23 +0000</p>
+<p>Updated on 2026-05-08 at 13:11:51 +0000</p>
 
 
 

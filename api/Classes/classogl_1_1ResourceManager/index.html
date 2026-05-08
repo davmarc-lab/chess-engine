@@ -668,7 +668,7 @@
 
 <h1 id="oglresourcemanager">ogl::ResourceManager</h1>
 <p>This singleton class manages and stores all resources for easy access.  <a href="#detailed-description">More...</a></p>
-<p><code>#include &lt;Resource.hpp&gt;</code></p>
+<p><code>#include &lt;resource.hpp&gt;</code></p>
 <h2 id="public-functions">Public Functions</h2>
 <table>
 <thead>
@@ -679,36 +679,36 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">bool</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-removeresource">removeResource</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; id)<br>Removes and unloads the resource with the given id.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">bool</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-removeresource">removeResource</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; id)<br>Removes and unloads the resource with the given id.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-operator=">operator=</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/">ResourceManager</a> &amp; other) =delete</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-operator=">operator=</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/">ResourceManager</a> &amp; other) =delete</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/">ResourceManager</a> &gt;</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/">ResourceManager</a> &gt;</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-instance">instance</a></strong>()<br>Retrieves the instance of the ResourceManger. If it's not instanced, it will be instanced automatically.</td>
 </tr>
 <tr>
 <td><a href="/chess-engine/api/Classes/classogl_1_1Resource/">Resource</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-getresource">getResource</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; id) const<br>Retrieve the resource with the given id.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-getresource">getResource</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; id) const<br>Retrieve the resource with the given id.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-getcurrentid">getCurrentId</a></strong>() const<br>Retrieves the current id used to store resources.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-clear">clear</a></strong>()<br>Clears the manager from all resources.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-addresource">addResource</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a> std::string &amp; location, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a> std::string &amp; file)<br>Adds a resource to the manager.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-addresource">addResource</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a> std::string &amp; location, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a> std::string &amp; file)<br>Adds a resource to the manager.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-addresource">addResource</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a> std::string &amp; file)<br>Adds a resource located in the default location to the manager.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ResourceManager/#function-addresource">addResource</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a> std::string &amp; file)<br>Adds a resource located in the default location to the manager.</td>
 </tr>
 <tr>
 <td></td>
@@ -791,7 +791,7 @@
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">delete</span>
 </span></code></pre></div>
 <hr />
-<p>Updated on 2026-05-08 at 12:14:23 +0000</p>
+<p>Updated on 2026-05-08 at 13:11:51 +0000</p>
 
 
 

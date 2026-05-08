@@ -745,7 +745,7 @@
 
 <h1 id="oglframebuffer">ogl::FrameBuffer</h1>
 <p>This class provides methods to manage an OpenGL frame buffer object. </p>
-<p><code>#include &lt;FrameBuffer.hpp&gt;</code></p>
+<p><code>#include &lt;frame_buffer.hpp&gt;</code></p>
 <p>Inherits from <a href="/chess-engine/api/Classes/classogl_1_1Buffer/">ogl::Buffer</a></p>
 <h2 id="public-functions">Public Functions</h2>
 <table>
@@ -761,55 +761,55 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-~framebuffer">~FrameBuffer</a></strong>() override</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-unbind">unbind</a></strong>() const override<br>Unbinds the buffer.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-setrenderbuffer">setRenderBuffer</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/structRBConfig/">RBConfig</a> &amp; config)<br>Sets the current render buffer with the given config.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-setrenderbuffer">setRenderBuffer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/structRBConfig/">RBConfig</a> &amp; config)<br>Sets the current render buffer with the given config.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-setrenderbuffer">setRenderBuffer</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/classogl_1_1RenderBuffer/">RenderBuffer</a> &amp; buffer)<br>Sets the current render buffer.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-setrenderbuffer">setRenderBuffer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/classogl_1_1RenderBuffer/">RenderBuffer</a> &amp; buffer)<br>Sets the current render buffer.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-setcolortexture">setColorTexture</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/classogl_1_1Texture/">Texture</a> &amp; texture)<br>Sets the current <a href="/chess-engine/api/Classes/classogl_1_1RenderBuffer/">RenderBuffer</a><a href="/chess-engine/api/Classes/classogl_1_1Texture/">Texture</a>.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-setcolortexture">setColorTexture</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/classogl_1_1Texture/">Texture</a> &amp; texture)<br>Sets the current <a href="/chess-engine/api/Classes/classogl_1_1RenderBuffer/">RenderBuffer</a><a href="/chess-engine/api/Classes/classogl_1_1Texture/">Texture</a>.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-rescaleframebuffer">rescaleFrameBuffer</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; width, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; height)<br>Resize the frame buffer with the given size.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-rescaleframebuffer">rescaleFrameBuffer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; width, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; height)<br>Resize the frame buffer with the given size.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-ondetach">onDetach</a></strong>() override<br>Destroys the buffer and reset its id.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-onattach">onAttach</a></strong>() override<br>Creates the buffer and sets its id.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">float</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-getwidth">getWidth</a></strong>() const<br>Retrieves the frame buffer width.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-getrenderbufferid">getRenderBufferId</a></strong>() const<br>Retrieves render buffer id.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">float</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">float</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-getheight">getHeight</a></strong>() const<br>Retrieves the frame buffer height.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-getcolortexture">getColorTexture</a></strong>() const<br>Retrieves the color texture id attached to the <a href="/chess-engine/api/Classes/classogl_1_1RenderBuffer/">RenderBuffer</a>.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">bool</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">bool</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-createframebuffer">createFrameBuffer</a></strong>()<br>Creates the frame buffer using his config.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-bind">bind</a></strong>() const override<br>Binds the buffer with the current id.</td>
 </tr>
 <tr>
@@ -818,7 +818,7 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-framebuffer">FrameBuffer</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/structFBConfig/">FBConfig</a> &amp; config)<br>Instances a frame buffer with the given settings.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1FrameBuffer/#function-framebuffer">FrameBuffer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Classes/structFBConfig/">FBConfig</a> &amp; config)<br>Instances a frame buffer with the given settings.</td>
 </tr>
 </tbody>
 </table>
@@ -837,7 +837,7 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Buffer/#function-~buffer">~Buffer</a></strong>() =default</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Buffer/#function-getid">getId</a></strong>() const<br>Retrieves the buffer id.</td>
 </tr>
 <tr>
@@ -856,7 +856,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Buffer/#variable-m-id">m_id</a></strong> <br>buffer id</td>
 </tr>
 </tbody>
@@ -963,7 +963,7 @@
 <li><strong>config</strong> frame buffer configs </li>
 </ul>
 <hr />
-<p>Updated on 2026-05-08 at 12:14:23 +0000</p>
+<p>Updated on 2026-05-08 at 13:11:51 +0000</p>
 
 
 

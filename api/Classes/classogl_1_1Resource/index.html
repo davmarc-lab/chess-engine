@@ -694,7 +694,7 @@ summary: This class provides method to manage a resource: a resource is a generi
 <hr />
 <h1 id="oglresource">ogl::Resource</h1>
 <p>This class provides method to manage a resource: a resource is a generic file stored in a precise location. By using <a href="">Resource</a> is simpler to manage the file path. </p>
-<p><code>#include &lt;Resource.hpp&gt;</code></p>
+<p><code>#include &lt;resource.hpp&gt;</code></p>
 <h2 id="public-functions">Public Functions</h2>
 <table>
 <thead>
@@ -709,19 +709,19 @@ summary: This class provides method to manage a resource: a resource is a generi
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-~resource">~Resource</a></strong>() =default</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-unloadresource">unloadResource</a></strong>()<br>Remove the resource from memory.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-setresourceid">setResourceId</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a> &amp; id)<br>Sets the resource id.</td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-setresourceid">setResourceId</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a> &amp; id)<br>Sets the resource id.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">void</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">void</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-loadresource">loadResource</a></strong>()<br>Loads the resource in memory.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">bool</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">bool</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-isresourceloaded">isResourceLoaded</a></strong>() const<br>Retrieves the state of the resource.</td>
 </tr>
 <tr>
@@ -733,7 +733,7 @@ summary: This class provides method to manage a resource: a resource is a generi
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-getresourcelocation">getResourceLocation</a></strong>() const<br>Retrieves the resource location.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">int</a></td>
+<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">int</a></td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-getresourceid">getResourceId</a></strong>() const<br>Retrieves the resource id.</td>
 </tr>
 <tr>
@@ -746,11 +746,11 @@ summary: This class provides method to manage a resource: a resource is a generi
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-resource">Resource</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a> std::string &amp; location, <a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a> std::string &amp; file)<br>Instances a resource at the given file name and location.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-resource">Resource</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a> std::string &amp; location, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a> std::string &amp; file)<br>Instances a resource at the given file name and location.</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-resource">Resource</a></strong>(<a href="/chess-engine/api/Files/utils_8hpp/#function-createshared">const</a> std::string &amp; file)<br>Instances a resource with the given file name inside the default location.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-resource">Resource</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createshared">const</a> std::string &amp; file)<br>Instances a resource with the given file name inside the default location.</td>
 </tr>
 </tbody>
 </table>
@@ -828,7 +828,7 @@ summary: This class provides method to manage a resource: a resource is a generi
 </ul>
 <p><strong>See</strong>: <a href="/chess-engine/api/Namespaces/namespaceogl_1_1res/#variable-default-location">ogl::res::DEFAULT_LOCATION</a></p>
 <hr />
-<p>Updated on 2026-05-08 at 12:14:23 +0000</p>
+<p>Updated on 2026-05-08 at 13:11:51 +0000</p>
 
 
 
