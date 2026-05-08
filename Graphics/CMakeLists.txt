@@ -64,7 +64,7 @@ set(FT_DISABLE_PNG   ON  CACHE BOOL "" FORCE)
 set(FT_DISABLE_HARFBUZZ ON CACHE BOOL "" FORCE)
 set(FT_DISABLE_BROTLI ON CACHE BOOL "" FORCE)
 
-FetchContent_MakeAvailable(glfw freetype)
+FetchContent_MakeAvailable(freetype)
 
 # --- Fetch glad2 ---
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
@@ -103,12 +103,15 @@ add_library(glad_lib STATIC ${GLAD_SOURCES})
 target_include_directories(glad_lib PUBLIC ${GLAD_INCLUDE_DIR})
 
 # --- 4. Executable & Linking ---
-add_library(${PROJECT_NAME} STATIC ${GRAPHICS_SOURCES})
+add_library(${PROJECT_NAME} STATIC 
+    ${GRAPHICS_SOURCES}
+    $<TARGET_OBJECTS:glad_lib>
+)
 
 # Prevent GLFW from including system OpenGL headers
 target_compile_definitions(${PROJECT_NAME} PRIVATE GLFW_INCLUDE_NONE)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE 
+target_link_libraries(${PROJECT_NAME} PUBLIC 
     ${GLFW_LIB_TARGET}
     glm::glm
     freetype
