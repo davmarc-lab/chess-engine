@@ -9,6 +9,9 @@
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MAXINC(a, b) ((a) >= (b) ? (a) : (b))
 
+// Class name
+#define CLASSNAME(elem) typeid(elem).name()
+
 /* ==================== TYPES ==================== */
 using u8 = unsigned char;
 using u16 = unsigned short;

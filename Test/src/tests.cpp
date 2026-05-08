@@ -4,10 +4,15 @@
 #include "engine/board/board.hpp"
 #include "engine/health.hpp"
 #include "engine/location.hpp"
+
+#include "engine/piece/bishop.hpp"
 #include "engine/piece/king.hpp"
 #include "engine/piece/knight.hpp"
 #include "engine/piece/pawn.hpp"
+#include "engine/piece/piece.hpp"
 #include "engine/piece/queen.hpp"
+#include "engine/piece/rook.hpp"
+
 #include "engine/utils.hpp"
 
 void testHealth() {
@@ -59,9 +64,48 @@ void testPieces() {
 
 void testBoard() {
 	chess::board::BoardSettings settings = {};
+	chess::Location l1 = chess::Location('a', 0);
+
 	{
 		chess::board::Board b1 = chess::board::Board(settings);
-		std::cout << b1.toString() << "\n";
+
+		std::cout << b1.toString() << "\n\n";
+		std::cout << "Max Pieces: " << b1.maxPieces() << "\n\n";
+		std::cout << "Verifying template classes...\n";
+
+		b1.addPiece<chess::piece::Piece>(l1, 1);
+		std::cout << "\tcurrent -> " << b1.numCurrentPieces() << "\n";
+		b1.addPiece<chess::piece::King>(l1);
+		std::cout << "\tcurrent -> " << b1.numCurrentPieces() << "\n";
+		b1.addPiece<chess::piece::Queen>(l1);
+		std::cout << "\tcurrent -> " << b1.numCurrentPieces() << "\n";
+		b1.addPiece<chess::piece::Bishop>(l1);
+		std::cout << "\tcurrent -> " << b1.numCurrentPieces() << "\n";
+		b1.addPiece<chess::piece::Knight>(l1);
+		std::cout << "\tcurrent -> " << b1.numCurrentPieces() << "\n";
+		b1.addPiece<chess::piece::Rook>(l1);
+		std::cout << "\tcurrent -> " << b1.numCurrentPieces() << "\n";
+		b1.addPiece<chess::piece::Pawn>(l1);
+	}
+
+	settings.sides = 1;
+	settings.pieces = 3;
+	std::cout << "\nUpdated settings, recreating board...\n";
+	{
+		chess::board::Board b1 = chess::board::Board(settings);
+
+		std::cout << b1.toString() << "\n\n";
+		std::cout << "Max Pieces: " << b1.maxPieces() << "\n\n";
+		std::cout << "Verifying template classes...\n";
+
+		b1.addPiece<chess::piece::Piece>(l1, 1);
+		std::cout << "\tcurrent -> " << b1.numCurrentPieces() << "\n";
+		b1.addPiece<chess::piece::King>(l1);
+		std::cout << "\tcurrent -> " << b1.numCurrentPieces() << "\n";
+		b1.addPiece<chess::piece::Queen>(l1);
+		std::cout << "\tcurrent -> " << b1.numCurrentPieces() << "\n";
+		b1.addPiece<chess::piece::Bishop>(l1);
+		std::cout << "\tcurrent -> " << b1.numCurrentPieces() << "\n";
 	}
 }
 

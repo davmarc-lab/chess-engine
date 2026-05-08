@@ -1,8 +1,22 @@
 #include "engine/board/board.hpp"
+
 #include <cstddef>
 
 namespace chess {
 	namespace board {
+
+		unsigned int Board::maxPieces() const {
+			return this->m_settings.pieces * this->m_settings.sides;
+		}
+
+		size_t Board::numCurrentPieces() const {
+			return this->m_pieces.size();
+		}
+
+		Board::Board(const BoardSettings &settings) :
+			m_settings(settings) {
+			this->m_pieces.reserve(this->maxPieces());
+		}
 
 		std::string res = "";
 		std::string BoardSettings::toString() {
@@ -17,11 +31,6 @@ namespace chess {
 				"sizes: (" + this->size.toString() + ")\n" +
 				"pieces: " + std::to_string(this->pieces) + "\n" +
 				"colors: [\n" + res + "]";
-		}
-
-		Board::Board(const BoardSettings &settings) :
-			m_settings(settings) {
-			this->m_pieces.reserve(settings.pieces * settings.sides);
 		}
 
 		std::string Board::toString() {

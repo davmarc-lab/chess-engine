@@ -5,7 +5,9 @@
 #include "engine/utils.hpp"
 
 #include <concepts>
+#include <iostream>
 #include <string>
+#include <utility>
 #include <vector>
 
 using namespace chess::piece;
@@ -51,8 +53,41 @@ namespace chess {
 			 */
 			Board(const BoardSettings &settings);
 
+			/**
+			 * @brief Retrieves the maximum pieces that can be on the board.
+			 *
+			 * @return the maximum pieces.
+			 */
+			unsigned int maxPieces() const;
+
+			/**
+			 * @brief Retrieves the current number of pieces on the board.
+			 *
+			 * @return the number of pieces.
+			 */
+			size_t numCurrentPieces() const;
+
+			/// testing custom template param
 			template <ext_piece T>
-			void addPiece();
+			inline void checkConcept() {
+				// TODO - find a way to retrieve bool if T extends Piece
+				std::cout << std::string(CLASSNAME(T)) + " - OK!\n";
+			}
+
+			/**
+			 * @brief Add a Piece to the board.
+			 *
+			 * @tparam T the type of Piece, it must extend Piece
+			 * @tparam Args list of arguments passed to T constructor
+			 * @param args arguments list
+			 */
+			template <ext_piece T, typename... Args>
+			inline void addPiece(Args &&...args) {
+				if (this->m_pieces.size() < this->maxPieces()) {
+					auto piece = CreateUnique<T>(std::forward<Args>(args)...);
+					this->m_pieces.push_back(std::move(piece));
+				}
+			}
 
 			/**
 			 * @brief Standard debug string with all object values.
