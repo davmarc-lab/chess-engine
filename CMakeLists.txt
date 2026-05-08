@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required(VERSION 3.14)
 
 project(chess-engine)
 
@@ -26,7 +26,7 @@ add_subdirectory(Graphics)
 find_package(Doxygen)
 
 if (DOXYGEN_FOUND)
-    add_custom_target(docs
+    add_custom_target(doc
         COMMAND ${CMAKE_COMMAND} -E rm -rf ${CMAKE_CURRENT_SOURCE_DIR}/docs_md/api
         COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/docs_md/api
 

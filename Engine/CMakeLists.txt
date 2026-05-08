@@ -2,7 +2,7 @@ project(engine LANGUAGES CXX)
 
 file(GLOB_RECURSE ENGINE_SOURCES "src/*.cpp")
 
-add_library(engine SHARED ${ENGINE_SOURCES})
+add_library(engine STATIC ${ENGINE_SOURCES})
 
 # Public headers are in 'include', private ones in 'src'
 target_include_directories(engine 

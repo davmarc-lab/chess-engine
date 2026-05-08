@@ -1,3 +1,5 @@
+vendor
+
 # nix
 .direnv
 
@@ -12,3 +14,6 @@ build
 # docs
 docs_md
 site
+
+# testing actions
+act

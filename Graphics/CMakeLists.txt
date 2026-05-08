@@ -1,8 +1,10 @@
-cmake_minimum_required(VERSION 3.23)
 project(graphics LANGUAGES CXX)
+set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+file(GLOB_RECURSE GRAPHICS_SOURCES "src/*.cpp")
 
 include(FetchContent)
 
@@ -36,11 +38,7 @@ set(GLFW_BUILD_WAYLAND ON CACHE BOOL "" FORCE)
 find_package(glfw3 QUIET)
 if(NOT glfw3_FOUND)
     message(STATUS "Fetching glfw from source...")
-    FetchContent_Declare(
-        glfw
-        GIT_REPOSITORY https://github.com/glfw/glfw.git
-        GIT_TAG 3.4
-    )
+    find_or_fetch_dependency(glfw https://github.com/glfw/glfw.git 3.4) 
     set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
     set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
     set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
@@ -56,6 +54,17 @@ endif()
 
 # --- Check/Fetch GLM ---
 find_or_fetch_dependency(glm https://github.com/g-truc/glm.git 1.0.3)
+
+# --- Freetype2 ---
+find_or_fetch_dependency(freetype https://github.com/freetype/freetype.git VER-2-13-2)
+
+set(FT_DISABLE_ZLIB  ON  CACHE BOOL "" FORCE)
+set(FT_DISABLE_BZIP2 ON  CACHE BOOL "" FORCE)
+set(FT_DISABLE_PNG   ON  CACHE BOOL "" FORCE)
+set(FT_DISABLE_HARFBUZZ ON CACHE BOOL "" FORCE)
+set(FT_DISABLE_BROTLI ON CACHE BOOL "" FORCE)
+
+FetchContent_MakeAvailable(glfw freetype)
 
 # --- Fetch glad2 ---
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
@@ -84,7 +93,7 @@ add_custom_command(
     COMMAND ${VENV_PYTHON} -m glad 
         --out-path "${GLAD_GEN_DIR}" 
         --api "gl:core=4.6" 
-        --extensions "GL_KHR_debug,GL_EXT_debug_label,GL_ARB_shading_language_include"
+        --extensions "GL_KHR_debug,GL_KHR_parallel_shader_compile,GL_EXT_debug_label,GL_ARB_direct_state_access,GL_ARB_shading_language_include"
         c 
     COMMENT "Generating GLAD 2 loader (OpenGL 4.6 Core)..."
 )
@@ -94,7 +103,7 @@ add_library(glad_lib STATIC ${GLAD_SOURCES})
 target_include_directories(glad_lib PUBLIC ${GLAD_INCLUDE_DIR})
 
 # --- 4. Executable & Linking ---
-add_executable(${PROJECT_NAME} main.cpp)
+add_library(${PROJECT_NAME} STATIC ${GRAPHICS_SOURCES})
 
 # Prevent GLFW from including system OpenGL headers
 target_compile_definitions(${PROJECT_NAME} PRIVATE GLFW_INCLUDE_NONE)
@@ -102,6 +111,7 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE GLFW_INCLUDE_NONE)
 target_link_libraries(${PROJECT_NAME} PRIVATE 
     ${GLFW_LIB_TARGET}
     glm::glm
+    freetype
     glad_lib
     ${CMAKE_DL_LIBS}
 )
@@ -110,3 +120,11 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 if(APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE "-framework OpenGL" "-framework Cocoa" "-framework IOKit")
 endif()
+target_include_directories(${PROJECT_NAME} 
+    PUBLIC 
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+    PRIVATE 
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
