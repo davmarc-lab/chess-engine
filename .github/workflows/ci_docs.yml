@@ -35,8 +35,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y doxygen ninja-build \ 
-            libx11-dev libxcursor-dev libxinerama-dev libxrandr-dev libxi-dev \
-            libwayland-dev wayland-protocols libxkbcommon-dev libdecor-0-dev
+            libx11-dev libxcursor-dev libxinerama-dev libxrandr-dev libxi-dev
           pip install -r docs/requirements.txt
 
       - name: Install Doxybook2
