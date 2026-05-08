@@ -1,6 +1,7 @@
 // Testing
 #include <iostream>
 
+#include "engine/board/board.hpp"
 #include "engine/health.hpp"
 #include "engine/location.hpp"
 #include "engine/piece/king.hpp"
@@ -56,6 +57,14 @@ void testPieces() {
 	}
 }
 
+void testBoard() {
+	chess::board::BoardSettings settings = {};
+	{
+		chess::board::Board b1 = chess::board::Board(settings);
+		std::cout << b1.toString() << "\n";
+	}
+}
+
 int main(int argc, char *argv[]) {
 	std::cout << "--- START ---\n\n";
 
@@ -69,6 +78,10 @@ int main(int argc, char *argv[]) {
 
 	std::cout << "[ ] Piece\n";
 	testPieces();
+	std::cout << "\n";
+
+	std::cout << "[ ] Board\n";
+	testBoard();
 	std::cout << "\n";
 
 	std::cout << "--- END ---\n";

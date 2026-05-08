@@ -38,6 +38,7 @@ namespace chess {
 		Location(const Location &) = default;
 		Location &operator=(Location &&) = default;
 		Location &operator=(const Location &) = default;
+
 		~Location() = default;
 
 	private:

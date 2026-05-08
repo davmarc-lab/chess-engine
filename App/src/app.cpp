@@ -3,8 +3,6 @@
 
 using namespace ogl;
 
-#define BIG
-
 const auto ed = EventManager::instance();
 
 int main(int argc, char *argv[]) {
@@ -13,7 +11,7 @@ int main(int argc, char *argv[]) {
 	s.decorated = false;
 	s.vsync = true;
 	s.size = {600, 600};
-	s.bgColor = {0};
+	s.bgColor = {.4f, .4f, .4f, 1.f};
 	Window w{s};
 	w.onAttach();
 
@@ -23,14 +21,12 @@ int main(int argc, char *argv[]) {
 	ed->subscribe(event::loop::LOOP_RENDER, [&w]() { w.onRender(); });
 
 	while (!glfwWindowShouldClose(w.getContext())) {
-		// for each event it executes all the registered callbacks
 		ed->post(event::loop::LOOP_INPUT);
 		ed->post(event::loop::LOOP_UPDATE);
 		ed->post(event::loop::LOOP_BEGIN_RENDER);
 		ed->post(event::loop::LOOP_RENDER);
 		ed->post(event::loop::LOOP_END_RENDER);
 	}
-
 	// clear all window data
 	w.onDetach();
 }

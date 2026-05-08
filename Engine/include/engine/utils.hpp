@@ -61,6 +61,11 @@ struct Pair {
 	T x;
 	/// second value
 	T y;
+
+	inline std::string toString() const {
+		return "x: " + std::to_string(this->x) + ", " +
+			"y: " + std::to_string(this->y);
+	}
 };
 
 /**
@@ -76,6 +81,12 @@ struct Tuple {
 	T y;
 	/// third value
 	T z;
+
+	inline std::string toString() const {
+		return "x: " + std::to_string(this->x) + ", " +
+			"y: " + std::to_string(this->y) + ", " +
+			"z: " + std::to_string(this->z);
+	}
 };
 
 /* ==================== POINTERS ==================== */
