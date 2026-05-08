@@ -1,6 +1,6 @@
 PROJECT_NAME           = "Chess Engine"
 OUTPUT_DIRECTORY       = build/docs
-INPUT                  = Engine/include App/include
+INPUT                  = Engine/include App/include Graphics/include
 RECURSIVE              = YES
 GENERATE_XML           = YES
 XML_OUTPUT             = xml
