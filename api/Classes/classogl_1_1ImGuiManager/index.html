@@ -769,11 +769,11 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-imguimanager">ImGuiManager</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a> std::string &amp; layerName, <a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a> * window, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">ImGuiConfigFlags</a> &amp; flags =0)<br>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-imguimanager">ImGuiManager</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a> std::string &amp; layerName, <a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a> * window, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">ImGuiConfigFlags</a> &amp; flags =<a href="/chess-engine/api/Namespaces/namespaceogl/#variable-default-imgui-configs">DEFAULT_IMGUI_CONFIGS</a>)<br>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels.</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-imguimanager">ImGuiManager</a></strong>(<a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a> * window, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">ImGuiConfigFlags</a> &amp; flags)<br>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-imguimanager">ImGuiManager</a></strong>(<a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a> * window, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">ImGuiConfigFlags</a> &amp; flags =<a href="/chess-engine/api/Namespaces/namespaceogl/#variable-default-imgui-configs">DEFAULT_IMGUI_CONFIGS</a>)<br>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels.</td>
 </tr>
 </tbody>
 </table>
@@ -921,7 +921,7 @@
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ImGuiManager</span><span class="p">(</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">layerName</span><span class="p">,</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">Window</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">window</span><span class="p">,</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">constImGuiConfigFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">constImGuiConfigFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="n">DEFAULT_IMGUI_CONFIGS</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels. </p>
@@ -934,7 +934,7 @@
 <h3 id="function-imguimanager_2">function ImGuiManager</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ImGuiManager</span><span class="p">(</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">Window</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">window</span><span class="p">,</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">constImGuiConfigFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">flags</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">constImGuiConfigFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="n">DEFAULT_IMGUI_CONFIGS</span>
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels. </p>
@@ -944,7 +944,7 @@
 <li><strong>flags</strong> ImGui config flags </li>
 </ul>
 <hr />
-<p>Updated on 2026-05-08 at 15:51:41 +0000</p>
+<p>Updated on 2026-05-10 at 15:00:41 +0000</p>
 
 
 
