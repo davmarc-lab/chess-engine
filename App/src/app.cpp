@@ -1,6 +1,10 @@
+#include "graphics/buffer/uniform_buffer.hpp"
 #include "graphics/core/event.hpp"
 #include "graphics/core/imgui.hpp"
 #include "graphics/core/window.hpp"
+
+#include "glm/gtc/type_ptr.hpp"
+#include "graphics/shader/shader.hpp"
 
 using namespace ogl;
 
@@ -33,7 +37,7 @@ int main(int argc, char *argv[]) {
 	// define the render function for the imgui panel
 	a->setRenderFunc([]() {
 		ImGui::Begin("Foo");
-        ImGui::Text("Hello ImGui!!");
+		ImGui::Text("Hello ImGui!!");
 		ImGui::End();
 	});
 
@@ -41,9 +45,24 @@ int main(int argc, char *argv[]) {
 	// define the render function for the imgui panel
 	b->setRenderFunc([]() {
 		ImGui::Begin("BBB");
-        ImGui::Text("Other panel");
+		ImGui::Text("Other panel");
 		ImGui::End();
 	});
+
+	UniformBuffer ubo{"Matrices"};
+	glm::mat4 proj = glm::ortho(0.f, w.getWidth(), 0.f, w.getHeight());
+	ubo.onAttach();
+	ubo.setup(sizeof(glm::mat4), 0, 0, 0);
+	ubo.update(0, sizeof(glm::mat4), glm::value_ptr(proj));
+
+	ed->subscribe(event::shader::SHADER_PROJECTION_CHANGED, [&w, &ubo]() {
+		auto proj = glm::ortho(0.f, w.getWidth(), 0.f, w.getHeight());
+		ubo.update(0, sizeof(glm::mat4), glm::value_ptr(proj));
+	});
+
+	// shaders
+	ShaderProgram def{"vert_shader.glsl", "frag_shader.glsl"};
+	def.createShaderProgram();
 
 	while (!glfwWindowShouldClose(w.getContext())) {
 		ed->post(event::loop::LOOP_INPUT);

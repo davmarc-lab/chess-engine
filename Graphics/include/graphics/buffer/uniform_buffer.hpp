@@ -58,8 +58,13 @@ namespace ogl {
 		 */
 		void fastUpdate(const unsigned int &offset, const unsigned int &size, void *data) const;
 
-		UniformBuffer() = default;
+		UniformBuffer() : UniformBuffer("") {}
+
+        UniformBuffer(const std::string& name) : m_name(name) {}
 
 		~UniformBuffer();
+
+    private:
+        std::string m_name;
 	};
 } // namespace ogl
