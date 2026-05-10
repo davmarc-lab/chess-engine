@@ -1,11 +1,11 @@
 #pragma once
 
-#include <glad/gl.h>
 #include <GLFW/glfw3.h>
+#include <glad/gl.h>
 
-#include "../vendor/include/imgui/imgui.h"
-#include "../vendor/include/imgui/imgui_impl_glfw.h"
-#include "../vendor/include/imgui/imgui_impl_opengl3.h"
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 
 /**
  * @brief Create an help icon with the given descrition

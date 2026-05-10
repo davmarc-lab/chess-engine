@@ -13,17 +13,13 @@ include(FetchContent)
 # If not found, it falls back to downloading it.
 macro(find_or_fetch_dependency name repo tag)
     find_package(${name} QUIET)
-    if(NOT ${name}_FOUND)
-        message(STATUS "${name} not found on system. Fetching from ${repo}...")
-        FetchContent_Declare(
-            ${name}
-            GIT_REPOSITORY ${repo}
-            GIT_TAG ${tag}
-        )
-        FetchContent_MakeAvailable(${name})
-    else()
-        message(STATUS "Found ${name} on system.")
-    endif()
+    message(STATUS "${name} not found on system. Fetching from ${repo}...")
+    FetchContent_Declare(
+        ${name}
+        GIT_REPOSITORY ${repo}
+        GIT_TAG ${tag}
+    )
+    FetchContent_MakeAvailable(${name})
 endmacro()
 
 # --- Check/Fetch GLFW ---
@@ -44,8 +40,6 @@ if(NOT glfw3_FOUND)
     set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
     set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
 
-    FetchContent_MakeAvailable(glfw)
-
     set(GLFW_LIB_TARGET glfw)
 else()
     message(STATUS "Found glfw3 on system.")
@@ -63,8 +57,6 @@ set(FT_DISABLE_BZIP2 ON  CACHE BOOL "" FORCE)
 set(FT_DISABLE_PNG   ON  CACHE BOOL "" FORCE)
 set(FT_DISABLE_HARFBUZZ ON CACHE BOOL "" FORCE)
 set(FT_DISABLE_BROTLI ON CACHE BOOL "" FORCE)
-
-FetchContent_MakeAvailable(freetype)
 
 # --- Fetch glad2 ---
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
@@ -102,6 +94,41 @@ add_custom_command(
 add_library(glad_lib STATIC ${GLAD_SOURCES})
 target_include_directories(glad_lib PUBLIC ${GLAD_INCLUDE_DIR})
 
+# --- ImGui ---
+find_or_fetch_dependency(imgui https://github.com/ocornut/imgui.git v1.92.7-docking)
+
+set(IMGUI_DIR "${imgui_SOURCE_DIR}")
+
+# Build the library from the downloaded source
+file(GLOB IMGUI_SOURCES "${IMGUI_DIR}/*.cpp")
+file(GLOB IMGUI_HEADERS "${IMGUI_DIR}/*.h")
+
+# Explicitly pull the backends we need
+set(IMGUI_BACKEND_SOURCES
+    "${IMGUI_DIR}/backends/imgui_impl_glfw.cpp"
+    "${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp"
+)
+
+set(IMGUI_BACKEND_HEADERS
+    "${IMGUI_DIR}/backends/imgui_impl_glfw.h"
+    "${IMGUI_DIR}/backends/imgui_impl_opengl3.h"
+    "${IMGUI_DIR}/backends/imgui_impl_opengl3_loader.h"
+)
+
+add_library(imgui_lib STATIC 
+    ${IMGUI_SOURCES} 
+    ${IMGUI_BACKEND_SOURCES}
+    ${IMGUI_HEADERS}
+    ${IMGUI_BACKEND_HEADERS}
+)
+
+target_include_directories(imgui_lib PUBLIC 
+    "${IMGUI_DIR}" 
+    "${IMGUI_DIR}/backends"
+)
+target_link_libraries(imgui_lib PUBLIC glfw glad_lib)
+target_compile_definitions(imgui_lib PUBLIC GLFW_INCLUDE_NONE)
+
 # --- 4. Executable & Linking ---
 add_library(${PROJECT_NAME} STATIC 
     ${GRAPHICS_SOURCES}
@@ -116,6 +143,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
     glm::glm
     freetype
     glad_lib
+    imgui_lib
     ${CMAKE_DL_LIBS}
 )
 

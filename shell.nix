@@ -5,7 +5,6 @@ pkgs.mkShell {
     # Core Build Tools
     cmake
     ninja
-    gcc
 
     # Documentation Tools
     doxygen

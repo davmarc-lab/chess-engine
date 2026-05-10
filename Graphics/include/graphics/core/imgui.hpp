@@ -41,10 +41,10 @@ namespace ogl {
 			this->m_priority = priority;
 		}
 
-        /**
-         * @brief Initializes the current panel.
-         *
-         */
+		/**
+		 * @brief Initializes the current panel.
+		 *
+		 */
 		inline virtual void onAttach() {
 			if (this->m_attached)
 				return;
@@ -105,7 +105,7 @@ namespace ogl {
 		 * @param window target window
 		 * @param flags ImGui config flags
 		 */
-		ImGuiManager(const std::string &layerName, Window *window, const ImGuiConfigFlags &flags = 0) :
+		ImGuiManager(const std::string &layerName, Window *window, const ImGuiConfigFlags &flags = DEFAULT_IMGUI_CONFIGS) :
 			Layer(std::move(layerName)), m_window(window), m_flags(flags) {}
 
 		/**
@@ -115,7 +115,7 @@ namespace ogl {
 		 * @param window target window
 		 * @param flags ImGui config flags
 		 */
-		ImGuiManager(Window *window, const ImGuiConfigFlags &flags) :
+		ImGuiManager(Window *window, const ImGuiConfigFlags &flags = DEFAULT_IMGUI_CONFIGS) :
 			ImGuiManager("ImGui Manager", window, flags) {}
 
 		/**
