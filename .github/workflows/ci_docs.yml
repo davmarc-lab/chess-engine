@@ -31,10 +31,10 @@ jobs:
           python-version: '3.x'
           cache: 'pip'
 
-        - name: Cache Packages - Dependencies
-          uses: awalsh128/cache-apt-pkgs-action@v1.6.0
-          with:
-            packages: doxygen cmake ninja-build libglfw3 libglfw3-dev libx11-dev libxcursor-dev libxinerama-dev libxrandr-dev
+      - name: Cache Packages - Dependencies
+        uses: awalsh128/cache-apt-pkgs-action@v1.6.0
+        with:
+          packages: doxygen cmake ninja-build libglfw3 libglfw3-dev libx11-dev libxcursor-dev libxinerama-dev libxrandr-dev
 
       - name: Install Python dependencies
         run: |
