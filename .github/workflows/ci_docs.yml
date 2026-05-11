@@ -31,10 +31,13 @@ jobs:
           python-version: '3.x'
           cache: 'pip'
 
-      - name: Install System Dependencies
+        - name: Cache Packages - Dependencies
+          uses: awalsh128/cache-apt-pkgs-action@v1.6.0
+          with:
+            packages: doxygen cmake ninja-build libglfw3 libglfw3-dev libx11-dev libxcursor-dev libxinerama-dev libxrandr-dev
+
+      - name: Install Python dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y doxygen cmake ninja-build libx11-dev libxcursor-dev libxinerama-dev libxrandr-dev libxi-dev libwayland-dev wayland-protocols libxkbcommon-dev
           pip install -r docs/requirements.txt
 
       - name: Install Doxybook2
