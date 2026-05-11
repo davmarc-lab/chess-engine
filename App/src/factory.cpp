@@ -1,0 +1,412 @@
+#include "factory.hpp"
+
+#include "ecs/entity_manager.hpp"
+#include "ecs/system.hpp"
+
+#include "graphics/core/mesh_vertices.hpp"
+
+#include <glm/ext/quaternion_geometric.hpp>
+#include <glm/geometric.hpp>
+#include <iostream>
+#include <string>
+
+const auto em = EntityManager::instance();
+const auto rd = ogl::Renderer::instance();
+
+const std::string SHADER_DEFAULT_VERT = "./resources/shader/lightVertShader.glsl";
+const std::string SHADER_DEFAULT_FRAG = "./resources/shader/lightFragShader.glsl";
+const std::string SHADER_INST_DEFAULT_VERT = "./resources/shader/instancedVertShader.glsl";
+const std::string SHADER_INST_DEFAULT_FRAG = "./resources/shader/instancedFragShader.glsl";
+
+namespace factory {
+	void fillBufferData(const unsigned int &id) {
+		ASSERT(em->entityHasComponent<VertexComponent>(id));
+		ASSERT(em->entityHasComponent<BufferComponent>(id));
+
+		auto vc = em->getComponentFromId<VertexComponent>(id);
+		auto bc = em->getComponentFromId<BufferComponent>(id);
+		bc->vao.onAttach();
+		bc->vao.bind();
+
+		bc->vbo_g.onAttach();
+		bc->vbo_g.setup(vc->getVertexCoords().data(), vc->getVertexCoords().size(), GL_STATIC_DRAW);
+		bc->vao.linkAttribFast(0, 3, GL_FLOAT, GL_FALSE, 0, (void *)0);
+
+		bc->vbo_c.onAttach();
+		bc->vbo_c.setup(vc->getColorsCoords().data(), vc->getColorsCoords().size(), GL_STATIC_DRAW);
+		bc->vao.linkAttribFast(1, 4, GL_FLOAT, GL_FALSE, 0, (void *)0);
+
+		bc->vbo_n.onAttach();
+		bc->vbo_n.setup(vc->getNormalsCoords().data(), vc->getNormalsCoords().size(), GL_STATIC_DRAW);
+		bc->vao.linkAttribFast(2, 3, GL_FLOAT, GL_FALSE, 0, (void *)0);
+
+		bc->vbo_t.onAttach();
+		bc->vbo_t.setup(vc->getTexCoords().data(), vc->getTexCoords().size(), GL_STATIC_DRAW);
+		bc->vao.linkAttribFast(3, 2, GL_FLOAT, GL_FALSE, 0, (void *)0);
+
+		bc->ebo.onAttach();
+		bc->ebo.setup(vc->getIndexCoords().data(), vc->getIndexCoords().size(), GL_STATIC_DRAW);
+	}
+
+	unsigned int factoryCube(const BasicInfo &info, const glm::vec4 &color) {
+		auto id = em->createEntity();
+		em->addComponent<Transform>(id);
+		systems::transform::updatePosition(id, info.position);
+		systems::transform::updateScale(id, info.scale);
+		systems::transform::updateRotation(id, info.rotation);
+		auto vc = em->addComponent<VertexComponent>(id, cubeGeometry, getColorVector(color, cubeGeometry.size()), cubeIndices);
+		vc->setNormalsCoords(cubeNormals);
+		vc->setTexCoords(cubeTexCoord);
+		auto bc = em->addComponent<BufferComponent>(id);
+
+		fillBufferData(id);
+
+		// serializable entity
+		em->addComponent<LoaderComponent>(id);
+
+		em->addComponent<MaterialComponent>(id);
+
+		auto rc = em->addComponent<RenderComponent>(id);
+		auto vaoid = bc->vao.getId();
+		if (info.render) {
+			rc->setRenderCall([vc, vaoid]() {
+				rd->drawElements(vaoid, GL_TRIANGLES, vc->getIndexCoords().size(), GL_UNSIGNED_INT);
+			});
+		} else {
+			rc->setRenderCall([]() {});
+		}
+
+		return id;
+	}
+
+	unsigned int factorySphere(const BasicInfo &info, const glm::vec4 &color) {
+		auto id = em->createEntity();
+		em->addComponent<Transform>(id);
+		systems::transform::updatePosition(id, info.position);
+		systems::transform::updateScale(id, info.scale);
+		systems::transform::updateRotation(id, info.rotation);
+		auto coords = getSphereVertices();
+		auto vc = em->addComponent<VertexComponent>(id, coords.vertex, getColorVector(color, coords.vertex.size()), coords.indices);
+		vc->setNormalsCoords(coords.normals);
+		vc->setTexCoords(coords.texCoords);
+		auto bc = em->addComponent<BufferComponent>(id);
+
+		fillBufferData(id);
+
+		// serializable entity
+		em->addComponent<LoaderComponent>(id);
+
+		em->addComponent<MaterialComponent>(id);
+
+		auto rc = em->addComponent<RenderComponent>(id);
+		auto vaoid = bc->vao.getId();
+		rc->setRenderCall([vc, vaoid]() {
+			rd->drawElements(vaoid, GL_TRIANGLES, vc->getIndexCoords().size(), GL_UNSIGNED_INT);
+		});
+		return id;
+	}
+
+	unsigned int factorySphereInstanced(const BasicInfo &info, const glm::vec4 &color) {
+		auto id = em->createEntity();
+		auto c = em->addComponent<Transform>(id);
+		auto coords = getSphereVertices();
+		auto vc = em->addComponent<VertexComponent>(id, coords.vertex, getColorVector(color, coords.vertex.size()), coords.indices);
+		systems::transform::updatePosition(id, info.position);
+		systems::transform::updateScale(id, info.scale);
+		systems::transform::updateRotation(id, info.rotation);
+		systems::transform::updateModelMatrix(id);
+
+		vc->setNormalsCoords(coords.normals);
+		vc->setTexCoords(coords.texCoords);
+
+		ogl::Renderer::instance()->appendSphere(id, systems::transform::getModelMatrix(id), color);
+
+		em->addComponent<MaterialComponent>(id);
+		auto cm = em->addComponent<ColliderComponent>(id);
+		cm->size = info.scale;
+		em->addComponent<InstancedComponent>(id, ogl::RenderPrimitiveType::PRIMITIVE_SPHERE);
+
+		return id;
+	}
+
+	unsigned int factoryPyramid(const BasicInfo &info, const glm::vec4 &color) {
+		auto id = em->createEntity();
+		em->addComponent<Transform>(id);
+		systems::transform::updatePosition(id, info.position);
+		systems::transform::updateScale(id, info.scale);
+		systems::transform::updateRotation(id, info.rotation);
+		auto vc = em->addComponent<VertexComponent>(id, pyramidGeometry, getColorVector(color, pyramidGeometry.size()), pyramidIndices);
+		vc->setNormalsCoords(pyramidNormals);
+		vc->setTexCoords(pyramidTexCoords);
+		auto bc = em->addComponent<BufferComponent>(id);
+
+		fillBufferData(id);
+
+		// serializable entity
+		em->addComponent<LoaderComponent>(id);
+
+		em->addComponent<MaterialComponent>(id);
+
+		auto rc = em->addComponent<RenderComponent>(id);
+		auto vaoid = bc->vao.getId();
+		rc->setRenderCall([vc, vaoid]() {
+			rd->drawElements(vaoid, GL_TRIANGLES, vc->getIndexCoords().size(), GL_UNSIGNED_INT);
+		});
+		return id;
+	}
+
+	unsigned int factoryThorus(const BasicInfo &info, const glm::vec4 &color) {
+		auto id = em->createEntity();
+		em->addComponent<Transform>(id);
+		systems::transform::updatePosition(id, info.position);
+		systems::transform::updateScale(id, info.scale);
+		systems::transform::updateRotation(id, info.rotation);
+		auto coords = getThorusVertices();
+		auto vc = em->addComponent<VertexComponent>(id, coords.vertex, getColorVector(color, coords.vertex.size()), coords.indices);
+		vc->setNormalsCoords(coords.normals);
+		vc->setTexCoords(coords.texCoords);
+		auto bc = em->addComponent<BufferComponent>(id);
+
+		fillBufferData(id);
+
+		// serializable entity
+		em->addComponent<LoaderComponent>(id);
+
+		em->addComponent<MaterialComponent>(id);
+
+		auto rc = em->addComponent<RenderComponent>(id);
+		auto vaoid = bc->vao.getId();
+		rc->setRenderCall([vc, vaoid]() {
+			rd->drawElements(vaoid, GL_TRIANGLES, vc->getIndexCoords().size(), GL_UNSIGNED_INT);
+		});
+		return id;
+	}
+
+	unsigned int factoryCylinder(const BasicInfo &info, const glm::vec4 &color) {
+		auto id = em->createEntity();
+		em->addComponent<Transform>(id);
+		systems::transform::updatePosition(id, info.position);
+		systems::transform::updateScale(id, info.scale);
+		systems::transform::updateRotation(id, info.rotation);
+		auto coords = getCylinderVertices();
+
+		auto vc = em->addComponent<VertexComponent>(id, coords.vertex, getColorVector({1, 0, 0, 1}, coords.vertex.size()), coords.indices);
+		auto bc = em->addComponent<BufferComponent>(id);
+		vc->setNormalsCoords(coords.normals);
+		vc->setTexCoords(coords.texCoords);
+
+		fillBufferData(id);
+
+		// serializable entity
+		em->addComponent<LoaderComponent>(id);
+
+		em->addComponent<MaterialComponent>(id);
+
+		auto rc = em->addComponent<RenderComponent>(id);
+		auto vaoid = bc->vao.getId();
+		rc->setRenderCall([vc, vaoid]() {
+			rd->drawElements(vaoid, GL_TRIANGLES, vc->getIndexCoords().size(), GL_UNSIGNED_INT);
+		});
+		return id;
+	}
+
+	const glm::vec3 ROPE_CENTER_SIZE = glm::vec3(.08f);
+	const glm::vec3 ROPE_POINT_SIZE = glm::vec3(.03f);
+	std::vector<std::pair<glm::vec4, glm::mat4>> factoryRope(const glm::vec3 &center, const float &length, const float &constant, const unsigned int subdivisons) {
+		auto id = factorySphereInstanced({center, ROPE_CENTER_SIZE, {}}, {1, 0, 0, 1});
+		auto res = std::vector<std::pair<glm::vec4, glm::mat4>>();
+
+		auto rp = em->addComponent<RopeComponent>(id, center, length, subdivisons, constant);
+		em->addComponent<PhysicComponent>(id);
+		res.emplace_back(glm::vec4{1, 0, 0, 1}, systems::transform::getModelMatrix(id));
+		rp->fixedPoints.push_back(0);
+
+		auto startp = center - length / 2 * glm::vec3(1, 0, 0);
+
+		for (auto i = 0; i <= subdivisons; i++) {
+			auto elem = factorySphereInstanced({{startp + (i * (length / subdivisons) * glm::vec3(1, 0, 0))}, ROPE_POINT_SIZE, {}}, {0, 0, 1, 1});
+			em->addComponent<PhysicComponent>(elem);
+			res.emplace_back(glm::vec4{0, 0, 1, 1}, systems::transform::getModelMatrix(elem));
+			rp->points.push_back(elem);
+		}
+		rp->fixedPoints.push_back(rp->points.size() - 1);
+
+		return res;
+	}
+
+	unsigned int factoryPlane(const glm::vec4 &color) {
+		auto pos = glm::vec3{0, -2, 0};
+		// y scale for normals to work
+		auto size = glm::vec3{100, 0.01, 100};
+		auto id = factoryCube(BasicInfo{pos, size}, color);
+		systems::transform::updateModelMatrix(id);
+		em->removeComponent<MaterialComponent>(id);
+		auto cc = em->addComponent<ColliderComponent>(id);
+		auto pc = em->addComponent<PhysicComponent>(id);
+		pc->restitution = 0.4;
+		cc->type = ColliderType::COLLIDER_CUBE;
+		cc->position = pos;
+		cc->normal = {0, 1, 0};
+		cc->size = size;
+		cc->isStatic = true;
+		return id;
+	}
+
+	std::vector<std::string> faces{"right", "left", "top", "bottom", "front", "back"};
+
+	unsigned int factorySkyBox(const std::string &path, const std::string &format) {
+		auto id = em->createEntity();
+		::systems::ecs::updateEntityName(id, "Skybox");
+		auto vc = em->addComponent<VertexComponent>(id, skyboxGeometry, std::vector<glm::vec4>{}, std::vector<unsigned int>{});
+		auto bc = em->addComponent<BufferComponent>(id);
+
+		// Buffers
+		fillBufferData(id);
+
+		// Texture
+		auto tc = em->addComponent<TextureComponent>(id);
+		TextureParams params{};
+		params.target = GL_TEXTURE_CUBE_MAP;
+		ogl::Texture t{params, 0, 0};
+		t.onAttach();
+		t.bind();
+		int width, height, nrChannels;
+		for (auto i = 0; i < faces.size(); i++) {
+			auto dataRead = readImageData(path + faces[i] + "." + format, width, height, nrChannels, 0);
+			if (dataRead)
+				t.fastCreateCustomTexture2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, dataRead);
+			else
+				std::cerr << "Failed to read data from the file: " << path + faces[i] + "." + format << "\n";
+			freeImageData(dataRead);
+		}
+		t.setTexParameteri(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		t.setTexParameteri(GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		t.setTexParameteri(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		t.setTexParameteri(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		t.setTexParameteri(GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+		systems::texture::setTexture(id, t);
+
+		em->addComponent<SkyboxComponent>(id, t.getId());
+
+		auto rc = em->addComponent<RenderComponent>(id);
+		auto vaoid = bc->vao.getId();
+		auto tid = t.getId();
+		rc->setRenderCall([vc, vaoid, tid]() {
+			int pCull;
+			glGetIntegerv(GL_CULL_FACE, &pCull);
+			glDisable(GL_CULL_FACE);
+			glDepthFunc(GL_LEQUAL);
+			glBindVertexArray(vaoid);
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_CUBE_MAP, tid);
+			rd->drawArrays(vaoid, GL_TRIANGLES, 0, vc->getVertexCoords().size());
+			glDepthFunc(GL_LESS);
+			if (pCull)
+				glEnable(GL_CULL_FACE);
+		});
+		return id;
+	}
+
+	unsigned int mainMesh{};
+
+	unsigned int textureFromFile(const char *path, const std::string &dir) {
+		std::string filename = std::string(path);
+		filename = dir + '/' + filename;
+
+		unsigned int textureID;
+		glGenTextures(1, &textureID);
+
+		std::cout << filename << "\n";
+
+		int width, height, nrComponents;
+		auto data = readImageData(filename, width, height, nrComponents, 0);
+		if (data) {
+			GLenum format;
+			if (nrComponents == 1)
+				format = GL_RED;
+			else if (nrComponents == 3)
+				format = GL_RGB;
+			else if (nrComponents == 4)
+				format = GL_RGBA;
+
+			glBindTexture(GL_TEXTURE_2D, textureID);
+			glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+			glGenerateMipmap(GL_TEXTURE_2D);
+
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		} else {
+			std::cerr << "Texture failed to load at path: " << path << "\n";
+		}
+		freeImageData(data);
+
+		return textureID;
+	}
+
+	const glm::vec3 TREE_LOG_OFFSET = {0.f, -1.f, 0.f};
+	const glm::vec3 TREE_LOG_SCALE = {.4f, .7f, .4f};
+	const glm::vec3 TREE_LEAF_SCALE = {1, 1.4, 1};
+	const glm::vec3 TREE_LEAF_OFFSET = {0, 2 * TREE_LOG_SCALE.y, 0};
+
+	unsigned int factoryTree(const BasicInfo &info) {
+		auto id = factoryCylinder(BasicInfo{info.position + TREE_LOG_OFFSET, TREE_LOG_SCALE, {90, 0, 0}});
+		em->addComponent<ParentComponent>(id);
+		em->addComponent<ColliderComponent>(id);
+
+		TextureParams params{};
+		params.target = GL_TEXTURE_2D;
+		params.internalFormat = GL_RGB;
+		params.format = GL_RGB;
+		params.dataType = GL_UNSIGNED_BYTE;
+		int width, height, nrChannels;
+		flipImagesVertically(true);
+		auto data = readImageData("./resources/texture/wood.jpg", width, height, nrChannels);
+		nrChannels = 0;
+		ogl::Texture t{params, {(unsigned int)width, (unsigned int)height}};
+		t.onAttach();
+		t.bind();
+		t.setTexParameteri(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		t.setTexParameteri(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		t.setTexParameteri(GL_TEXTURE_WRAP_S, GL_REPEAT);
+		t.setTexParameteri(GL_TEXTURE_WRAP_T, GL_REPEAT);
+		t.createTexture2D(data);
+		t.generateMipmap();
+		em->addComponent<TextureComponent>(id, "./resources/texture/wood.jpg");
+		systems::texture::setTexture(id, t);
+		freeImageData(data);
+		t.unbind();
+
+		auto first = factoryPyramid(BasicInfo{info.position + TREE_LEAF_OFFSET, info.scale * TREE_LEAF_SCALE, {}}, {0, 1, 0, 1});
+		em->addComponent<HideTreeComponent>(first);
+		em->addComponent<ColliderComponent>(first);
+		systems::parent::addChild(id, first);
+		flipImagesVertically(true);
+		auto ddata = readImageData("./resources/texture/leaves.png", width, height, nrChannels);
+		ogl::Texture leaves{params, {(unsigned int)width, (unsigned int)height}};
+		leaves.onAttach();
+		leaves.bind();
+		leaves.setTexParameteri(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		leaves.setTexParameteri(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		leaves.setTexParameteri(GL_TEXTURE_WRAP_S, GL_REPEAT);
+		leaves.setTexParameteri(GL_TEXTURE_WRAP_T, GL_REPEAT);
+		leaves.createTexture2D(ddata);
+		leaves.generateMipmap();
+		em->addComponent<TextureComponent>(first, "./resources/texture/leaves.png");
+		systems::texture::setTexture(first, leaves);
+		freeImageData(ddata);
+		leaves.unbind();
+
+		auto second = factoryPyramid(BasicInfo{info.position + TREE_LEAF_OFFSET * glm::vec3{0.5}, info.scale * (TREE_LEAF_SCALE + glm::vec3{0.2}), {}}, {0, 1, 0, 1});
+		em->addComponent<HideTreeComponent>(second);
+		em->addComponent<ColliderComponent>(second);
+		systems::parent::addChild(id, second);
+		em->addComponent<TextureComponent>(second);
+		systems::texture::setTexture(second, leaves);
+		return id;
+	}
+
+} // namespace factory
