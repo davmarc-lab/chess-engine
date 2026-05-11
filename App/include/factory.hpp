@@ -2,12 +2,15 @@
 
 #include "utils.hpp"
 
+#include <glm/ext/vector_float4.hpp>
 #include <glm/glm.hpp>
 #include <string>
 #include <vector>
 
 namespace factory {
 	void fillBufferData(const unsigned int &id);
+
+	unsigned int factorySquare(const BasicInfo &info, const glm::vec4 &color = {1, 0, 0, 1});
 
 	/**
 	 * @brief Factory method to create a cube mesh in the ECS.

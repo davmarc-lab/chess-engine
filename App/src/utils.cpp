@@ -1,9 +1,9 @@
 #include "utils.hpp"
 #include "ui/app_gui.hpp"
 
+#include "graphics/core/camera.hpp"
 #include "graphics/core/event.hpp"
 #include "graphics/core/input_manager.hpp"
-#include "graphics/core/camera.hpp"
 
 #include "ecs/entity_manager.hpp"
 #include "ecs/system.hpp"

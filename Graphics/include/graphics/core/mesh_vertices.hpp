@@ -23,6 +23,21 @@ struct MeshInfo {
 	std::vector<unsigned int> indices{};
 };
 
+inline std::vector<glm::vec3> squareGeometry{
+	{-1, -1, 0},
+	{1, -1, 0},
+	{1, 1, 0},
+	{-1, 1, 0},
+};
+
+inline std::vector<unsigned int> squareIndices{0, 1, 2, 0, 2, 3};
+
+inline std::vector<glm::vec3> triangleGeometry{
+	{-1, -1, 0},
+	{1, -1, 0},
+	{0, 1, 0},
+};
+
 inline std::vector<glm::vec3> skyboxGeometry{
 	// vertex pos
 	{-1.0f, -1.0f, -1.0f},

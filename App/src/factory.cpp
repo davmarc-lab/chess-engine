@@ -1,5 +1,6 @@
 #include "factory.hpp"
 
+#include "ecs/component.hpp"
 #include "ecs/entity_manager.hpp"
 #include "ecs/system.hpp"
 
@@ -46,6 +47,30 @@ namespace factory {
 
 		bc->ebo.onAttach();
 		bc->ebo.setup(vc->getIndexCoords().data(), vc->getIndexCoords().size(), GL_STATIC_DRAW);
+	}
+
+	unsigned int factorySquare(const BasicInfo &info, const glm::vec4 &color) {
+		auto id = em->createEntity();
+		em->addComponent<Transform>(id);
+		systems::transform::updatePosition(id, info.position);
+		systems::transform::updateScale(id, info.scale);
+		systems::transform::updateRotation(id, info.rotation);
+		auto vc = em->addComponent<VertexComponent>(id, squareGeometry, getColorVector(color, squareGeometry.size()), squareIndices);
+		auto bc = em->addComponent<BufferComponent>(id);
+
+		fillBufferData(id);
+
+		auto rc = em->addComponent<RenderComponent>(id);
+		auto vaoid = bc->vao.getId();
+		if (info.render) {
+			rc->setRenderCall([vc, vaoid]() {
+				rd->drawElements(vaoid, GL_TRIANGLES, vc->getIndexCoords().size(), GL_UNSIGNED_INT);
+			});
+		} else {
+			rc->setRenderCall([]() {});
+		}
+
+		return id;
 	}
 
 	unsigned int factoryCube(const BasicInfo &info, const glm::vec4 &color) {

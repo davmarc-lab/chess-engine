@@ -1,14 +1,24 @@
+#include "ecs/ecs_scene.hpp"
+#include "ecs/entity_manager.hpp"
+#include "ecs/system.hpp"
+
 #include "graphics/buffer/uniform_buffer.hpp"
 #include "graphics/core/event.hpp"
 #include "graphics/core/imgui.hpp"
+#include "graphics/core/utils.hpp"
 #include "graphics/core/window.hpp"
+#include "graphics/shader/shader.hpp"
 
 #include "glm/gtc/type_ptr.hpp"
-#include "graphics/shader/shader.hpp"
+
+#include "factory.hpp"
+#include "utils.hpp"
 
 using namespace ogl;
 
 const auto ed = EventManager::instance();
+const auto em = EntityManager::instance();
+const auto ecs = BasicScene::instance();
 
 int main(int argc, char *argv[]) {
 	WindowSettings s{};
@@ -61,8 +71,13 @@ int main(int argc, char *argv[]) {
 	});
 
 	// shaders
-	ShaderProgram def{"vert_shader.glsl", "frag_shader.glsl"};
-	def.createShaderProgram();
+	Shared<ShaderProgram> def = CreateShared<ShaderProgram>("vert_shader.glsl", "frag_shader.glsl");
+	def->createShaderProgram();
+
+	auto id = factory::factorySquare(BasicInfo{{}, {40, 40, 1}, {}});
+	ecs->addEntity(def, id);
+
+	ed->subscribe(event::loop::LOOP_RENDER, []() { systems::render::renderAllMeshes(); });
 
 	while (!glfwWindowShouldClose(w.getContext())) {
 		ed->post(event::loop::LOOP_INPUT);
