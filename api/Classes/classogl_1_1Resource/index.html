@@ -709,19 +709,19 @@ summary: This class provides method to manage a resource: a resource is a generi
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-~resource">~Resource</a></strong>() =default</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-unloadresource">unloadResource</a></strong>()<br>Remove the resource from memory.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-setresourceid">setResourceId</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">int</a> &amp; id)<br>Sets the resource id.</td>
+<td>void</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-setresourceid">setResourceId</a></strong>(const unsigned int &amp; id)<br>Sets the resource id.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-loadresource">loadResource</a></strong>()<br>Loads the resource in memory.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">bool</a></td>
+<td>bool</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-isresourceloaded">isResourceLoaded</a></strong>() const<br>Retrieves the state of the resource.</td>
 </tr>
 <tr>
@@ -733,7 +733,7 @@ summary: This class provides method to manage a resource: a resource is a generi
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-getresourcelocation">getResourceLocation</a></strong>() const<br>Retrieves the resource location.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">int</a></td>
+<td>unsigned int</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-getresourceid">getResourceId</a></strong>() const<br>Retrieves the resource id.</td>
 </tr>
 <tr>
@@ -746,11 +746,11 @@ summary: This class provides method to manage a resource: a resource is a generi
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-resource">Resource</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a> std::string &amp; location, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a> std::string &amp; file)<br>Instances a resource at the given file name and location.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-resource">Resource</a></strong>(const std::string &amp; location, const std::string &amp; file)<br>Instances a resource at the given file name and location.</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-resource">Resource</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a> std::string &amp; file)<br>Instances a resource with the given file name inside the default location.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Resource/#function-resource">Resource</a></strong>(const std::string &amp; file)<br>Instances a resource with the given file name inside the default location.</td>
 </tr>
 </tbody>
 </table>
@@ -764,7 +764,7 @@ summary: This class provides method to manage a resource: a resource is a generi
 <p>Remove the resource from memory. </p>
 <h3 id="function-setresourceid">function setResourceId</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setResourceId</span><span class="p">(</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">constunsignedint</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">id</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">id</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>Sets the resource id. </p>
@@ -792,7 +792,7 @@ summary: This class provides method to manage a resource: a resource is a generi
 <p>Retrieves the resource location. </p>
 <p><strong>Return</strong>: the resource location </p>
 <h3 id="function-getresourceid">function getResourceId</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">unsignedint</span><span class="w"> </span><span class="n">getResourceId</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">getResourceId</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </span></code></pre></div>
 <p>Retrieves the resource id. </p>
 <p><strong>Return</strong>: the resource id </p>
@@ -828,7 +828,7 @@ summary: This class provides method to manage a resource: a resource is a generi
 </ul>
 <p><strong>See</strong>: <a href="/chess-engine/api/Namespaces/namespaceogl_1_1res/#variable-default-location">ogl::res::DEFAULT_LOCATION</a></p>
 <hr />
-<p>Updated on 2026-05-11 at 08:43:32 +0000</p>
+<p>Updated on 2026-05-12 at 14:38:19 +0000</p>
 
 
 

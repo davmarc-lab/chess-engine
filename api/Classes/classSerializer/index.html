@@ -617,17 +617,17 @@
 <td><strong><a href="/chess-engine/api/Classes/classSerializer/#function-~serializer">~Serializer</a></strong>() =default</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classSerializer/#function-serializetofile">serializeToFile</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">T</a> &amp; elem, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a> std::string &amp; filePath)<br>Serializes the element given of type T into a file.</td>
+<td>virtual void</td>
+<td><strong><a href="/chess-engine/api/Classes/classSerializer/#function-serializetofile">serializeToFile</a></strong>(T &amp; elem, const std::string &amp; filePath)<br>Serializes the element given of type T into a file.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">T</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classSerializer/#function-deserializefromfile">deserializeFromFile</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a> std::string &amp; filePath)<br>Deserializes all the file content into a T element.</td>
+<td>virtual T</td>
+<td><strong><a href="/chess-engine/api/Classes/classSerializer/#function-deserializefromfile">deserializeFromFile</a></strong>(const std::string &amp; filePath)<br>Deserializes all the file content into a T element.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="detailed-description">Detailed Description</h2>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">classT</span><span class="w"> </span><span class="o">&gt;</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Serializer</span><span class="p">;</span>
 </span></code></pre></div>
 <p>This class writes/read into/from a given file the elements with the given type T. </p>
@@ -671,7 +671,7 @@
 </ul>
 <p><strong>Return</strong>: a T data containing all parsed elements </p>
 <hr />
-<p>Updated on 2026-05-11 at 08:43:32 +0000</p>
+<p>Updated on 2026-05-12 at 14:38:19 +0000</p>
 
 
 

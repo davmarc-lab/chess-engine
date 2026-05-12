@@ -650,23 +650,23 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1EventManager/#function-~eventmanager">~EventManager</a></strong>() =default</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1EventManager/#function-subscribe">subscribe</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Classes/classogl_1_1Event/">Event</a> &amp; event, std::function&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a>()&gt; &amp;&amp; func)<br>Register a callback for the given event.</td>
+<td>void</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1EventManager/#function-subscribe">subscribe</a></strong>(const <a href="/chess-engine/api/Classes/classogl_1_1Event/">Event</a> &amp; event, std::function&lt; void()&gt; &amp;&amp; func)<br>Register a callback for the given event.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1EventManager/#function-post">post</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Classes/classogl_1_1Event/">Event</a> &amp; event) const<br>This method dispatch the given event and execute all the callbacks.</td>
+<td>void</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1EventManager/#function-post">post</a></strong>(const <a href="/chess-engine/api/Classes/classogl_1_1Event/">Event</a> &amp; event) const<br>This method dispatch the given event and execute all the callbacks.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1EventManager/#function-operator=">operator=</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Classes/classogl_1_1EventManager/">EventManager</a> &amp; other) =delete</td>
+<td>void</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1EventManager/#function-operator=">operator=</a></strong>(const <a href="/chess-engine/api/Classes/classogl_1_1EventManager/">EventManager</a> &amp; other) =delete</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Classes/classogl_1_1EventManager/">EventManager</a> &gt;</td>
+<td>Shared&lt; <a href="/chess-engine/api/Classes/classogl_1_1EventManager/">EventManager</a> &gt;</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1EventManager/#function-instance">instance</a></strong>()<br>Retrieves the instance of the <a href="/chess-engine/api/Classes/classogl_1_1EventManager/">EventManager</a>. If it's not instanced, it will be instanced automatically.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1EventManager/#function-cleanall">cleanAll</a></strong>()<br>This method clears all registered events and callbacks.</td>
 </tr>
 <tr>
@@ -681,7 +681,7 @@
 </span></code></pre></div>
 <h3 id="function-subscribe">function subscribe</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">subscribe</span><span class="p">(</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">constEvent</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">event</span><span class="p">,</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Event</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">event</span><span class="p">,</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">func</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">)</span>
 </span></code></pre></div>
@@ -694,7 +694,7 @@
 <p><strong>See</strong>: <a href="/chess-engine/api/Classes/classogl_1_1EventManager/#function-post">post()</a></p>
 <h3 id="function-post">function post</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="k">post</span><span class="p">(</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">constEvent</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">event</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Event</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">event</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
 </span></code></pre></div>
 <p>This method dispatch the given event and execute all the callbacks. </p>
@@ -704,7 +704,7 @@
 </ul>
 <h3 id="function-operator">function operator=</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">constEventManager</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">EventManager</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">delete</span>
 </span></code></pre></div>
 <h3 id="function-instance">function instance</h3>
@@ -722,7 +722,7 @@
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">delete</span>
 </span></code></pre></div>
 <hr />
-<p>Updated on 2026-05-11 at 08:43:32 +0000</p>
+<p>Updated on 2026-05-12 at 14:38:19 +0000</p>
 
 
 

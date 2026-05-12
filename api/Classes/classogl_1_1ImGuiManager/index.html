@@ -724,44 +724,44 @@
 </thead>
 <tbody>
 <tr>
-<td>template &lt;typenameT &gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">bool</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-removepanel">removePanel</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> &gt; &amp; panel)<br>Removes the given panel from the manager.</td>
+<td>template &lt;typename T &gt; <br>bool</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-removepanel">removePanel</a></strong>(const Shared&lt; <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> &gt; &amp; panel)<br>Removes the given panel from the manager.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-onupdate">onUpdate</a></strong>() override<br>This method is called during game loop update. These operations are called at every main loop iteration.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-onrender">onRender</a></strong>() override<br>This method is called during game loop render. These operations are called at every main loop iteration.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-ondetach">onDetach</a></strong>() override<br>This method is called when the layer is detached. It should contain operations to reset the current layer.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-onattach">onAttach</a></strong>() override<br>This method is called when the layer is attached. It should contain all the initializations.</td>
 </tr>
 <tr>
-<td>std::vector&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> &gt; &gt;</td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-getpanels">getPanels</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">short</a> &amp; priority)<br>Retrieves all the panels of the manager with the given priority.</td>
+<td>std::vector&lt; Shared&lt; <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> &gt; &gt;</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-getpanels">getPanels</a></strong>(const unsigned short &amp; priority)<br>Retrieves all the panels of the manager with the given priority.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-end">end</a></strong>() override<br>This method is called after game loop render. Tipically contains specific render calls (ImGui final render)</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-begin">begin</a></strong>() override<br>This method is called before game loop render. Tipically contains specific render calls (ImGui pre rendering)</td>
 </tr>
 <tr>
-<td>template &lt;typenameT ,typename... Args&gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">T</a> &gt;</td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-addpanel">addPanel</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">Args</a> &amp;&amp;... args)<br>Adds an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> to the manager. This method creates the panel and calls its constructor using the given params.</td>
+<td>template &lt;typename T ,typename... Args&gt; <br>Shared&lt; T &gt;</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-addpanel">addPanel</a></strong>(Args &amp;&amp;... args)<br>Adds an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> to the manager. This method creates the panel and calls its constructor using the given params.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-addpanel">addPanel</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#using-shared">Shared</a>&lt; <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> &gt; &amp; panel)<br>Adds the given panel to the manager.</td>
+<td>void</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-addpanel">addPanel</a></strong>(const Shared&lt; <a href="/chess-engine/api/Classes/classogl_1_1ImGuiPanel/">ImGuiPanel</a> &gt; &amp; panel)<br>Adds the given panel to the manager.</td>
 </tr>
 <tr>
 <td></td>
@@ -769,11 +769,11 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-imguimanager">ImGuiManager</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a> std::string &amp; layerName, <a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a> * window, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">ImGuiConfigFlags</a> &amp; flags =<a href="/chess-engine/api/Namespaces/namespaceogl/#variable-default-imgui-configs">DEFAULT_IMGUI_CONFIGS</a>)<br>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-imguimanager">ImGuiManager</a></strong>(const std::string &amp; layerName, <a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a> * window, const ImGuiConfigFlags &amp; flags =<a href="/chess-engine/api/Namespaces/namespaceogl/#variable-default-imgui-configs">DEFAULT_IMGUI_CONFIGS</a>)<br>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels.</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-imguimanager">ImGuiManager</a></strong>(<a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a> * window, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">ImGuiConfigFlags</a> &amp; flags =<a href="/chess-engine/api/Namespaces/namespaceogl/#variable-default-imgui-configs">DEFAULT_IMGUI_CONFIGS</a>)<br>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/#function-imguimanager">ImGuiManager</a></strong>(<a href="/chess-engine/api/Classes/classogl_1_1Window/">Window</a> * window, const ImGuiConfigFlags &amp; flags =<a href="/chess-engine/api/Namespaces/namespaceogl/#variable-default-imgui-configs">DEFAULT_IMGUI_CONFIGS</a>)<br>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels.</td>
 </tr>
 </tbody>
 </table>
@@ -792,7 +792,7 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-~layer">~Layer</a></strong>() =default</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">bool</a></td>
+<td>bool</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-isattached">isAttached</a></strong>() const<br>Retrieves the layer state.</td>
 </tr>
 <tr>
@@ -801,7 +801,7 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a> std::string &amp; name)<br>Instances a layer with the given name.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(const std::string &amp; name)<br>Instances a layer with the given name.</td>
 </tr>
 <tr>
 <td></td>
@@ -809,7 +809,7 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Classes/classogl_1_1Layer/">Layer</a> &amp; other) =delete</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(const <a href="/chess-engine/api/Classes/classogl_1_1Layer/">Layer</a> &amp; other) =delete</td>
 </tr>
 </tbody>
 </table>
@@ -827,16 +827,16 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#variable-m-name">m_name</a></strong> <br>layer name</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">bool</a></td>
+<td>bool</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#variable-m-attached">m_attached</a></strong> <br>layer attached state</td>
 </tr>
 </tbody>
 </table>
 <h2 id="public-functions-documentation">Public Functions Documentation</h2>
 <h3 id="function-removepanel">function removePanel</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">typenameT</span><span class="w"> </span><span class="o">&gt;</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">removePanel</span><span class="p">(</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">constShared</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ImGuiPanel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">panel</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Shared</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ImGuiPanel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">panel</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>Removes the given panel from the manager. </p>
@@ -871,7 +871,7 @@
 <p><strong>Reimplements</strong>: <a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-onattach">ogl::Layer::onAttach</a></p>
 <h3 id="function-getpanels">function getPanels</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Shared</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ImGuiPanel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">getPanels</span><span class="p">(</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">constunsignedshort</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">priority</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">priority</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>Retrieves all the panels of the manager with the given priority. </p>
@@ -887,7 +887,7 @@
 <p>This method is called before game loop render. Tipically contains specific render calls (ImGui pre rendering) </p>
 <p><strong>Reimplements</strong>: <a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-begin">ogl::Layer::begin</a></p>
 <h3 id="function-addpanel">function addPanel</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">typenameT</span><span class="w"> </span><span class="p">,</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">,</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Shared</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">addPanel</span><span class="p">(</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">Args</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
@@ -906,7 +906,7 @@
 <p><strong>Return</strong>: a Shared<T> object </p>
 <h3 id="function-addpanel_1">function addPanel</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">addPanel</span><span class="p">(</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">constShared</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ImGuiPanel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">panel</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Shared</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ImGuiPanel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">panel</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>Adds the given panel to the manager. </p>
@@ -921,7 +921,7 @@
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ImGuiManager</span><span class="p">(</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">layerName</span><span class="p">,</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">Window</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">window</span><span class="p">,</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">constImGuiConfigFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="n">DEFAULT_IMGUI_CONFIGS</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">ImGuiConfigFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="n">DEFAULT_IMGUI_CONFIGS</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels. </p>
@@ -934,7 +934,7 @@
 <h3 id="function-imguimanager_2">function ImGuiManager</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ImGuiManager</span><span class="p">(</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">Window</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">window</span><span class="p">,</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">constImGuiConfigFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="n">DEFAULT_IMGUI_CONFIGS</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">ImGuiConfigFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="n">DEFAULT_IMGUI_CONFIGS</span>
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>Instances an <a href="/chess-engine/api/Classes/classogl_1_1ImGuiManager/">ImGuiManager</a> for the given window using the given ImGui flags for all panels. </p>
@@ -944,7 +944,7 @@
 <li><strong>flags</strong> ImGui config flags </li>
 </ul>
 <hr />
-<p>Updated on 2026-05-11 at 08:43:32 +0000</p>
+<p>Updated on 2026-05-12 at 14:38:19 +0000</p>
 
 
 

@@ -756,23 +756,23 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-~layer">~Layer</a></strong>() =default</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-onupdate">onUpdate</a></strong>()<br>This method is called during game loop update. These operations are called at every main loop iteration.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-onrender">onRender</a></strong>()<br>This method is called during game loop render. These operations are called at every main loop iteration.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-ondetach">onDetach</a></strong>()<br>This method is called when the layer is detached. It should contain operations to reset the current layer.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-onattach">onAttach</a></strong>()<br>This method is called when the layer is attached. It should contain all the initializations.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">bool</a></td>
+<td>bool</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-isattached">isAttached</a></strong>() const<br>Retrieves the layer state.</td>
 </tr>
 <tr>
@@ -780,16 +780,16 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-getname">getName</a></strong>() const<br>Retrieves the layer name.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-end">end</a></strong>()<br>This method is called after game loop render. Tipically contains specific render calls (ImGui final render)</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-begin">begin</a></strong>()<br>This method is called before game loop render. Tipically contains specific render calls (ImGui pre rendering)</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a> std::string &amp; name)<br>Instances a layer with the given name.</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(const std::string &amp; name)<br>Instances a layer with the given name.</td>
 </tr>
 <tr>
 <td></td>
@@ -797,7 +797,7 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Classes/classogl_1_1Layer/">Layer</a> &amp; other) =delete</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#function-layer">Layer</a></strong>(const <a href="/chess-engine/api/Classes/classogl_1_1Layer/">Layer</a> &amp; other) =delete</td>
 </tr>
 </tbody>
 </table>
@@ -815,7 +815,7 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#variable-m-name">m_name</a></strong> <br>layer name</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">bool</a></td>
+<td>bool</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Layer/#variable-m-attached">m_attached</a></strong> <br>layer attached state</td>
 </tr>
 </tbody>
@@ -880,7 +880,7 @@
 <p>Instances a layer with a default name. </p>
 <h3 id="function-layer_3">function Layer</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">Layer</span><span class="p">(</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="n">constLayer</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Layer</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">delete</span>
 </span></code></pre></div>
 <h2 id="protected-attributes-documentation">Protected Attributes Documentation</h2>
@@ -893,7 +893,7 @@
 </span></code></pre></div>
 <p>layer attached state </p>
 <hr />
-<p>Updated on 2026-05-11 at 08:43:32 +0000</p>
+<p>Updated on 2026-05-12 at 14:38:19 +0000</p>
 
 
 

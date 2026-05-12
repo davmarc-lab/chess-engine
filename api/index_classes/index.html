@@ -541,16 +541,50 @@
 
 <h1 id="classes">Classes</h1>
 <ul>
+<li><strong>struct <a href="/chess-engine/api/Classes/structBasicInfo/">BasicInfo</a></strong> <br>Simple data structure to store mesh information: position, scale, rotation and if it needs to be rendered. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classBasicScene/">BasicScene</a></strong> <br>This class is used to manage a scene with meshes that will be rendered. It's implemented using Singleton. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classBehaviourComponent/">BehaviourComponent</a></strong> <br>This <a href="/chess-engine/api/Classes/classComponent/">Component</a> is very similar to <a href="/chess-engine/api/Classes/classTimeAnimation/">TimeAnimation</a>, the only difference is that this "animation" has not an end but it defines a behaviour of a mesh (like an AI). </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classBufferComponent/">BufferComponent</a></strong> <br><a href="/chess-engine/api/Classes/classComponent/">Component</a> to store <code>[ogl::Buffer]()</code> data. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classCameraComponent/">CameraComponent</a></strong> <br><a href="/chess-engine/api/Classes/classComponent/">Component</a> to store data of a <a href="">ogl::Camera</a>. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classColliderComponent/">ColliderComponent</a></strong> <br><a href="/chess-engine/api/Classes/classComponent/">Component</a> to store mesh collider data to solve collision in a PhysicWorld. </li>
 <li><strong>struct <a href="/chess-engine/api/Classes/structColor/">Color</a></strong> <br>Simple data structure to store a RGBA color. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classComponent/">Component</a></strong> <br>Base class for every entity component. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classEntityManager/">EntityManager</a></strong> <br>This class manages all the entities and the components instanced. </li>
 <li><strong>struct <a href="/chess-engine/api/Classes/structFBConfig/">FBConfig</a></strong> <br>Data structure to create an <a href="">ogl::FrameBuffer</a> using these parameters. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classHideTreeComponent/">HideTreeComponent</a></strong> <br>This <a href="">Component</a> allow to hide some entity while rendering the <a href="/chess-engine/api/Classes/classImGuiEntityTree/">ImGuiEntityTree</a> panel. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classImGuiEntityTree/">ImGuiEntityTree</a></strong> <br>Implementation of ImGuiPanel that provides a tree in a panel containing all the entities in the ECS. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classImGuiFilePicker/">ImGuiFilePicker</a></strong> <br>Implementation of ImGuiPanel, it creates a panel that let the user pick one or multiple files. When the Ok button is clicked it execute the action function and closes the panel. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classImGuiMeshLoader/">ImGuiMeshLoader</a></strong> <br>Implementation of ImGuiPanel, it creates a panel with two buttons Save and Load. When Save is clicked it creates a file called <code>scene.json</code> and serialize all entities data. When Load is clicked it loads a file and deserialize all entities data. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classImGuiNormalView/">ImGuiNormalView</a></strong> <br>Implementation of ImGuiPanel that provides a window that shows all normal vectors of an entity and draw them on a FrameBuffer. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classImGuiSimulationPanel/">ImGuiSimulationPanel</a></strong> <br>Implementation of ImGuiPanel that provides a panel containing all simulation features. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classImportedMeshTextures/">ImportedMeshTextures</a></strong> <br><a href="">Component</a> to store assimp imported mesh data. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structImportedTexture/">ImportedTexture</a></strong> <br>This structure stores data from an imported mesh texture. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classInputComponent/">InputComponent</a></strong> <br>This <a href="">Component</a> stores one callback for each input key pressed. When a key is pressed if there are callback linked to that key, the callback will be executed. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structInstanceData/">InstanceData</a></strong> <br>Data structure for instanced mesh rendering. It stores for each primitive its color and model matrix. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classInstancedComponent/">InstancedComponent</a></strong> <br>This component is used to query the ECS for all primitives that are rendered using instanced rendering. </li>
 <li><strong>struct <a href="/chess-engine/api/Classes/structKey/">Key</a></strong> <br>Data structure used to wrap keyboard keys. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classLoaderComponent/">LoaderComponent</a></strong> <br>This <a href="">Component</a> defines which entities can be serialized/deserialized. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classMaterial/">Material</a></strong> <br>Basic class to store material information for texturing and light computation. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classMaterialComponent/">MaterialComponent</a></strong> <br><a href="">Component</a> to store the mesh <a href="">Material</a> data. </li>
 <li><strong>struct <a href="/chess-engine/api/Classes/structMeshInfo/">MeshInfo</a></strong> <br>Utility struct to temporally store mesh vectors. </li>
-<li><strong>struct <a href="/chess-engine/api/Classes/structPair/">Pair</a></strong> <br>Simple <a href="">Pair</a> wrapper. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structMouse/">Mouse</a></strong> <br>Data structure to store mouse position data and allow fluent movement. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classMultiMesh/">MultiMesh</a></strong> <br><a href="">Component</a> to store multiple mesh data. This can be used to define an anchor and all the meshes linked will transform using anchor transform data. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classOutlined/">Outlined</a></strong> <br><a href="">Component</a> used to query all meshes that needs to be outlined using a simple stencil buffer. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classParentComponent/">ParentComponent</a></strong> <br>This <a href="">Component</a> is used like <a href="">MultiMesh</a>, but it create a sort of tree structure where each mesh has children. Each child mesh can also have children etc. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classPhysicComponent/">PhysicComponent</a></strong> <br>This <a href="">Component</a> stores all the mesh data regarding basic physics like velocity, force, acceleration. </li>
 <li><strong>struct <a href="/chess-engine/api/Classes/structRBConfig/">RBConfig</a></strong> <br>Data structure to create an <a href="">ogl::RenderBuffer</a> using these parameters. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classRenderComponent/">RenderComponent</a></strong> <br>This <a href="">Component</a> is used to render a mesh in the <a href="">ogl::Window</a>. It stores the render call that will be called by <code>systems</code>. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classRopeComponent/">RopeComponent</a></strong> <br>This <a href="">Component</a> stores all information to manage a rope in the PhysicWorld. </li>
 <li><strong>class <a href="/chess-engine/api/Classes/classSerializable/">Serializable</a></strong> <br>This class provides overridable methods to serialize and deserialize a class. </li>
 <li><strong>class <a href="/chess-engine/api/Classes/classSerializer/">Serializer</a></strong> <br>This class writes/read into/from a given file the elements with the given type T. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classShaderComponent/">ShaderComponent</a></strong> <br><a href="">Component</a> to store mesh shader data and some mesh information like light computation and the capability to reflect the skybox texture. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structSimulationConfig/">SimulationConfig</a></strong> <br>Data structure to save simulation configuration. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classSkyboxComponent/">SkyboxComponent</a></strong> <br><a href="">Component</a> to store SkyBox texture data. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classTextureComponent/">TextureComponent</a></strong> <br><a href="">Component</a> to store mesh <code>[ogl::Texture]()</code> data. </li>
 <li><strong>struct <a href="/chess-engine/api/Classes/structTextureParams/">TextureParams</a></strong> <br>Data structure to create an <a href="">ogl::Texture</a> using these parameters. </li>
-<li><strong>struct <a href="/chess-engine/api/Classes/structTuple/">Tuple</a></strong> <br>Simple <a href="">Tuple</a> wrapper. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classTimeAnimation/">TimeAnimation</a></strong> <br>This <a href="">Component</a> allow to execute an action at every frame for a specified time. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classTransform/">Transform</a></strong> <br><a href="">Component</a> to store mesh position, rotation, scale data. </li>
+<li><strong>class <a href="/chess-engine/api/Classes/classVertexComponent/">VertexComponent</a></strong> <br><a href="">Component</a> to store vertices coords data. </li>
 <li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacechess/">chess</a></strong> <ul>
 <li><strong>class <a href="/chess-engine/api/Classes/classchess_1_1Location/">Location</a></strong> <br>Represent a square in a chess board. </li>
 <li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacechess_1_1board/">board</a></strong> <ul>
@@ -571,6 +605,8 @@
 </li>
 </ul>
 </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacefactory/">factory</a></strong> </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacematerial/">material</a></strong> </li>
 <li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceogl/">ogl</a></strong> <ul>
 <li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1Buffer/">Buffer</a></strong> <br>Base class of all OpenGL buffer. </li>
 <li><strong>class <a href="/chess-engine/api/Classes/classogl_1_1Camera/">Camera</a></strong> <br>Creates a virtual camera based on projection matrix. It can be used for both 2D and 3D scenes: it calculates the Projection * View matrix. </li>
@@ -621,9 +657,27 @@
 </li>
 <li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceres/">res</a></strong> <br>Namespace used for Resource utilities. </li>
 <li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceshader/">shader</a></strong> <br>Contains all shader utilities. </li>
+<li><strong>struct <a href="/chess-engine/api/Classes/structstbi__io__callbacks/">stbi_io_callbacks</a></strong> </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacesystems/">systems</a></strong> <br>It contains all the ECS systems. <ul>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacesystems_1_1animation/">animation</a></strong> <br>All utilities to handle animations. </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacesystems_1_1camera/">camera</a></strong> <br>All utilities to manage the world camera. </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacesystems_1_1collision/">collision</a></strong> <br>It contains all utilities to retrieve, handle and update mesh <a href="/chess-engine/api/Classes/classColliderComponent/">ColliderComponent</a>. </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacesystems_1_1ecs/">ecs</a></strong> <br>All utilities to manage the entities in the <a href="/chess-engine/api/Classes/classEntityManager/">EntityManager</a>. </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacesystems_1_1input/">input</a></strong> <br>All utilities to manage user input to interact whith meshes. </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacesystems_1_1material/">material</a></strong> <br>All utilities to manage entity material. </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacesystems_1_1parent/">parent</a></strong> <br>All utilities for a parent entity. </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacesystems_1_1render/">render</a></strong> <br>All utilities for rendering entities. </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacesystems_1_1texture/">texture</a></strong> <br>All utilities to manage entities texture. </li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespacesystems_1_1transform/">transform</a></strong> <br>All the methods to manipulate the <a href="/chess-engine/api/Classes/classTransform/">Transform</a> component. </li>
+</ul>
+</li>
+<li><strong>namespace <a href="/chess-engine/api/Namespaces/namespaceview/">view</a></strong> <ul>
+<li><strong>class <a href="/chess-engine/api/Classes/classview_1_1Board/">Board</a></strong> </li>
+</ul>
+</li>
 </ul>
 <hr />
-<p>Updated on 2026-05-11 at 08:43:32 +0000</p>
+<p>Updated on 2026-05-12 at 14:38:19 +0000</p>
 
 
 

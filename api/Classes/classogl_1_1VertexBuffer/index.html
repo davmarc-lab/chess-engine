@@ -684,31 +684,31 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1VertexBuffer/#function-~vertexbuffer">~VertexBuffer</a></strong>() override</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1VertexBuffer/#function-unbind">unbind</a></strong>() const override<br>Unbinds the buffer.</td>
 </tr>
 <tr>
-<td>template &lt;typenameT &gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1VertexBuffer/#function-setupsubdata">setupSubData</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">T</a> * vertices, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">size_t</a> &amp; size, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">int</a> &amp; offset)<br>Setups sub data of the vertex buffer object.</td>
+<td>template &lt;typename T &gt; <br>void</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1VertexBuffer/#function-setupsubdata">setupSubData</a></strong>(const T * vertices, const size_t &amp; size, const int &amp; offset)<br>Setups sub data of the vertex buffer object.</td>
 </tr>
 <tr>
-<td>template &lt;typenameT &gt; <br><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1VertexBuffer/#function-setup">setup</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">T</a> * vertices, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">size_t</a> &amp; size, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">int</a> &amp; usage)<br>Prepare and assign data to the vertex buffer object.</td>
+<td>template &lt;typename T &gt; <br>void</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1VertexBuffer/#function-setup">setup</a></strong>(const T * vertices, const size_t &amp; size, const unsigned int &amp; usage)<br>Prepare and assign data to the vertex buffer object.</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
-<td><strong><a href="/chess-engine/api/Classes/classogl_1_1VertexBuffer/#function-setup">setup</a></strong>(<a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">float</a> * vertices, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">size_t</a> &amp; size, <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">const</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">int</a> &amp; usage)<br>Prepare and assign float values to the vertex buffer object.</td>
+<td>void</td>
+<td><strong><a href="/chess-engine/api/Classes/classogl_1_1VertexBuffer/#function-setup">setup</a></strong>(const float * vertices, const size_t &amp; size, const unsigned int &amp; usage)<br>Prepare and assign float values to the vertex buffer object.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1VertexBuffer/#function-ondetach">onDetach</a></strong>() override<br>Destroys the buffer and reset its id.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1VertexBuffer/#function-onattach">onAttach</a></strong>() override<br>Creates the buffer and sets its id.</td>
 </tr>
 <tr>
-<td>virtual <a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">void</a></td>
+<td>virtual void</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1VertexBuffer/#function-bind">bind</a></strong>() const override<br>Binds the buffer with the current id.</td>
 </tr>
 <tr>
@@ -732,7 +732,7 @@
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Buffer/#function-~buffer">~Buffer</a></strong>() =default</td>
 </tr>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">int</a></td>
+<td>unsigned int</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Buffer/#function-getid">getId</a></strong>() const<br>Retrieves the buffer id.</td>
 </tr>
 <tr>
@@ -751,7 +751,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">unsigned</a><a href="/chess-engine/api/Files/Engine_2include_2engine_2utils_8hpp/#function-createunique">int</a></td>
+<td>unsigned int</td>
 <td><strong><a href="/chess-engine/api/Classes/classogl_1_1Buffer/#variable-m-id">m_id</a></strong> <br>buffer id</td>
 </tr>
 </tbody>
@@ -766,11 +766,11 @@
 <p>Unbinds the buffer. </p>
 <p><strong>Reimplements</strong>: <a href="/chess-engine/api/Classes/classogl_1_1Buffer/#function-unbind">ogl::Buffer::unbind</a></p>
 <h3 id="function-setupsubdata">function setupSubData</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">typenameT</span><span class="w"> </span><span class="o">&gt;</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setupSubData</span><span class="p">(</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">constT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vertices</span><span class="p">,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">constsize_t</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">constint</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">offset</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vertices</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">offset</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>Setups sub data of the vertex buffer object. </p>
@@ -787,11 +787,11 @@
 <p><strong>Note</strong>: It first binds the vertex buffer object.</p>
 <p><strong>Warning</strong>: This method is not implemented yet.</p>
 <h3 id="function-setup">function setup</h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">typenameT</span><span class="w"> </span><span class="o">&gt;</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setup</span><span class="p">(</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">constT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vertices</span><span class="p">,</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">constsize_t</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">constunsignedint</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">usage</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vertices</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">usage</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>Prepare and assign data to the vertex buffer object. </p>
@@ -808,9 +808,9 @@
 <p><strong>Note</strong>: It first binds the vertex buffer object.</p>
 <h3 id="function-setup_1">function setup</h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">setup</span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">constfloat</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vertices</span><span class="p">,</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">constsize_t</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">constunsignedint</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">usage</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vertices</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">usage</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">)</span>
 </span></code></pre></div>
 <p>Prepare and assign float values to the vertex buffer object. </p>
@@ -841,7 +841,7 @@
 </span></code></pre></div>
 <p>Instances basic vertex buffer object. </p>
 <hr />
-<p>Updated on 2026-05-11 at 08:43:32 +0000</p>
+<p>Updated on 2026-05-12 at 14:38:19 +0000</p>
 
 
 
