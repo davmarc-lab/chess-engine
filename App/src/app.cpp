@@ -12,6 +12,7 @@
 #include "glm/gtc/type_ptr.hpp"
 
 #include "factory.hpp"
+#include "ui/app_gui.hpp"
 #include "utils.hpp"
 
 using namespace ogl;
@@ -43,21 +44,7 @@ int main(int argc, char *argv[]) {
 	ed->subscribe(event::loop::LOOP_BEGIN_RENDER, [&im]() { im.begin(); });
 	ed->subscribe(event::loop::LOOP_END_RENDER, [&im]() { im.end(); });
 
-	auto a = im.addPanel<ImGuiPanel>();
-	// define the render function for the imgui panel
-	a->setRenderFunc([]() {
-		ImGui::Begin("Foo");
-		ImGui::Text("Hello ImGui!!");
-		ImGui::End();
-	});
-
-	auto b = im.addPanel<ImGuiPanel>();
-	// define the render function for the imgui panel
-	b->setRenderFunc([]() {
-		ImGui::Begin("BBB");
-		ImGui::Text("Other panel");
-		ImGui::End();
-	});
+	im.addPanel<ImGuiEntityTree>();
 
 	UniformBuffer ubo{"Matrices"};
 	glm::mat4 proj = glm::ortho(0.f, w.getWidth(), 0.f, w.getHeight());
@@ -74,8 +61,11 @@ int main(int argc, char *argv[]) {
 	Shared<ShaderProgram> def = CreateShared<ShaderProgram>("vert_shader.glsl", "frag_shader.glsl");
 	def->createShaderProgram();
 
-	auto id = factory::factorySquare(BasicInfo{{}, {40, 40, 1}, {}});
+	auto id = factory::factorySquare(BasicInfo{{20, 20, -.9}, {40, 40, 1}, {}});
 	ecs->addEntity(def, id);
+
+	auto foo = factory::factorySquare(BasicInfo{{60, 60, 1}, {40, 40, 1}, {}}, {0, 0, 1, 1});
+	ecs->addEntity(def, foo);
 
 	ed->subscribe(event::loop::LOOP_RENDER, []() { systems::render::renderAllMeshes(); });
 

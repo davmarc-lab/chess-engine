@@ -1,9 +1,9 @@
 #include "utils.hpp"
 
-#include "ecs/system.hpp"
 #include "ecs/component.hpp"
 #include "ecs/ecs_scene.hpp"
 #include "ecs/entity_manager.hpp"
+#include "ecs/system.hpp"
 
 #include <glm/ext/matrix_transform.hpp>
 #include <glm/ext/vector_float3.hpp>
@@ -567,86 +567,24 @@ namespace systems {
 		}
 
 		void renderAllMeshes() {
-			auto sid = em->getEntitiesFromComponent<SkyboxComponent>();
-			if (sid.empty())
-				return;
-			auto skybox = em->getComponentFromId<SkyboxComponent>(sid[0]);
-			auto skyboxTexture = em->getComponentFromId<TextureComponent>(sid[0]);
+			// auto sid = em->getEntitiesFromComponent<SkyboxComponent>();
+			// if (sid.empty())
+			// 	return;
+			// auto skybox = em->getComponentFromId<SkyboxComponent>(sid[0]);
+			// auto skyboxTexture = em->getComponentFromId<TextureComponent>(sid[0]);
 			for (auto [shader, etts] : scene->getShaderEntityMap()) {
 				shader->use();
 				for (auto id : etts) {
-					if (em->entityHasComponent<ShaderComponent>(id)) {
-					}
-					shader->setInt("skybox", 1);
-					glActiveTexture(GL_TEXTURE1);
-					auto mc = em->getComponentFromId<MaterialComponent>(id);
-					if (mc != nullptr) {
-						shader->setVec3("material.ambient", mc->material.ambient);
-						shader->setVec3("material.diffuse", mc->material.diffuse);
-						shader->setVec3("material.specular", mc->material.specular);
-						shader->setFloat("material.shininess", mc->material.shininess);
-					}
-					auto sc = em->getComponentFromId<ShaderComponent>(id);
-					if (sc != nullptr) {
-						if (sc->reflective) {
-							skyboxTexture->texture.bind();
-							shader->setInt("reflective", 1);
-						} else {
-							shader->setInt("reflective", 0);
-						}
-					}
-					auto tc = em->getComponentFromId<TextureComponent>(id);
-					if (tc != nullptr) {
-						glActiveTexture(GL_TEXTURE0);
-						shader->setInt("texture1", 0);
-						shader->setInt("useColor", 0);
-						tc->texture.bind();
-					} else {
-						shader->setInt("useColor", 1);
-					}
 					auto rc = em->getComponentFromId<RenderComponent>(id);
 					if (em->entityHasComponent<Transform>(id)) {
 						shader->setMat4("model", ::systems::transform::getModelMatrix(id));
 					}
-					// Imported Textures
-					auto it = em->getComponentFromId<ImportedMeshTextures>(id);
-					if (it != nullptr) {
-						int number = 1;
-						unsigned int ndiffuse = 1;
-						unsigned int nspecular = 1;
-						unsigned int nnormal = 1;
-						unsigned int nheight = 1;
-
-						for (unsigned int i = 0; i < it->textures.size(); i++) {
-							glActiveTexture(GL_TEXTURE0 + i);
-							// counter
-							if (it->textures[i].type == "texture_diffuse") {
-								number = ndiffuse++;
-							} else if (it->textures[i].type == "texture_specular") {
-								number = nspecular++;
-							} else if (it->textures[i].type == "texture_normal") {
-								number = nnormal++;
-							} else if (it->textures[i].type == "texture_height") {
-								number = nheight++;
-							}
-							shader->setInt((it->textures[i].type + std::to_string(number)), i);
-							glBindTexture(GL_TEXTURE_2D, it->textures[i].id);
-						}
-					}
 					if (rc != nullptr)
 						rc->call();
-					if (it != nullptr) {
-						glBindTexture(GL_TEXTURE_2D, 0);
-					}
+
 					auto pc = em->getComponentFromId<ParentComponent>(id);
 					if (pc != nullptr) {
 						for (auto child : pc->children) {
-							auto tc = em->getComponentFromId<TextureComponent>(child);
-							if (tc != nullptr) {
-								glActiveTexture(GL_TEXTURE0);
-								shader->setInt("texture1", 0);
-								tc->texture.bind();
-							}
 							if (em->entityHasComponent<Transform>(child)) {
 								shader->setMat4("model", ::systems::transform::getModelMatrix(child));
 							}
@@ -654,16 +592,7 @@ namespace systems {
 							if (dc != nullptr) {
 								dc->call();
 							}
-							if (tc != nullptr) {
-								tc->texture.unbind();
-							}
 						}
-					}
-					if (sc != nullptr && sc->reflective) {
-						skyboxTexture->texture.unbind();
-					}
-					if (tc != nullptr) {
-						tc->texture.unbind();
 					}
 				}
 			}

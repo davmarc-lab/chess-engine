@@ -5,6 +5,7 @@
 #include "ecs/system.hpp"
 
 #include "graphics/core/mesh_vertices.hpp"
+#include "utils.hpp"
 
 #include <glm/ext/quaternion_geometric.hpp>
 #include <glm/geometric.hpp>
@@ -49,12 +50,19 @@ namespace factory {
 		bc->ebo.setup(vc->getIndexCoords().data(), vc->getIndexCoords().size(), GL_STATIC_DRAW);
 	}
 
+	void zClamp(BasicInfo &info) {
+		info.position.z = glm::clamp(info.position.z, -0.9f, 1.f);
+	}
+
 	unsigned int factorySquare(const BasicInfo &info, const glm::vec4 &color) {
 		auto id = em->createEntity();
+
 		em->addComponent<Transform>(id);
-		systems::transform::updatePosition(id, info.position);
-		systems::transform::updateScale(id, info.scale);
-		systems::transform::updateRotation(id, info.rotation);
+		auto fixed = BasicInfo{info};
+		zClamp(fixed);
+		systems::transform::updatePosition(id, fixed.position);
+		systems::transform::updateScale(id, fixed.scale);
+		systems::transform::updateRotation(id, fixed.rotation);
 		auto vc = em->addComponent<VertexComponent>(id, squareGeometry, getColorVector(color, squareGeometry.size()), squareIndices);
 		auto bc = em->addComponent<BufferComponent>(id);
 
