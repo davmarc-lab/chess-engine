@@ -5,7 +5,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
 
-#include "graphics/core/utils.hpp"
+#include "common/utils.hpp"
 
 /**
  * @namespace ogl

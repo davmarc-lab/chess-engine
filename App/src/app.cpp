@@ -5,7 +5,7 @@
 #include "graphics/buffer/uniform_buffer.hpp"
 #include "graphics/core/event.hpp"
 #include "graphics/core/imgui.hpp"
-#include "graphics/core/utils.hpp"
+#include "common/utils.hpp"
 #include "graphics/core/window.hpp"
 #include "graphics/shader/shader.hpp"
 
@@ -13,7 +13,7 @@
 
 #include "factory.hpp"
 #include "ui/app_gui.hpp"
-#include "utils.hpp"
+#include "view/board.hpp"
 
 using namespace ogl;
 
@@ -23,10 +23,10 @@ const auto ecs = BasicScene::instance();
 
 int main(int argc, char *argv[]) {
 	WindowSettings s{};
-	s.position = {40, 40};
+	s.position = {200, 100};
 	s.decorated = false;
 	s.vsync = true;
-	s.size = {600, 600};
+	s.size = {1600, 900};
 	s.bgColor = {.4f, .4f, .4f, 1.f};
 	Window w{s};
 	w.onAttach();
@@ -61,11 +61,9 @@ int main(int argc, char *argv[]) {
 	Shared<ShaderProgram> def = CreateShared<ShaderProgram>("vert_shader.glsl", "frag_shader.glsl");
 	def->createShaderProgram();
 
-	auto id = factory::factorySquare(BasicInfo{{20, 20, -.9}, {40, 40, 1}, {}});
-	ecs->addEntity(def, id);
-
-	auto foo = factory::factorySquare(BasicInfo{{60, 60, 1}, {40, 40, 1}, {}}, {0, 0, 1, 1});
-	ecs->addEntity(def, foo);
+	auto board = view::Board();   
+    board.onAttach();
+    ecs->addEntity(def, board.getId());
 
 	ed->subscribe(event::loop::LOOP_RENDER, []() { systems::render::renderAllMeshes(); });
 

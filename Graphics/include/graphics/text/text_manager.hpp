@@ -1,9 +1,9 @@
 #pragma once
 
+#include "common/utils.hpp"
 #include "graphics/buffer/vertex_array.hpp"
 #include "graphics/buffer/vertex_buffer.hpp"
 #include "graphics/core/layer.hpp"
-#include "graphics/core/utils.hpp"
 #include "graphics/shader/shader.hpp"
 
 #include <glm/glm.hpp>
@@ -203,12 +203,12 @@ namespace ogl {
 		/// static shared pointer for Singleton
 		inline static Shared<TextManager> s_pointer = nullptr;
 
-        /// data structure with all textures of each character
+		/// data structure with all textures of each character
 		std::map<unsigned long long, Character> m_characters{};
-        /// vector with all Text
+		/// vector with all Text
 		std::vector<Shared<Text>> m_text{};
 
-        /// text manager settings
+		/// text manager settings
 		TextSettings m_settings{};
 	};
 } // namespace ogl

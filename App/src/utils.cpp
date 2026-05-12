@@ -1,11 +1,14 @@
 #include "utils.hpp"
+
 #include "ui/app_gui.hpp"
 
+#include "ecs/entity_manager.hpp"
 #include "graphics/core/camera.hpp"
 #include "graphics/core/event.hpp"
 #include "graphics/core/input_manager.hpp"
+#include "graphics/core/window.hpp"
 
-#include "ecs/entity_manager.hpp"
+#include "ecs/component.hpp"
 #include "ecs/system.hpp"
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -15,9 +18,9 @@
 
 using namespace ogl;
 
-const auto ed = EventManager::instance();
-const auto em = EntityManager::instance();
 const auto im = InputManager::instance();
+const auto em = EntityManager::instance();
+const auto ed = EventManager::instance();
 
 void defaultCameraMovement(WorldCamera &world) {
 	// register an event during loop input step

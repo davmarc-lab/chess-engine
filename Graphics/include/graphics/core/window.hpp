@@ -4,7 +4,7 @@
 
 #include "layer.hpp"
 #include "structs.hpp"
-#include "utils.hpp"
+#include "common/utils.hpp"
 
 #include <functional>
 

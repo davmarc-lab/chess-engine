@@ -1,7 +1,7 @@
 #pragma once
 
 #include "graphics/core/structs.hpp"
-#include "graphics/core/utils.hpp"
+#include "common/utils.hpp"
 
 namespace ogl {
 

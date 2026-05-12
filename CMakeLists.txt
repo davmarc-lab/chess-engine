@@ -19,6 +19,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 # Subdirectories
 add_subdirectory(Engine)
 add_subdirectory(App)
+add_subdirectory(Common)
 add_subdirectory(Test)
 add_subdirectory(Graphics)
 

@@ -6,7 +6,7 @@
 
 #include "graphics/shader/shader.hpp"
 
-#include "utils.hpp"
+#include "common/utils.hpp"
 
 #include <cstddef>
 #include <vector>

@@ -13,7 +13,7 @@
 #include "engine/piece/queen.hpp"
 #include "engine/piece/rook.hpp"
 
-#include "engine/utils.hpp"
+#include "common/utils.hpp"
 
 void testHealth() {
 	chess::checkhealth();

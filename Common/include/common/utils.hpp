@@ -9,8 +9,14 @@
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MAXINC(a, b) ((a) >= (b) ? (a) : (b))
 
+// asserts
+#define ASSERT(exp) assert(exp)
+
 // Class name
 #define CLASSNAME(elem) typeid(elem).name()
+
+// `container.begin(), container.end()`
+#define ALL(a) (a.begin()), (a.end())
 
 /* ==================== TYPES ==================== */
 using u8 = unsigned char;

@@ -1,6 +1,6 @@
 #include "engine/piece/piece.hpp"
 
-#include "engine/utils.hpp"
+#include "common/utils.hpp"
 
 namespace chess {
 	namespace piece {

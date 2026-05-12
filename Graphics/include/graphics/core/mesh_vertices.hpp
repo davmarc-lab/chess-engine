@@ -5,7 +5,7 @@
 #include <glm/glm.hpp>
 #include <iostream>
 #include <vector>
-#include "utils.hpp"
+#include "common/utils.hpp"
 
 const float PI = glm::pi<float>();
 

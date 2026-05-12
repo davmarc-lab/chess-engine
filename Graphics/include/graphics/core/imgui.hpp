@@ -1,7 +1,7 @@
 #pragma once
 
 #include "layer.hpp"
-#include "utils.hpp"
+#include "common/utils.hpp"
 #include "window.hpp"
 
 #include <algorithm>

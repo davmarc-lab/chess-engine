@@ -1,6 +1,6 @@
 #pragma once
 
-#include "engine/utils.hpp"
+#include "common/utils.hpp"
 namespace chess {
 
 	using Color = Tuple<float>;

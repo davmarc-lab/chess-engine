@@ -2,7 +2,7 @@
 
 #include "engine/piece/piece.hpp"
 #include "engine/structs.hpp"
-#include "engine/utils.hpp"
+#include "common/utils.hpp"
 
 #include <concepts>
 #include <iostream>
