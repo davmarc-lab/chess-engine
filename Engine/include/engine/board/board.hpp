@@ -1,8 +1,8 @@
 #pragma once
 
+#include "common/utils.hpp"
 #include "engine/piece/piece.hpp"
 #include "engine/structs.hpp"
-#include "common/utils.hpp"
 
 #include <concepts>
 #include <iostream>
@@ -27,7 +27,7 @@ namespace chess {
 			/// pieces per side
 			unsigned int pieces = 8;
 			/// board sizes in squares
-			Pair<unsigned int> size = {3, 3};
+			Pair<unsigned int> size = {3, 5};
 			/// each side color
 			std::vector<Color> colors = {SQUARE_BLACK, SQUARE_WHITE};
 
@@ -67,13 +67,6 @@ namespace chess {
 			 */
 			size_t numCurrentPieces() const;
 
-			/// testing custom template param
-			template <ext_piece T>
-			inline void checkConcept() {
-				// TODO - find a way to retrieve bool if T extends Piece
-				std::cout << std::string(CLASSNAME(T)) + " - OK!\n";
-			}
-
 			/**
 			 * @brief Add a Piece to the board.
 			 *
@@ -102,6 +95,13 @@ namespace chess {
 			Board &operator=(const Board &) = default;
 
 			virtual ~Board() = default;
+
+			/// testing custom template param
+			template <ext_piece T>
+			inline void checkConcept() {
+				// TODO - find a way to retrieve bool if T extends Piece
+				std::cout << std::string(CLASSNAME(T)) + " - OK!\n";
+			}
 
 		private:
 			/// board settings

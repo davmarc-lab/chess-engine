@@ -1,8 +1,10 @@
 #include "view/board.hpp"
 #include <cctype>
 #include <glm/ext/vector_float4.hpp>
+#include <string>
 
 #include "common/logger.hpp"
+#include "common/utils.hpp"
 #include "ecs/ecs_scene.hpp"
 #include "ecs/entity_manager.hpp"
 #include "ecs/system.hpp"
@@ -16,9 +18,21 @@ const glm::vec3 SQUARE_SIZE{40, 40, 0};
 const glm::vec4 SQUARE_BLACK{0, 0, 0, 1};
 const glm::vec4 SQUARE_WHITE{1, 1, 1, 1};
 
+#define CHAR_OFFSET 97
+#define NUM_OFFSET 1
+
 namespace view {
 
-	int Board::index(const int &x, const int &y) const { return this->m_settings.size.x * x + y; }
+	// macro => fun(N, col, row)
+	int Board::index(const int &col, const int &row) const {
+		return this->m_settings.size.x * row + col;
+	}
+
+	// macro => fun(N, index)
+	Pair<unsigned int> Board::coord(const unsigned int &index) const {
+		// letter - number
+		return {index % this->m_settings.size.x, index / this->m_settings.size.x};
+	}
 
 	int Board::getSquaresNum() const { return this->m_settings.size.x * this->m_settings.size.y; }
 
@@ -47,23 +61,35 @@ namespace view {
 				systems::parent::addChild(board, sq);
 
 				// storing consecutively in memory each "view" row
-				this->m_references[this->index(j, i)] = sq;
-				INFO(std::to_string(this->index(j, i)) + " => " + std::to_string(sq));
+				// each letter represent a column
+				this->m_references[this->index(i, j)] = sq;
 			}
 		}
 		this->m_id = board;
 	}
 
 	unsigned int Board::getCellFromCoord(const char &letter, const short &num) const {
-		auto letterIndex = tolower(letter) - 97;
-		auto index = this->index(letterIndex, num - 1);
+		auto letterIndex = tolower(letter) - CHAR_OFFSET;
+		auto index = this->index(letterIndex, num - NUM_OFFSET);
 		if (index >= this->getSquaresNum() || index < 0) {
 			ERROR("Index out of bound: actual -> " + std::to_string(index) + ", max -> " +
 				  std::to_string(this->getSquaresNum()));
-            return 0;
+			return 0;
 		}
-		INFO(std::to_string(this->m_references[index]));
 		return this->m_references[index];
+	}
+
+	Pair<unsigned int> Board::getCoordFromCell(const unsigned int &id) const {
+		// TODO binary search could be better
+		for (auto i = 0; i < this->getSquaresNum(); i++) {
+			if (this->m_references[i] == id) {
+				auto arrCoords = this->coord(i);
+				arrCoords.x += CHAR_OFFSET;
+				arrCoords.y += NUM_OFFSET;
+				return arrCoords;
+			}
+		}
+		return {};
 	}
 
 	unsigned int Board::getId() const { return this->m_id; }

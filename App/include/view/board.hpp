@@ -12,7 +12,9 @@ namespace view {
 
 		unsigned int getCellFromCoord(const char &letter, const short &num) const;
 
-        int getSquaresNum() const;
+		Pair<unsigned int> getCoordFromCell(const unsigned int &id) const;
+
+		int getSquaresNum() const;
 
 		Board(Board &&) = default;
 		Board(const Board &) = default;
@@ -27,6 +29,8 @@ namespace view {
 		chess::board::Board m_board{m_settings};
 		unsigned int *m_references;
 
-		int index(const int &x, const int &y) const;
+        // c friendly naming
+		int index(const int &col, const int &row) const;
+		Pair<unsigned int> coord(const unsigned int &index) const;
 	};
 } // namespace view

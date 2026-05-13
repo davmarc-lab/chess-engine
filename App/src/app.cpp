@@ -1,4 +1,5 @@
 #include <GLFW/glfw3.h>
+#include <string>
 #include "common/logger.hpp"
 
 #include "common/utils.hpp"
@@ -6,6 +7,7 @@
 #include "ecs/entity_manager.hpp"
 #include "ecs/system.hpp"
 
+#include "engine/location.hpp"
 #include "graphics/buffer/uniform_buffer.hpp"
 #include "graphics/core/event.hpp"
 #include "graphics/core/imgui.hpp"
@@ -25,6 +27,8 @@ const auto em = EntityManager::instance();
 const auto ecs = BasicScene::instance();
 
 int selected = -1;
+int srcCell = -1;
+int dstCell = -1;
 
 int getCellUnderCursor(Pair<double> &pos) {
 	for (auto cell : em->getEntitiesFromComponent<CellComponent>()) {
@@ -38,14 +42,14 @@ int getCellUnderCursor(Pair<double> &pos) {
 
 void pressCell(Pair<double> &pos, int &button) {
 	if (button == GLFW_MOUSE_BUTTON_1) {
-		selected = getCellUnderCursor(pos);
+		srcCell = getCellUnderCursor(pos);
 		// INFO("Clicked: " + std::to_string(selected));
 	}
 }
 
 void releaseCell(Pair<double> &pos, int &button) {
 	if (button == GLFW_MOUSE_BUTTON_1) {
-		selected = getCellUnderCursor(pos);
+		dstCell = getCellUnderCursor(pos);
 		// INFO("Released: " + std::to_string(selected));
 	}
 }
@@ -127,7 +131,7 @@ int main(int argc, char *argv[]) {
 	ecs->addEntity(def, sample.getId());
 
 	{
-		auto ett = board.getCellFromCoord('A', 2);
+		auto ett = board.getCellFromCoord('A', 3);
 		if (ett > 0) {
 			auto pos = systems::transform::getPosition(ett);
 			pos.z = 1;
@@ -136,19 +140,32 @@ int main(int argc, char *argv[]) {
 	}
 
 	// mouse callback
-	window.setMouseButtonCallback([&window](GLFWwindow *ctx, int button, int action, int mods) {
-		auto pos = window.getMousePos();
-		switch (action) {
-			case GLFW_PRESS: {
-				pressCell(pos, button);
-				break;
+	window.setMouseButtonCallback(
+		[&window, &board, &sample](GLFWwindow *ctx, int button, int action, int mods) {
+			auto pos = window.getMousePos();
+			switch (action) {
+				case GLFW_PRESS: {
+					pressCell(pos, button);
+					break;
+				}
+				case GLFW_RELEASE: {
+					releaseCell(pos, button);
+					if (srcCell > 0 && dstCell > 0) {
+						// move piece
+						// coords for the engine (view don't need it, could use ecs id - dstCell)
+						auto coords = board.getCoordFromCell(dstCell);
+                        // update the board model
+						auto boardLocation = chess::Location(coords.x, coords.y);
+						INFO(boardLocation.toString());
+                        // update the view -> src to dst
+                        auto pos = systems::transform::getPosition(dstCell);
+                        pos.z = 1;
+                        systems::transform::updatePosition(sample.getId(), pos);
+					}
+					break;
+				}
 			}
-			case GLFW_RELEASE: {
-				releaseCell(pos, button);
-				break;
-			}
-		}
-	});
+		});
 
 	ed->subscribe(event::loop::LOOP_RENDER, []() { systems::render::renderAllMeshes(); });
 
