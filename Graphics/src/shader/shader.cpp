@@ -1,5 +1,7 @@
 #include "graphics/shader/shader.hpp"
 
+#include "common/logger.hpp"
+
 #include <cassert>
 
 namespace ogl {
@@ -13,8 +15,8 @@ namespace ogl {
 			glGetShaderiv(this->m_id, GL_COMPILE_STATUS, &success);
 			if (!success) {
 				glGetShaderInfoLog(this->m_id, 1024, nullptr, log);
-				std::cout << "ERROR::SHADER_COMPILATION_ERROR of type: " << strType << "\n"
-						  << log << "\n-- -------------------------------------------------- --\n";
+				CRITICAL("ERROR::SHADER_COMPILATION_ERROR of type: " + strType + "\n" + log +
+						 "\n-- -------------------------------------------------- --");
 				throw std::exception();
 			}
 		}
@@ -47,7 +49,8 @@ namespace ogl {
 		this->m_id = 0;
 	}
 
-	ShaderProgram::ShaderProgram(const std::string &vloc, const std::string &vfile, const std::string &floc, const std::string &ffile) {
+	ShaderProgram::ShaderProgram(const std::string &vloc, const std::string &vfile,
+								 const std::string &floc, const std::string &ffile) {
 		assert(!vloc.empty());
 		assert(!vfile.empty());
 		assert(!floc.empty());
@@ -57,7 +60,9 @@ namespace ogl {
 		this->m_frag = CreateUnique<Shader>(floc, ffile, shader::SHADER_TYPE_FRAGMENT);
 	}
 
-	ShaderProgram::ShaderProgram(const std::string &vloc, const std::string &vfile, const std::string &floc, const std::string &ffile, const std::string &gloc, const std::string &gfile) :
+	ShaderProgram::ShaderProgram(const std::string &vloc, const std::string &vfile,
+								 const std::string &floc, const std::string &ffile,
+								 const std::string &gloc, const std::string &gfile) :
 		ShaderProgram(vloc, vfile, floc, ffile) {
 		assert(!gloc.empty());
 		assert(!gfile.empty());
@@ -72,8 +77,8 @@ namespace ogl {
 		glGetProgramiv(this->m_id, GL_LINK_STATUS, &success);
 		if (!success) {
 			glGetProgramInfoLog(this->m_id, 1024, NULL, log);
-			std::cout << "ERROR::SHADER_PROGRAM_LINKING_ERROR of type: " << "PROGRAM" << "\n"
-					  << log << "\n-- -------------------------------------------------- --\n";
+			CRITICAL("ERROR::SHADER_PROGRAM_LINKING_ERROR of type: PROGRAM\n" + std::string(log) +
+					 "\n-- -------------------------------------------------- --");
 			throw std::exception();
 		}
 	}
@@ -159,15 +164,18 @@ namespace ogl {
 	}
 
 	void ShaderProgram::setMat2(const std::string &name, const glm::mat2 &mat) const {
-		glUniformMatrix2fv(glGetUniformLocation(this->getId(), name.c_str()), 1, GL_FALSE, &mat[0][0]);
+		glUniformMatrix2fv(glGetUniformLocation(this->getId(), name.c_str()), 1, GL_FALSE,
+						   &mat[0][0]);
 	}
 
 	void ShaderProgram::setMat3(const std::string &name, const glm::mat3 &mat) const {
-		glUniformMatrix3fv(glGetUniformLocation(this->getId(), name.c_str()), 1, GL_FALSE, &mat[0][0]);
+		glUniformMatrix3fv(glGetUniformLocation(this->getId(), name.c_str()), 1, GL_FALSE,
+						   &mat[0][0]);
 	}
 
 	void ShaderProgram::setMat4(const std::string &name, const glm::mat4 &mat) const {
-		glUniformMatrix4fv(glGetUniformLocation(this->getId(), name.c_str()), 1, GL_FALSE, &mat[0][0]);
+		glUniformMatrix4fv(glGetUniformLocation(this->getId(), name.c_str()), 1, GL_FALSE,
+						   &mat[0][0]);
 	}
 
 } // namespace ogl

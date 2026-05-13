@@ -1,5 +1,6 @@
 #include "graphics/core/window.hpp"
 
+#include "common/logger.hpp"
 #include "graphics/graphic.hpp"
 
 #include <functional>
@@ -8,7 +9,9 @@
 
 namespace ogl {
 	// error callback
-	static void errorCallback(int code, const char *description) { std::cerr << "GLFW error (" << code << ") -> (" << description << ")\n"; }
+	static void errorCallback(int code, const char *description) {
+		std::cerr << "GLFW error (" << code << ") -> (" << description << ")\n";
+	}
 
 #ifdef C_DBG
 	const char *getErrorSource(const GLenum &source) {
@@ -52,17 +55,20 @@ namespace ogl {
 	}
 
 	// TODO : Try to implement a macro for the string created (or use streams)
-	void glDebugOutput(const GLenum source, const GLenum type, const unsigned int id, const GLenum severity, const GLsizei length, const char *message, const void *userParam) {
+	void glDebugOutput(const GLenum source, const GLenum type, const unsigned int id,
+					   const GLenum severity, const GLsizei length, const char *message,
+					   const void *userParam) {
 		// ignore non-significant error/warning codes
 		if (id == 131169 || id == 131185 || id == 131218 || id == 131204)
 			return;
 
 		// It should be fine using a temporary string to print debug information.
 		{
-			const auto msg = "GLFW Debug Output:\n" + std::string("Code (") + std::to_string(id) + "): " + message + "\n" + "Source: " + getErrorSource(source) + "\n" + "Type: " + getErrorType(type) + "\n" + "File: " + __FILE__;
+			const auto msg = "GLFW Debug Output:\n" + std::string("Code (") + std::to_string(id) +
+				"): " + message + "\n" + "Source: " + getErrorSource(source) + "\n" +
+				"Type: " + getErrorType(type) + "\n" + "File: " + __FILE__;
 
-			std::cout << "---" << severity << "---\n"
-					  << msg << "\n";
+			std::cout << "---" << severity << "---\n" << msg << "\n";
 		}
 	}
 #endif
@@ -108,8 +114,7 @@ namespace ogl {
 		}
 	}
 
-	Window::Window(const WindowSettings &settings) :
-		Layer("GLFW Window"), m_settings(settings) {}
+	Window::Window(const WindowSettings &settings) : Layer("GLFW Window"), m_settings(settings) {}
 
 	void Window::toggleVsync() {
 		this->m_settings.vsync = !this->m_settings.vsync;
@@ -133,7 +138,8 @@ namespace ogl {
 		this->updateUserPointer();
 	}
 
-	void Window::execKeysCallback(GLFWwindow *context, const int &key, const int &code, const int &action, const int &mods) {
+	void Window::execKeysCallback(GLFWwindow *context, const int &key, const int &code,
+								  const int &action, const int &mods) {
 		if (this->m_callbacks.keyCallback != nullptr)
 			this->m_callbacks.keyCallback(context, key, code, action, mods);
 	}
@@ -143,7 +149,8 @@ namespace ogl {
 		this->updateUserPointer();
 	}
 
-	void Window::execMouseButtonCallback(GLFWwindow *context, const int &button, const int &action, const int &mods) {
+	void Window::execMouseButtonCallback(GLFWwindow *context, const int &button, const int &action,
+										 const int &mods) {
 		if (this->m_callbacks.mouseButtonCallback != nullptr)
 			this->m_callbacks.mouseButtonCallback(context, button, action, mods);
 	}
@@ -153,7 +160,8 @@ namespace ogl {
 		this->updateUserPointer();
 	}
 
-	void Window::execCursorPosCallback(GLFWwindow *context, const double &xpos, const double &ypos) {
+	void Window::execCursorPosCallback(GLFWwindow *context, const double &xpos,
+									   const double &ypos) {
 		if (this->m_callbacks.cursorPosCallback != nullptr)
 			this->m_callbacks.cursorPosCallback(context, xpos, ypos);
 	}
@@ -177,9 +185,12 @@ namespace ogl {
 		// error callback
 		glfwSetErrorCallback(errorCallback);
 
-		this->m_context = glfwCreateWindow(this->m_settings.size.x, this->m_settings.size.y, this->m_settings.name.c_str(),
-										   NULL, NULL);
-		ASSERT(this->m_context != nullptr);
+		this->m_context = glfwCreateWindow(this->m_settings.size.x, this->m_settings.size.y,
+										   this->m_settings.name.c_str(), NULL, NULL);
+		if (this->m_context == nullptr) {
+			CRITICAL("Failed to create GLFW context.");
+			ASSERT(this->m_context != nullptr);
+		}
 
 		glfwMakeContextCurrent(this->m_context);
 
@@ -202,9 +213,9 @@ namespace ogl {
 
 		// init glad for this context
 		if (!gladLoadGL(glfwGetProcAddress)) {
-			/* BT_ERROR_CORE("Failed to initialize GLAD."); */
+			// event close
+			CRITICAL("Failed to initialize GLAD.");
 			glfwTerminate();
-			/* BT_INFO_CORE("To be replaced with event."); */
 			exit(EXIT_FAILURE);
 		}
 
@@ -231,7 +242,8 @@ namespace ogl {
 				glEnable(GL_DEBUG_OUTPUT);
 				glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
 				glDebugMessageCallback(glDebugOutput, nullptr);
-				glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+				glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr,
+									  GL_TRUE);
 			}
 		}
 #endif
@@ -255,7 +267,8 @@ namespace ogl {
 	}
 
 	void Window::onRender() {
-		glClearColor(this->m_settings.bgColor.r, this->m_settings.bgColor.g, this->m_settings.bgColor.b, this->m_settings.bgColor.a);
+		glClearColor(this->m_settings.bgColor.r, this->m_settings.bgColor.g,
+					 this->m_settings.bgColor.b, this->m_settings.bgColor.a);
 		glClear(this->m_clearMask);
 	}
 

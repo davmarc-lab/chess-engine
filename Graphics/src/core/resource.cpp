@@ -1,5 +1,7 @@
 #include "graphics/core/resource.hpp"
 
+#include "common/logger.hpp"
+
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -21,7 +23,7 @@ namespace ogl {
 			this->m_content.clear();
 			this->m_content = std::move(contentStream.str());
 		} catch (std::ifstream::failure e) {
-			std::cout << e.what() << "\n";
+			CRITICAL(e.what());
 		}
 	}
 
@@ -29,9 +31,12 @@ namespace ogl {
 		this->m_content.clear();
 		this->m_id = 0;
 	}
-	unsigned int ResourceManager::addResource(const std::string &file) { return this->addResource(res::DEFAULT_LOCATION, file); }
+	unsigned int ResourceManager::addResource(const std::string &file) {
+		return this->addResource(res::DEFAULT_LOCATION, file);
+	}
 
-	unsigned int ResourceManager::addResource(const std::string &location, const std::string &file) {
+	unsigned int ResourceManager::addResource(const std::string &location,
+											  const std::string &file) {
 		this->m_map.insert_or_assign(this->m_currentId, Resource(location, file));
 		this->m_map.at(this->m_currentId).loadResource();
 		this->m_map.at(this->m_currentId).setResourceId(this->m_currentId);

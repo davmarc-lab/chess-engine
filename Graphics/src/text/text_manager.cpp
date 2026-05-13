@@ -1,14 +1,16 @@
 #include "graphics/text/text_manager.hpp"
+#include "graphics/shader/shader.hpp"
 #include "graphics/texture/texture.hpp"
 
-#include "graphics/shader/shader.hpp"
+#include "common/logger.hpp"
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
 namespace ogl {
 
-	Shared<ShaderProgram> textShader = CreateShared<ShaderProgram>("textVertShader.glsl", "textFragShader.glsl");
+	Shared<ShaderProgram> textShader =
+		CreateShared<ShaderProgram>("textVertShader.glsl", "textFragShader.glsl");
 
 	void Text::init() {
 		if (this->m_created)
@@ -24,13 +26,13 @@ namespace ogl {
 	void TextManager::onAttach() {
 		FT_Library ft;
 		if (FT_Init_FreeType(&ft)) {
-			std::cout << "ERROR::FREETYPE: Could not init FreeType Library\n";
+			CRITICAL("ERROR::FREETYPE: Could not init FreeType Library");
 			exit(EXIT_FAILURE);
 		}
 
 		FT_Face face;
 		if (FT_New_Face(ft, this->m_settings.fontFace.c_str(), 0, &face)) {
-			std::cout << "ERROR::FREETYPE: Failed to load font\n";
+			CRITICAL("ERROR::FREETYPE: Failed to load font");
 			exit(EXIT_FAILURE);
 		}
 
@@ -45,7 +47,7 @@ namespace ogl {
 		param.dataType = GL_UNSIGNED_BYTE;
 		for (unsigned char c = 0; c < this->m_settings.numChars; c++) {
 			if (FT_Load_Char(face, c, FT_LOAD_RENDER)) {
-				std::cout << "ERROR::FREETYTPE: Failed to load Glyph\n";
+				ERROR("ERROR::FREETYTPE: Failed to load Glyph");
 				continue;
 			}
 
@@ -57,7 +59,12 @@ namespace ogl {
 			texture.setTexParameteri(GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 			texture.setTexParameteri(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-			this->m_characters.insert_or_assign(c, Character{texture.getId(), glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows), glm::ivec2(face->glyph->bitmap_left, face->glyph->bitmap_top), face->glyph->advance.x});
+			this->m_characters.insert_or_assign(
+				c,
+				Character{texture.getId(),
+						  glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
+						  glm::ivec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
+						  face->glyph->advance.x});
 		}
 		FT_Done_Face(face);
 		FT_Done_FreeType(ft);
@@ -88,12 +95,10 @@ namespace ogl {
 				float h = ch.size.y * scale;
 
 				float vertices[6][4] = {
-					{xpos, ypos + h, 0.0f, 0.0f},
-					{xpos, ypos, 0.0f, 1.0f},
+					{xpos, ypos + h, 0.0f, 0.0f},	 {xpos, ypos, 0.0f, 1.0f},
 					{xpos + w, ypos, 1.0f, 1.0f},
 
-					{xpos, ypos + h, 0.0f, 0.0f},
-					{xpos + w, ypos, 1.0f, 1.0f},
+					{xpos, ypos + h, 0.0f, 0.0f},	 {xpos + w, ypos, 1.0f, 1.0f},
 					{xpos + w, ypos + h, 1.0f, 0.0f}};
 
 				glBindTexture(GL_TEXTURE_2D, ch.textureId);
