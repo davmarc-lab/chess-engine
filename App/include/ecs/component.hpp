@@ -201,9 +201,7 @@ public:
 	/**
 	 * @brief Default constructor.
 	 */
-	Transform() :
-		Component() {
-	}
+	Transform() : Component() {}
 
 	virtual ~Transform() override = default;
 
@@ -255,9 +253,7 @@ public:
  */
 class MultiMesh : public Component {
 public:
-	MultiMesh() :
-		Component() {
-	}
+	MultiMesh() : Component() {}
 
 	virtual ~MultiMesh() override = default;
 
@@ -340,7 +336,9 @@ public:
 	 *
 	 * @param normals a `std::vector<glm::vec3>` containing normals coords
 	 */
-	inline void setNormalsCoords(const std::vector<glm::vec3> &normals) { this->m_normals = normals; }
+	inline void setNormalsCoords(const std::vector<glm::vec3> &normals) {
+		this->m_normals = normals;
+	}
 
 	/**
 	 * @brief Add at the end of the normal vector the given normal.
@@ -390,7 +388,9 @@ public:
 	 *
 	 * @param texCoords a `std::vector<glm::vec2>` containing texture coords
 	 */
-	inline void setTexCoords(const std::vector<glm::vec2> &texCoords) { this->m_texCoords = texCoords; }
+	inline void setTexCoords(const std::vector<glm::vec2> &texCoords) {
+		this->m_texCoords = texCoords;
+	}
 
 	/**
 	 * @brief Add at the end of the texture coords vector the given texture coords.
@@ -436,8 +436,8 @@ public:
 	 * @param colors a `std::vector<glm::vec4>` containing colors values
 	 * @param indices a `std::vector<unsigned int>` containing indices
 	 */
-	VertexComponent(const std::vector<glm::vec3> &vertex, const std::vector<glm::vec4> &colors, const std::vector<unsigned int> &indices) :
-		Component() {
+	VertexComponent(const std::vector<glm::vec3> &vertex, const std::vector<glm::vec4> &colors,
+					const std::vector<unsigned int> &indices) : Component() {
 		this->m_vertex = vertex;
 		this->m_colors = colors;
 		this->m_index = indices;
@@ -468,18 +468,14 @@ public:
 	/**
 	 * @brief Instance an empty Component.
 	 */
-	TextureComponent() :
-		Component() {
-	}
+	TextureComponent() : Component() {}
 
 	/**
 	 * @brief Instance a Component with the given path.
 	 *
 	 * @param path texture's file path
 	 */
-	TextureComponent(std::string path) :
-		Component(), path(std::move(path)) {
-	}
+	TextureComponent(std::string path) : Component(), path(std::move(path)) {}
 
 	virtual ~TextureComponent() override = default;
 
@@ -504,9 +500,7 @@ public:
 	/**
 	 * @brief Instance basic Component.
 	 */
-	ParentComponent() :
-		Component() {
-	}
+	ParentComponent() : Component() {}
 
 	virtual ~ParentComponent() = default;
 
@@ -534,8 +528,10 @@ public:
 	 * @note LightComputation tell to the `ogl::ShaderProgram` which alghoritm
 	 * will be used while shading that mesh.
 	 */
-	ShaderComponent(const std::string &vert, const std::string &frag, const bool &reflective = false, const std::string &geom = "") :
-		vert(std::move(vert)), frag(std::move(vert)), reflective(reflective), geom(std::move(geom)), Component() {}
+	ShaderComponent(const std::string &vert, const std::string &frag,
+					const bool &reflective = false, const std::string &geom = "") :
+		vert(std::move(vert)), frag(std::move(vert)), reflective(reflective), geom(std::move(geom)),
+		Component() {}
 
 	ShaderComponent() : Component() {}
 
@@ -575,15 +571,25 @@ public:
 	/**
 	 * @brief Instance basic Component.
 	 */
-	RenderComponent() :
-		Component() {
-	}
+	RenderComponent() : Component() {}
 
 	virtual ~RenderComponent() override = default;
 
 private:
 	/// render call function
 	std::function<void()> m_renderCall = nullptr;
+};
+
+/**
+ * @class ClickableComponent
+ * @brief Component used to query all meshes that should react on mouse click.
+ */
+class ClickableComponent : public Component {
+public:
+	/**
+	 * @brief Instances basic Component.
+	 */
+	ClickableComponent() : Component() {}
 };
 
 /**
@@ -599,8 +605,7 @@ public:
 	 *
 	 * @see ogl::RenderPrimitiveType
 	 */
-	InstancedComponent(const ogl::RenderPrimitiveType &type) :
-		type(type), Component() {}
+	InstancedComponent(const ogl::RenderPrimitiveType &type) : type(type), Component() {}
 
 	virtual ~InstancedComponent() override = default;
 
@@ -617,9 +622,7 @@ public:
 	/**
 	 * @brief Instances basic Component.
 	 */
-	Outlined() :
-		Component() {
-	}
+	Outlined() : Component() {}
 
 	virtual ~Outlined() = default;
 };
@@ -654,8 +657,10 @@ public:
 	 * @param shininess material' shininess value
 	 * @param name material's name
 	 */
-	Material(const glm::vec3 &ambient, const glm::vec3 &diffuse, const glm::vec3 &specular, const float shininess, const std::string &name) :
-		ambient(ambient), diffuse(diffuse), specular(specular), shininess(shininess), name(std::move(name)) {}
+	Material(const glm::vec3 &ambient, const glm::vec3 &diffuse, const glm::vec3 &specular,
+			 const float shininess, const std::string &name) :
+		ambient(ambient), diffuse(diffuse), specular(specular), shininess(shininess),
+		name(std::move(name)) {}
 
 	/**
 	 * @brief Overrides the equal operator, two materials are equal if they have
@@ -663,9 +668,7 @@ public:
 	 *
 	 * @param other other material
 	 */
-	bool operator==(const Material &other) {
-		return this->name == other.name;
-	}
+	bool operator==(const Material &other) { return this->name == other.name; }
 };
 
 /**
@@ -691,16 +694,24 @@ namespace material {
 	};
 
 	/// initial material types @see MaterialType
-	inline std::vector<unsigned int> materialTypes{MATERIAL_NONE, MATERIAL_RPLASTIC, MATERIAL_YPLASTIC, MATERIAL_SLATE, MATERIAL_BRASS, MATERIAL_EMERALD};
+	inline std::vector<unsigned int> materialTypes{MATERIAL_NONE,	  MATERIAL_RPLASTIC,
+												   MATERIAL_YPLASTIC, MATERIAL_SLATE,
+												   MATERIAL_BRASS,	  MATERIAL_EMERALD};
 
 	/// vector containing default start materials
 	inline std::vector<Material> defaultMaterials = {
 		Material(glm::vec3(1.0f), glm::vec3(1.0f), glm::vec3(1.0f), 32.0f, "None"),
-		Material(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.5f, 0.0f, 0.0f), glm::vec3(0.7f, 0.6f, 0.6f), 32.0f, "Red Plastic"),
-		Material(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.5f, 0.5f, 0.0f), glm::vec3(0.60f, 0.60f, 0.50f), 32.0f, "Yellow Plastic"),
-		Material(glm::vec3(0.02f, 0.02f, 0.02f), glm::vec3(0.1f, 0.1f, 0.1f), glm::vec3(0.4f, 0.4f, 0.4f), 1.78125f, "Slate"),
-		Material(glm::vec3(0.329412f, 0.223529f, 0.027451f), glm::vec3(0.780392f, 0.568627f, 0.113725f), glm::vec3(0.992157f, 0.941176f, 0.807843f), 27.8974f, "Brass"),
-		Material(glm::vec3(0.0215f, 0.1745f, 0.0215f), glm::vec3(0.07568f, 0.61424f, 0.07568f), glm::vec3(0.633f, 0.727811f, 0.633f), 76.8f, "Emerald"),
+		Material(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.5f, 0.0f, 0.0f),
+				 glm::vec3(0.7f, 0.6f, 0.6f), 32.0f, "Red Plastic"),
+		Material(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.5f, 0.5f, 0.0f),
+				 glm::vec3(0.60f, 0.60f, 0.50f), 32.0f, "Yellow Plastic"),
+		Material(glm::vec3(0.02f, 0.02f, 0.02f), glm::vec3(0.1f, 0.1f, 0.1f),
+				 glm::vec3(0.4f, 0.4f, 0.4f), 1.78125f, "Slate"),
+		Material(glm::vec3(0.329412f, 0.223529f, 0.027451f),
+				 glm::vec3(0.780392f, 0.568627f, 0.113725f),
+				 glm::vec3(0.992157f, 0.941176f, 0.807843f), 27.8974f, "Brass"),
+		Material(glm::vec3(0.0215f, 0.1745f, 0.0215f), glm::vec3(0.07568f, 0.61424f, 0.07568f),
+				 glm::vec3(0.633f, 0.727811f, 0.633f), 76.8f, "Emerald"),
 	};
 
 	/**
@@ -711,7 +722,9 @@ namespace material {
 	 *
 	 * @see MaterialType
 	 */
-	inline Material getMaterialFromPool(const MaterialType &index) { return defaultMaterials[index]; }
+	inline Material getMaterialFromPool(const MaterialType &index) {
+		return defaultMaterials[index];
+	}
 
 } // namespace material
 
@@ -729,8 +742,7 @@ public:
 	 * @param material a Material object
 	 */
 	MaterialComponent(const Material &material = material::defaultMaterials[0]) :
-		Component(), material(material) {
-	}
+		Component(), material(material) {}
 
 	/**
 	 * @brief Instances a Component by using the given material type to retrieve
@@ -742,8 +754,7 @@ public:
 	 * @see material::getMaterialFromPool()
 	 */
 	MaterialComponent(const material::MaterialType &type) :
-		Component(), material(material::getMaterialFromPool(type)) {
-	}
+		Component(), material(material::getMaterialFromPool(type)) {}
 
 	virtual ~MaterialComponent() = default;
 
@@ -776,9 +787,7 @@ public:
 	 *
 	 * @param key an `unsigned int` key code
 	 */
-	inline void call(const unsigned int &key) {
-		this->callbacks.at(key)();
-	}
+	inline void call(const unsigned int &key) { this->callbacks.at(key)(); }
 
 	/**
 	 * @brief Retrieves all the key that are linked to a callback.
@@ -839,8 +848,7 @@ public:
 	 * @param func the animation action
 	 */
 	TimeAnimation(const float &startTime, const float &timeToLive, std::function<void()> &&func) :
-		startTime(startTime), timeToLive(timeToLive), func(func), Component() {
-	}
+		startTime(startTime), timeToLive(timeToLive), func(func), Component() {}
 
 	virtual ~TimeAnimation() override = default;
 
@@ -864,9 +872,7 @@ public:
 	 * @brief Instances basic Component to query the ECS when it needs to update
 	 * a mesh position or color or scale etc.
 	 */
-	BehaviourComponent() :
-		Component() {
-	}
+	BehaviourComponent() : Component() {}
 
 	virtual ~BehaviourComponent() = default;
 
@@ -891,6 +897,31 @@ public:
 	 */
 	CameraComponent() = default;
 	virtual ~CameraComponent() override = default;
+};
+
+class CellComponent : public Component {
+public:
+	CellComponent() : Component() {}
+};
+
+class AABBCollider : public Component {
+public:
+	glm::vec3 center;
+	glm::vec3 scale;
+
+	glm::vec3 bottomLeft;
+	glm::vec3 topRight;
+
+	AABBCollider(const glm::vec3 &center, const glm::vec3 &scale) :
+		center(center), scale(scale), Component() {
+		bottomLeft = center - scale;
+		topRight = center + scale;
+	}
+
+	bool isColliding(const glm::vec3 &point) {
+		return point.x <= topRight.x && point.x >= bottomLeft.x && point.y <= topRight.y &&
+			point.y >= bottomLeft.y;
+	}
 };
 
 /**
@@ -919,8 +950,7 @@ public:
 	/**
 	 * @brief Instances basic Component to query the ECS.
 	 */
-	PhysicComponent() :
-		Component() {}
+	PhysicComponent() : Component() {}
 
 	virtual ~PhysicComponent() override = default;
 };
@@ -953,8 +983,10 @@ public:
 	 * @param sub the rope subdivisions value
 	 * @param constant the rope constant value
 	 */
-	RopeComponent(const glm::vec3 &center, const float &length, const unsigned int &sub, const float &constant) :
-		center(center), length(length), subdivisions(sub), constant(constant), distance(length / subdivisions), Component() {}
+	RopeComponent(const glm::vec3 &center, const float &length, const unsigned int &sub,
+				  const float &constant) :
+		center(center), length(length), subdivisions(sub), constant(constant),
+		distance(length / subdivisions), Component() {}
 
 	virtual ~RopeComponent() override = default;
 };
@@ -1086,8 +1118,7 @@ public:
 	 * @param position collider center position
 	 * @param size collider size (center-right)
 	 */
-	ColliderComponent(const glm::vec3 &position, const glm::vec3 &size) :
-		Component() {
+	ColliderComponent(const glm::vec3 &position, const glm::vec3 &size) : Component() {
 		this->botLeft = position - size;
 		this->topRight = position + size;
 		this->position = position;
@@ -1115,8 +1146,7 @@ public:
 	 *
 	 * @param textureId the skybox texture id
 	 */
-	SkyboxComponent(const unsigned int &textureId) :
-		textureId(textureId), Component() {}
+	SkyboxComponent(const unsigned int &textureId) : textureId(textureId), Component() {}
 
 	virtual ~SkyboxComponent() override = default;
 

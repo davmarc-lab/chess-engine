@@ -10,16 +10,23 @@ namespace view {
 
 		unsigned int getId() const;
 
+		unsigned int getCellFromCoord(const char &letter, const short &num) const;
+
+        int getSquaresNum() const;
+
 		Board(Board &&) = default;
 		Board(const Board &) = default;
 		Board &operator=(Board &&) = default;
 		Board &operator=(const Board &) = default;
 
-		~Board() = default;
+		~Board() { delete m_references; }
 
 	private:
 		unsigned int m_id;
-        chess::board::BoardSettings m_settings{};
+		chess::board::BoardSettings m_settings{};
 		chess::board::Board m_board{m_settings};
+		unsigned int *m_references;
+
+		int index(const int &x, const int &y) const;
 	};
 } // namespace view

@@ -2,10 +2,11 @@
 
 #include "graphics/graphic.hpp"
 
+#include "common/utils.hpp"
 #include "layer.hpp"
 #include "structs.hpp"
-#include "common/utils.hpp"
 
+#include <GLFW/glfw3.h>
 #include <functional>
 
 #include <string>
@@ -125,6 +126,12 @@ namespace ogl {
 		 */
 		void addClearMask(const unsigned int &val) { this->m_clearMask |= val; }
 
+		Pair<double> getMousePos() {
+            glfwGetCursorPos(this->m_context, &this->m_mousePos.x, &this->m_mousePos.y);
+            this->m_mousePos.y = this->getHeight() - this->m_mousePos.y;
+            return this->m_mousePos;
+        }
+
 		/**
 		 * @brief Sets the resize callback of the window.
 		 *
@@ -157,14 +164,16 @@ namespace ogl {
 		 * @param action the key action
 		 * @param mods the key modifiers
 		 */
-		void execKeysCallback(GLFWwindow *context, const int &key, const int &code, const int &action, const int &mods);
+		void execKeysCallback(GLFWwindow *context, const int &key, const int &code,
+							  const int &action, const int &mods);
 
 		/**
 		 * @brief Sets the mouse button callback of the window.
 		 *
 		 * @param func the mouse button callback
 		 */
-		void setMouseButtonCallback(std::function<void(GLFWwindow *, int, int, int)> &&func);
+		void setMouseButtonCallback(
+			std::function<void(GLFWwindow *ctx, int button, int action, int mods)> &&func);
 
 		/**
 		 * @brief Executes the mouse button callback.
@@ -174,7 +183,8 @@ namespace ogl {
 		 * @param action the button action
 		 * @param mods the button modifiers
 		 */
-		void execMouseButtonCallback(GLFWwindow *context, const int &button, const int &action, const int &mods);
+		void execMouseButtonCallback(GLFWwindow *context, const int &button, const int &action,
+									 const int &mods);
 
 		/**
 		 * @brief Sets the cursor position callback of the window.
@@ -214,6 +224,8 @@ namespace ogl {
 
 		/// updates the user pointer inside glfw context
 		void updateUserPointer();
+
+        Pair<double> m_mousePos{};
 	};
 
 } // namespace ogl

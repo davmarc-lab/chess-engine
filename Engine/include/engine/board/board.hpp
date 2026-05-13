@@ -27,7 +27,7 @@ namespace chess {
 			/// pieces per side
 			unsigned int pieces = 8;
 			/// board sizes in squares
-			Pair<unsigned int> size = {8, 8};
+			Pair<unsigned int> size = {3, 3};
 			/// each side color
 			std::vector<Color> colors = {SQUARE_BLACK, SQUARE_WHITE};
 

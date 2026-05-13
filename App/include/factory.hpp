@@ -42,7 +42,8 @@ namespace factory {
 	 *
 	 * @return the id of the created entity
 	 */
-	unsigned int factorySphereInstanced(const BasicInfo &info, const glm::vec4 &color = {0, 0, 1, 1});
+	unsigned int factorySphereInstanced(const BasicInfo &info,
+										const glm::vec4 &color = {0, 0, 1, 1});
 
 	/**
 	 * @brief Factory method to create a pyramid mesh in the ECS.
@@ -84,7 +85,10 @@ namespace factory {
 	 *
 	 * @return a vector containing pairs of (color, modelMatrix) for each point of the rope
 	 */
-	std::vector<std::pair<glm::vec4, glm::mat4>> factoryRope(const glm::vec3 &center, const float &legnth, const float &constant, const unsigned int subdivisons);
+	std::vector<std::pair<glm::vec4, glm::mat4>> factoryRope(const glm::vec3 &center,
+															 const float &legnth,
+															 const float &constant,
+															 const unsigned int subdivisons);
 
 	/**
 	 * @brief Factory method to create a plane mesh in the ECS.
