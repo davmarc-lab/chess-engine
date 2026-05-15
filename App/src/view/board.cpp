@@ -95,3 +95,21 @@ namespace view {
 	unsigned int Board::getId() const { return this->m_id; }
 
 } // namespace view
+
+namespace systems {
+	namespace board {
+
+		void updateCellPresence(const unsigned int &id, const bool &hasPiece) {
+			auto c = em->getComponentFromId<CellComponent>(id);
+			ASSERT(c != nullptr);
+
+			c->hasPiece = hasPiece;
+		}
+
+		bool isPieceInCell(const unsigned int &id) {
+			auto c = em->getComponentFromId<CellComponent>(id);
+			return c == nullptr ? false : c->hasPiece;
+		}
+
+	} // namespace board
+} // namespace systems

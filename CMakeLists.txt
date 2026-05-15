@@ -22,6 +22,7 @@ add_subdirectory(App)
 add_subdirectory(Common)
 add_subdirectory(Test)
 add_subdirectory(Graphics)
+add_subdirectory(docs)
 
 # ===== DOCS =====
 find_package(Doxygen)

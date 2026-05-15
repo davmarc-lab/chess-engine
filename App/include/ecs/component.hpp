@@ -902,6 +902,8 @@ public:
 class CellComponent : public Component {
 public:
 	CellComponent() : Component() {}
+
+    bool hasPiece = false;
 };
 
 class AABBCollider : public Component {

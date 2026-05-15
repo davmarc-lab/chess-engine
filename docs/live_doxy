@@ -1,0 +1,28 @@
+PROJECT_NAME           = "Chess Engine"
+OUTPUT_DIRECTORY       = build/docs
+INPUT                  = ../Common/include ../Engine/include ../Graphics/include ../App/include
+RECURSIVE              = YES
+GENERATE_XML           = NO
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+
+EXTRACT_ALL         = YES
+EXTRACT_PRIVATE     = NO
+
+TYPEDEF_HIDES_STRUCT   = NO
+OPTIMIZE_OUTPUT_FOR_C  = NO
+
+# --- Graphviz ---
+HAVE_DOT               = YES
+DOT_NUM_THREADS        = 4
+
+CLASS_GRAPH            = YES
+COLLABORATION_GRAPH    = YES
+GRAPHICAL_HIERARCHY    = YES
+INCLUDE_GRAPH          = YES
+INCLUDED_BY_GRAPH      = YES
+
+DOT_IMAGE_FORMAT       = svg
+INTERACTIVE_SVG        = YES
+DOT_TRANSPARENT        = YES
+DOT_FONTNAME           = Helvetica

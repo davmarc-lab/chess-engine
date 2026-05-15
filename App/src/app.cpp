@@ -16,6 +16,7 @@
 
 #include "glm/gtc/type_ptr.hpp"
 
+#include "imgui.h"
 #include "ui/app_gui.hpp"
 #include "view/board.hpp"
 #include "view/pawn.hpp"
@@ -26,9 +27,11 @@ const auto ed = EventManager::instance();
 const auto em = EntityManager::instance();
 const auto ecs = BasicScene::instance();
 
-int selected = -1;
-int srcCell = -1;
-int dstCell = -1;
+int trgCell = -1;
+int preCell = -1;
+int relCell = -1;
+int curCell = -1;
+bool swiping = false;
 
 int getCellUnderCursor(Pair<double> &pos) {
 	for (auto cell : em->getEntitiesFromComponent<CellComponent>()) {
@@ -42,14 +45,21 @@ int getCellUnderCursor(Pair<double> &pos) {
 
 void pressCell(Pair<double> &pos, int &button) {
 	if (button == GLFW_MOUSE_BUTTON_1) {
-		srcCell = getCellUnderCursor(pos);
+		preCell = getCellUnderCursor(pos);
+
 		// INFO("Clicked: " + std::to_string(selected));
 	}
 }
 
 void releaseCell(Pair<double> &pos, int &button) {
 	if (button == GLFW_MOUSE_BUTTON_1) {
-		dstCell = getCellUnderCursor(pos);
+		relCell = getCellUnderCursor(pos);
+
+		swiping = preCell && relCell;
+		if (swiping) {
+			trgCell = relCell;
+		}
+
 		// INFO("Released: " + std::to_string(selected));
 	}
 }
@@ -96,6 +106,15 @@ int main(int argc, char *argv[]) {
 	INFO("--- add ImGuiEntityTree panel");
 	im.addPanel<ImGuiEntityTree>();
 
+	auto dbg = im.addPanel<ImGuiPanel>();
+	dbg->setRenderFunc([]() {
+		ImGui::Begin("Debug");
+		ImGui::Text("trg: %d", trgCell);
+		ImGui::Text("pre: %d", preCell);
+		ImGui::Text("rel: %d", relCell);
+		ImGui::End();
+	});
+
 	INFO("INIT imgui completed\n");
 
 	// Uniform buffers
@@ -131,40 +150,46 @@ int main(int argc, char *argv[]) {
 	ecs->addEntity(def, sample.getId());
 
 	{
-		auto ett = board.getCellFromCoord('A', 3);
+		auto ett = board.getCellFromCoord('a', 3);
 		if (ett > 0) {
 			auto pos = systems::transform::getPosition(ett);
 			pos.z = 1;
 			systems::transform::updatePosition(sample.getId(), pos);
+			systems::board::updateCellPresence(ett, true);
 		}
 	}
 
 	// mouse callback
 	window.setMouseButtonCallback(
 		[&window, &board, &sample](GLFWwindow *ctx, int button, int action, int mods) {
-			auto pos = window.getMousePos();
-			switch (action) {
-				case GLFW_PRESS: {
-					pressCell(pos, button);
-					break;
-				}
-				case GLFW_RELEASE: {
-					releaseCell(pos, button);
-					if (srcCell > 0 && dstCell > 0) {
-						// move piece
-						// coords for the engine (view don't need it, could use ecs id - dstCell)
-						auto coords = board.getCoordFromCell(dstCell);
-                        // update the board model
-						auto boardLocation = chess::Location(coords.x, coords.y);
-						INFO(boardLocation.toString());
-                        // update the view -> src to dst
-                        auto pos = systems::transform::getPosition(dstCell);
-                        pos.z = 1;
-                        systems::transform::updatePosition(sample.getId(), pos);
-					}
-					break;
-				}
-			}
+			// auto pos = window.getMousePos();
+			// switch (action) {
+			// 	case GLFW_PRESS: {
+			// 		pressCell(pos, button);
+			// 		break;
+			// 	}
+			// 	case GLFW_RELEASE: {
+			// 		releaseCell(pos, button);
+			// 		if (trgCell > 0) {
+			// 			// move piece
+			// 			// coords for the engine (view don't need it, could use ecs id - dstCell)
+			// 			auto coords = board.getCoordFromCell(relCell);
+			// 			// update the board model
+			// 			auto boardLocation = chess::Location(coords.x, coords.y);
+			// 			INFO(boardLocation.toString());
+			// 			// update the view -> src to dst
+			// 			auto pos = systems::transform::getPosition(relCell);
+			// 			pos.z = 1;
+			// 			systems::transform::updatePosition(sample.getId(), pos);
+			//
+			// 			// update piece presence
+			// 			systems::board::updateCellPresence(preCell, false);
+			// 			systems::board::updateCellPresence(relCell, true);
+			// 			trgCell = -1;
+			// 		}
+			// 		break;
+			// 	}
+			// }
 		});
 
 	ed->subscribe(event::loop::LOOP_RENDER, []() { systems::render::renderAllMeshes(); });
